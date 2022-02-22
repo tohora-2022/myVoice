@@ -1,25 +1,14 @@
-# Fullstack boilerplate
+# MyVoice APP
 
-## Getting Started
+### About the project
+Create a plataform where users are able to communicates besides talking, selecting words or pictures to represent what it is in their minds. The APP will be able to display the thoughts through voice speaker as well. 
 
-### From the Github UI
-See the instructions [here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template) to use Github's feature to create a new repo from a template.
-
-### From the command line
-
-```
-git clone https://github.com/dev-academy-challenges/boilerplate-fullstack [your-project-name]
-cd [your-project-name]
-npm install # to install dependencies
-npm run dev # to start the dev server
-```
-
-You can find the server running on [http://localhost:3000](http://localhost:3000).
+### Why people benefit?
+There are many reasons why a person may not be able to communicate using speech. They may have a developmental disability which has affected the development of speech. They may have an acquired disorder that has affected the person’s ability to speak.
 
 ## Details
 
-This repo includes:
-
+This repo included the following files as template:
 * a single, simple API endpoint (`/api/v1/fruits`)
 * a single React component (`<App />`)
 * an example database module (`server/db/fruits.js`)
