@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 import Category from './Category'
+import Sidebar from './Sidebar'
 
 function App () {
   const output = useSelector(state => state.output)
@@ -17,12 +18,19 @@ function App () {
   ]
   return (
     <>
-      <div>
+      <div className='outputs'>
         <p>{output}</p>
       </div>
-      <Category name='categoryName' image={image} items={items}/>
-      <Category name='categoryName' image={image} items={items}/>
-      <Category name='categoryName' image={image} items={items}/>
+      <div className='inputs'>
+        <div>
+          <Category name='categoryName' image={image} items={items}/>
+          <Category name='categoryName' image={image} items={items}/>
+          <Category name='categoryName' image={image} items={items}/>
+          <Category name='categoryName' image={image} items={items}/>
+          <Category name='categoryName' image={image} items={items}/>
+        </div>
+        <Sidebar/>
+      </div>
     </>
   )
 }
