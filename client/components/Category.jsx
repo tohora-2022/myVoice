@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
+import Tile from './Tile'
+
 import { setCategory } from '../actions/category'
 
 function Category ({ name, image, items }) {
@@ -32,9 +34,7 @@ function Category ({ name, image, items }) {
       {itemsToDisplay &&
         <div className='categoryItems'>
           {itemsToDisplay.map((item, i) => (
-            // TODO Item Component
-            <img key={i} className='categoryImage' src={item}/>
-            // <div className='categoryItem' key={item}>Here{item}</div>
+            <Tile key={i} item={item} />
           ))}
         </div>
       }
