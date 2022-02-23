@@ -1,20 +1,8 @@
-import { getFruits } from '../apis/fruits'
+export const SET_OUTPUT_ITEMS = 'SET_OUTPUT_ITEMS'
 
-export const SET_FRUITS = 'SET_FRUITS'
-
-export function setFruits (fruits) {
+export function addOutputItem (item) {
   return {
-    type: SET_FRUITS,
-    fruits
-  }
-}
-
-export function fetchFruits () {
-  return dispatch => {
-    return getFruits()
-      .then(fruits => {
-        dispatch(setFruits(fruits))
-        return null
-      })
+    type: SET_OUTPUT_ITEMS,
+    item
   }
 }
