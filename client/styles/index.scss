@@ -4,3 +4,33 @@ html,
 body {
   font-family: 'Montserrat', sans-serif;
 }
+
+.category {
+  display: flex;
+  padding: 8px 32px 8px 32px;
+  width: 100%;
+}
+
+.categoryName {
+  margin: 0px 8px 0px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.categoryImage {
+  width: 10vw;
+  margin: 0px 16px 0px 16px;
+}
+
+.categoryItems {
+  display: flex;
+  justify-content: space-between;
+}
+
+.categoryItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
