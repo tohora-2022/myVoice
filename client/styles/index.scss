@@ -7,8 +7,7 @@ body {
 
 .category {
   display: flex;
-  padding: 8px 32px 8px 32px;
-  width: 100%;
+  margin: 8px 32px 8px 32px;
 }
 
 .categoryName {
@@ -17,11 +16,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.categoryImage {
-  width: 10vw;
-  margin: 0px 16px 0px 16px;
 }
 
 .categoryItems {
@@ -33,4 +27,10 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+.categoryImage {
+  width: 10vw;
+  margin: 0px 16px 0px 16px;
 }

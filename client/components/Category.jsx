@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
-import Tile from './Tile'
+import Item from './Item'
 
 import { setCategory } from '../actions/category'
 
 function Category ({ name, image, items }) {
   const [itemsToDisplay, setItemsToDisplay] = useState()
   const dispatch = useDispatch()
-  const output = useSelector(state => state.output)
+
   // Dynamic Dimensions, to be used later for other display sizes.
   const [screenSize, setScreenSize] = useState({ dynamicWidth: window.innerWidth, dynamicHeight: window.innerHeight })
   const setDimension = () => { setScreenSize({ dynamicWidth: window.innerWidth, dynamicHeight: window.innerHeight }) }
@@ -27,18 +27,15 @@ function Category ({ name, image, items }) {
   }
 
   return (
-    <div className='category' onClick={categoryClickHandler}>
-      <div>
-        <p>{output}</p>
-      </div>
-      <div className='categoryName'>
+    <div className='category'>
+      <div className='categoryName' onClick={categoryClickHandler}>
         <img className='categoryImage' src={image}/>
         {name}
       </div>
       {itemsToDisplay &&
         <div className='categoryItems'>
           {itemsToDisplay.map((item, i) => (
-            <Tile key={i} item={item} />
+            <Item key={i} item={item} />
           ))}
         </div>
       }
