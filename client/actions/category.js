@@ -12,10 +12,10 @@ export function displayCategories (categories) {
   }
 }
 
-export function setCategory (category) {
+export function setCategory (categoryId) {
   return {
     type: SET_CATEGORY,
-    category
+    categoryId
   }
 }
 
