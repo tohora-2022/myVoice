@@ -3,41 +3,55 @@ import { useDispatch } from 'react-redux'
 
 import Item from './Item'
 
-import { setCategory } from '../actions/category'
+import { setCategory, activePage } from '../actions'
+import { getItems } from '../apis/api'
 
-function Category ({ name, image, items }) {
-  const [itemsToDisplay, setItemsToDisplay] = useState()
+function Category ({ name, id, image }) {
+  const [itemsArray, setItemsArray] = useState([])
   const dispatch = useDispatch()
 
-  // Dynamic Dimensions, to be used later for other display sizes.
-  const [screenSize, setScreenSize] = useState({ dynamicWidth: window.innerWidth, dynamicHeight: window.innerHeight })
-  const setDimension = () => { setScreenSize({ dynamicWidth: window.innerWidth, dynamicHeight: window.innerHeight }) }
   useEffect(() => {
-    window.addEventListener('resize', setDimension)
-    setItemsToDisplay(items.slice(0, 5))
-    return () => { window.removeEventListener('resize', setDimension) }
-  }, [screenSize])
+    getItems(id)
+      .then(items => {
+        setItemsArray(items)
+        return null
+      })
+      .catch(e => console.log(e))
+  }, [])
 
-  useEffect(() => {
-    setItemsToDisplay(items.slice(0, 5))
-  }, [items])
+  // // Dynamic Dimensions, to be used later for other display sizes.
+  // const [screenSize, setScreenSize] = useState({ dynamicWidth: window.innerWidth, dynamicHeight: window.innerHeight })
+  // const setDimension = () => { setScreenSize({ dynamicWidth: window.innerWidth, dynamicHeight: window.innerHeight }) }
+
+  // useEffect(() => {
+  //   window.addEventListener('resize', setDimension)
+  //   setItemsArray(itemsArray.slice(0, 5))
+  //   return () => { window.removeEventListener('resize', setDimension) }
+  // }, [screenSize])
 
   const categoryClickHandler = () => {
-    dispatch(setCategory(name))
+    dispatch(setCategory(id))
+    dispatch(activePage('singleCategory'))
   }
 
   return (
     <div className='category'>
       <div className='categoryName' onClick={categoryClickHandler}>
         <img className='categoryImage' src={image}/>
-        {name}
       </div>
-      {itemsToDisplay &&
-        <div className='categoryItems'>
-          {itemsToDisplay.map((item, i) => (
+      {name === 'quick' ? <div className='categoryItems'>
+        {itemsArray.map((item, i) => {
+          return (
             <Item key={i} item={item} />
-          ))}
-        </div>
+          )
+        })}
+      </div> : <div className='categoryItems'>
+        {itemsArray.slice(0, 5).map((item, i) => {
+          return (
+            <Item key={i} item={item} />
+          )
+        })}
+      </div>
       }
     </div>
   )
