@@ -1,4 +1,4 @@
-import { displayCategories, setCategory, clearCategory, displayItems, fetchCategories, fetchItems } from '../category.js'
+import { displayCategories, setCategory, clearCategory, displayItems, fetchCategories, fetchItems } from '../category'
 import { getCategories, getItems } from '../../apis/api'
 
 jest.mock('../../apis/api')
@@ -36,7 +36,7 @@ describe('setCategory', () => {
   it('sets selected category in the store', () => {
     const action = setCategory('testCategory')
     expect(action.type).toEqual('SET_CATEGORY')
-    expect(action.categoryId).toEqual('testCategory')
+    expect(action.category).toEqual('testCategory')
   })
 })
 
