@@ -5,7 +5,7 @@ import Item from './Item'
 
 import { setCategory } from '../actions/category'
 
-function Category ({ name, image, items }) {
+function Category ({ name, id, image, items }) {
   const [itemsToDisplay, setItemsToDisplay] = useState()
   const dispatch = useDispatch()
 
