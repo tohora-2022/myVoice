@@ -37,7 +37,6 @@ function Category ({ name, id, image }) {
     <div className='category'>
       <div className='categoryName' onClick={categoryClickHandler}>
         <img className='categoryImage' src={image}/>
-        {name}
       </div>
       {itemsArray &&
         <div className='categoryItems'>
