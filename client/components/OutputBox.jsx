@@ -40,7 +40,7 @@ export default function OutputBox () {
       <div>
         {displayOutput.map((pic, y) => {
           return (
-            <img key={`${pic[0]}-${y}`} className='outputImage' src={pic[1]} alt={pic[0]}/>
+            <img key={`${pic[0]}-${y}`} className='categoryImage' src={pic[1]} alt={pic[0]}/>
 
           )
         })}
