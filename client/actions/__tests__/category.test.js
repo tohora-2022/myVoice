@@ -36,7 +36,7 @@ describe('setCategory', () => {
   it('sets selected category in the store', () => {
     const action = setCategory('testCategory')
     expect(action.type).toEqual('SET_CATEGORY')
-    expect(action.category).toEqual('testCategory')
+    expect(action.categoryId).toEqual('testCategory')
   })
 })
 
