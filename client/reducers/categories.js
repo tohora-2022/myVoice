@@ -1,4 +1,4 @@
-import { DISPLAY_CATEGORIES } from '../actions/category'
+import { DISPLAY_CATEGORIES } from '../actions'
 
 const initialState = []
 

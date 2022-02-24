@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { fetchCategories } from '../actions/category'
+import { fetchCategories } from '../actions'
 import Category from './Category'
 import DisplayCategory from './DisplayCategory'
 import OutputBox from './OutputBox'

@@ -7,7 +7,6 @@ import { getItems } from '../apis/api'
 export default function DisplayCategory () {
   const categoryId = useSelector(state => state.category)
   const [displayItems, setDisplayItems] = useState()
-  // const dispatch = useDispatch()
 
   console.log(categoryId)
   useEffect(() => {

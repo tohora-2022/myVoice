@@ -3,8 +3,7 @@ import { useDispatch } from 'react-redux'
 
 import Item from './Item'
 
-import { activePage } from '../actions/activePage'
-import { setCategory } from '../actions/category'
+import { setCategory, activePage } from '../actions'
 import { getItems } from '../apis/api'
 
 function Category ({ name, id, image }) {

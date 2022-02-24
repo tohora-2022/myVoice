@@ -1,17 +1,20 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 
-import { clearCategory } from '../actions/category'
+import { activePage, clearCategory } from '../actions'
 
 function Sidebar () {
   const dispatch = useDispatch()
+
   function homeHandlers () {
     dispatch(clearCategory())
+    dispatch(activePage('home'))
   }
+
   return (
     // TODO images for sidebar menu options.
     <div className='sidebar'>
-      <div className='sidebarButton' onClick={homeHandlers}>Home</div>
+      <button className='sidebarButton' onClick={homeHandlers}>Home</button>
       <div className='sidebarButton'>Yes</div>
       <div className='sidebarButton'>No</div>
       <div className='sidebarButton'>Mistake</div>

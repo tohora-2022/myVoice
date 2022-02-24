@@ -1,4 +1,4 @@
-import { SET_ACTIVE_PAGE } from '../actions/activePage'
+import { SET_ACTIVE_PAGE } from '../actions'
 
 const initialState = 'home'
 
