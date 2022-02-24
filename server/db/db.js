@@ -1,0 +1,17 @@
+const connection = require('./connection')
+
+function getCategories (db = connection) {
+  return db('categories').select()
+}
+
+function getItems (categoryId, db = connection) {
+  return db('items')
+    .join('categories', 'categories.id', 'items.categories_id')
+    .select('items.id as itemId', 'word', 'image', 'tag', 'categories_id as categoryId', 'category')
+    .where('items.category_id', categoryId)
+}
+
+module.exports = {
+  getCategories,
+  getItems
+}
