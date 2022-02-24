@@ -1,4 +1,4 @@
-import { displayCategories, setCategory, clearCategory, displayItems, fetchCategories, fetchItems } from '../category'
+import { displayCategories, setCategory, clearCategory, displayItems, fetchCategories, fetchItems } from '../category.js'
 import { getCategories, getItems } from '../../apis/api'
 
 jest.mock('../../apis/api')
