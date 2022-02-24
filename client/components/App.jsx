@@ -7,7 +7,6 @@ import OutputBox from './OutputBox'
 import Sidebar from './Sidebar'
 
 function App () {
-  const output = useSelector(state => state.output)
   const categories = useSelector(state => state.categories)
   const dispatch = useDispatch()
 
