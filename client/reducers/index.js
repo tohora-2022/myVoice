@@ -10,9 +10,6 @@ export default combineReducers({
   activePage: activePageReducer,
   output: outputReducer,
   category,
-<<<<<<< HEAD
+  categories,
   zoom: zoomReducer
-=======
-  categories
->>>>>>> fc15f5c33d10641c21ee5493020cc390f26a3cdb
 })

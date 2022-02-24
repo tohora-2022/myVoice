@@ -7,14 +7,9 @@ import { AiOutlineZoomIn, AiOutlineZoomOut } from 'react-icons/ai'
 import { activePage, clearCategory } from '../actions'
 
 export default function Sidebar () {
-<<<<<<< HEAD
   const currentZoom = useSelector(state => state.zoom)
   const possibleZoom = ['small', 'medium', 'large']
   const dispatch = useDispatch()
-=======
-  const dispatch = useDispatch()
-
->>>>>>> fc15f5c33d10641c21ee5493020cc390f26a3cdb
   const speakHandler = (word) => {
     const utterance = new SpeechSynthesisUtterance(word)
     speechSynthesis.speak(utterance)
@@ -24,13 +19,14 @@ export default function Sidebar () {
   const start = () => {
     audio.play()
   }
-  
+
   function homeHandlers () {
     dispatch(clearCategory())
     dispatch(activePage('home'))
   }
 
   function handleZoom (change) {
+    console.log('change')
     const zoomIndex = possibleZoom.indexOf(currentZoom)
     if (change === 'in' && zoomIndex !== possibleZoom.length - 1) {
       return dispatch(changeZoom(possibleZoom[zoomIndex + 1]))
@@ -56,4 +52,5 @@ export default function Sidebar () {
         </Box>
       </Flex>
     </>
+  )
 }
