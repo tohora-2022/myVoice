@@ -2,11 +2,10 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 import Category from './Category'
+import OutputBox from './OutputBox'
 import Sidebar from './Sidebar'
 
 function App () {
-  const output = useSelector(state => state.output)
-
   const image = 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png'
   const items = [
     { id: 1, word: 'word1', image: image, tag: 'tag1' },
@@ -19,7 +18,7 @@ function App () {
   return (
     <>
       <div className='outputs'>
-        <p>{output}</p>
+        <OutputBox />
       </div>
       <div className='inputs'>
         <div>
