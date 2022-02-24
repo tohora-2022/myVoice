@@ -5,10 +5,10 @@ function getCategories (db = connection) {
 }
 
 function getItems (categoryId, db = connection) {
-  return db('items')
-    .join('categories', 'categories.id', 'items.categories_id')
+  return db('categories')
+    .where('categories.id', categoryId)
+    .join('items', 'categories.id', 'items.categories_id')
     .select('items.id as itemId', 'word', 'image', 'tag', 'categories_id as categoryId', 'category')
-    .where('items.category_id', categoryId)
 }
 
 module.exports = {
