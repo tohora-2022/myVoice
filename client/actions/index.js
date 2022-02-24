@@ -1,8 +1,3 @@
-export const SET_OUTPUT_ITEMS = 'SET_OUTPUT_ITEMS'
-
-export function addOutputItem (item) {
-  return {
-    type: SET_OUTPUT_ITEMS,
-    item
-  }
-}
+export * from './output'
+export * from './category'
+export * from './activePage'

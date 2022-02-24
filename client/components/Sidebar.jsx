@@ -4,11 +4,17 @@ import { changeZoom } from '../actions/zoom'
 import { Button, Box, Center, Flex, VStack } from '@chakra-ui/react'
 import { IoHomeOutline, IoWarningOutline, IoCloseCircleOutline, IoCheckmarkCircleOutline, IoFlashOutline } from 'react-icons/io5'
 import { AiOutlineZoomIn, AiOutlineZoomOut } from 'react-icons/ai'
+import { activePage, clearCategory } from '../actions'
 
 export default function Sidebar () {
+<<<<<<< HEAD
   const currentZoom = useSelector(state => state.zoom)
   const possibleZoom = ['small', 'medium', 'large']
   const dispatch = useDispatch()
+=======
+  const dispatch = useDispatch()
+
+>>>>>>> fc15f5c33d10641c21ee5493020cc390f26a3cdb
   const speakHandler = (word) => {
     const utterance = new SpeechSynthesisUtterance(word)
     speechSynthesis.speak(utterance)
@@ -17,6 +23,11 @@ export default function Sidebar () {
 
   const start = () => {
     audio.play()
+  }
+  
+  function homeHandlers () {
+    dispatch(clearCategory())
+    dispatch(activePage('home'))
   }
 
   function handleZoom (change) {
@@ -34,7 +45,7 @@ export default function Sidebar () {
       <Flex >
         <Box width={200} bg='gray.50' maxW='xs' align='right' h='100%' borderRadius='md' border='2px' borderColor='orange'>
           <VStack outline='orange.100' direction='row' align='center'>
-            <Center ><Button _hover={{ bg: 'orange.300' }} mt='40px' bg='orange.100' size='lg' variant='solid'>Home <IoHomeOutline /></Button></Center>
+            <Center ><Button _hover={{ bg: 'orange.300' }} mt='40px' bg='orange.100' size='lg' variant='solid' onClick={homeHandlers}>Home <IoHomeOutline /></Button></Center>
             <Center ><Button _hover={{ bg: 'orange.300' }} mt='50px' bg='orange.100' size='lg' variant='solid' onClick={() => speakHandler('Yes')}>Yes <IoCheckmarkCircleOutline /></Button></Center>
             <Center ><Button _hover={{ bg: 'orange.300' }} mt='50px' bg='orange.100'size='lg' variant='solid' onClick={() => speakHandler('No')}>No  <IoCloseCircleOutline /></Button></Center>
             <Center ><Button _hover={{ bg: 'orange.300' }} mt='50px' bg='orange.100'size='lg' variant='solid' onClick={() => speakHandler('Sorry I made a mistake, give me a moment.')}>Mistake<IoFlashOutline /></Button></Center>
@@ -45,5 +56,4 @@ export default function Sidebar () {
         </Box>
       </Flex>
     </>
-  )
 }

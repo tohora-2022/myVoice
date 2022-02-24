@@ -9,13 +9,13 @@ export default function Item (props) {
   function handleItemClick (e, word, image) {
     e.preventDefault()
     const shortItem = [word, image]
-    console.log('item: ', shortItem)
     dispatch(addOutputItem(shortItem))
+    const utterance = new SpeechSynthesisUtterance(word)
+    speechSynthesis.speak(utterance)
   }
   return (
     <div className='categoryItem' onClick={(e) => handleItemClick(e, itemDetails.word, itemDetails.image)}>
       <img className='categoryImage' src={`${itemDetails.image}`} alt={`${itemDetails.word}`}/>
-      {itemDetails.word}
     </div>
   )
 }
