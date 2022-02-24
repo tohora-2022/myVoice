@@ -1,4 +1,5 @@
 node_modules
+coverage
 *.log
 *.sqlite3
 server/public/bundle.js
@@ -8,4 +9,3 @@ server/public/styles.css.map
 .env
 tags
 .DS_Store
-coverage
