@@ -1,25 +1,34 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { Button, Box, Center, Flex, VStack } from '@chakra-ui/react'
+import { IoHomeOutline, IoWarningOutline, IoCloseCircleOutline, IoCheckmarkCircleOutline, IoFlashOutline } from 'react-icons/io5'
+import { AiOutlineZoomIn, AiOutlineZoomOut } from 'react-icons/ai'
 
-import { clearCategory } from '../actions/category'
-
-function Sidebar () {
-  const dispatch = useDispatch()
-  function homeHandlers () {
-    dispatch(clearCategory())
+export default function Sidebar () {
+  const speakHandler = (word) => {
+    const utterance = new SpeechSynthesisUtterance(word)
+    speechSynthesis.speak(utterance)
   }
+  const audio = new Audio('/Airplane-ding-sound.mp3')
+
+  const start = () => {
+    audio.play()
+  }
+
   return (
-    // TODO images for sidebar menu options.
-    <div className='sidebar'>
-      <div className='sidebarButton' onClick={homeHandlers}>Home</div>
-      <div className='sidebarButton'>Yes</div>
-      <div className='sidebarButton'>No</div>
-      <div className='sidebarButton'>Mistake</div>
-      <div className='sidebarButton'>Alert!</div>
-      <div className='sidebarButton'>Zoom In</div>
-      <div className='sidebarButton'>Zoom Out</div>
-    </div>
+    <>
+      <Flex >
+        <Box width={200} bg='gray.50' maxW='xs' align='right' h='100%' borderRadius='md' border='2px' borderColor='orange'>
+          <VStack outline='orange.100' direction='row' align='center'>
+            <Center ><Button _hover={{ bg: 'orange.300' }} mt='40px' bg='orange.100' size='lg' variant='solid'>Home <IoHomeOutline /></Button></Center>
+            <Center ><Button _hover={{ bg: 'orange.300' }} mt='50px' bg='orange.100' size='lg' variant='solid' onClick={() => speakHandler('Yes')}>Yes <IoCheckmarkCircleOutline /></Button></Center>
+            <Center ><Button _hover={{ bg: 'orange.300' }} mt='50px' bg='orange.100'size='lg' variant='solid' onClick={() => speakHandler('No')}>No  <IoCloseCircleOutline /></Button></Center>
+            <Center ><Button _hover={{ bg: 'orange.300' }} mt='50px' bg='orange.100'size='lg' variant='solid' onClick={() => speakHandler('Sorry I made a mistake, give me a moment.')}>Mistake<IoFlashOutline /></Button></Center>
+            <Center ><Button _hover={{ bg: 'orange.300' }} mt='50px' bg='orange.100' size='lg'variant='solid' onClick={start}>ALERT!<IoWarningOutline /></Button></Center>
+            <Center ><Button _hover={{ bg: 'orange.300' }} mt='50px' bg='orange.100' size='lg'variant='solid'>Zoom in<AiOutlineZoomIn /></Button></Center>
+            <Center ><Button _hover={{ bg: 'orange.300' }} mt='50px' mb='40px' bg='orange.100'size='lg' variant='solid' >Zoom out<AiOutlineZoomOut /></Button></Center>
+          </VStack>
+        </Box>
+      </Flex>
+    </>
   )
 }
-
-export default Sidebar
