@@ -25,8 +25,9 @@ export default function OutputBox () {
   }
   function handleDelete (e) {
     e.preventDefault()
-    console.log(output)
-    if (output.length !== 0) { dispatch(removeLastOutputItem()) }
+    const tempArray = displayOutput.slice(0, -1)
+    console.log('temp: ', tempArray)
+    if (output.length !== 0) { dispatch(removeLastOutputItem(tempArray)) }
   }
   function handleClearAll (e) {
     e.preventDefault()
@@ -38,6 +39,7 @@ export default function OutputBox () {
     <div>
       <button onClick={(e) => handleAudioSubmit}>Audio</button>
       {displayOutput.map((item, x) => {
+        console.log(displayOutput)
         return (
           <span key={`${item[0]}-${x}`}> {item[0]}</span>
         )

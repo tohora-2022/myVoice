@@ -9,9 +9,10 @@ export function addOutputItem (item) {
   }
 }
 
-export function removeLastOutputItem () {
+export function removeLastOutputItem (items) {
   return {
-    type: REMOVE_OUTPUT_ITEM
+    type: REMOVE_OUTPUT_ITEM,
+    items
   }
 }
 

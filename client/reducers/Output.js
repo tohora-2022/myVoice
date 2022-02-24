@@ -7,10 +7,8 @@ export default function outputReducer (state = initialState, action) {
     case SET_OUTPUT_ITEMS:
       return [...state, action.item]
     case REMOVE_OUTPUT_ITEM:
-      console.log(state)
-      return state.pop()
+      return action.items
     case CLEAR_OUTPUT:
-      console.log('hi')
       return []
 
     default:
