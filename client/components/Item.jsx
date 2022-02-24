@@ -9,7 +9,6 @@ export default function Item (props) {
   function handleItemClick (e, word, image) {
     e.preventDefault()
     const shortItem = [word, image]
-    // console.log('item: ', shortItem)
     dispatch(addOutputItem(shortItem))
   }
   return (

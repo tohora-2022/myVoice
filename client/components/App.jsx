@@ -3,12 +3,13 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import { fetchCategories } from '../actions/category'
 import Category from './Category'
+import DisplayCategory from './DisplayCategory'
 import OutputBox from './OutputBox'
 import Sidebar from './Sidebar'
 
 function App () {
-  const output = useSelector(state => state.output)
   const categories = useSelector(state => state.categories)
+  const activePage = useSelector(state => state.activePage)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -23,11 +24,13 @@ function App () {
         <OutputBox />
       </div>
       <div className='inputs'>
-        <div>
+        {(activePage === 'singleCategory') ? <>
+          <DisplayCategory />
+        </> : <div>
           {categories?.map(each => {
             return <Category key={each.id} name={each.category} id={each.id} image={image}/>
           })}
-        </div>
+        </div>}
         <Sidebar/>
       </div>
     </>

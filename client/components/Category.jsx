@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 
 import Item from './Item'
 
+import { activePage } from '../actions/activePage'
 import { setCategory } from '../actions/category'
 import { getItems } from '../apis/api'
 
@@ -12,8 +13,8 @@ function Category ({ name, id, image }) {
 
   useEffect(() => {
     getItems(id)
-      .then(x => {
-        setItemsArray(x.slice(0, 5))
+      .then(items => {
+        setItemsArray(items)
         return null
       })
       .catch(e => console.log(e))
@@ -30,7 +31,8 @@ function Category ({ name, id, image }) {
   // }, [screenSize])
 
   const categoryClickHandler = () => {
-    dispatch(setCategory(name))
+    dispatch(setCategory(id))
+    dispatch(activePage('singleCategory'))
   }
 
   return (
@@ -39,14 +41,19 @@ function Category ({ name, id, image }) {
         <img className='categoryImage' src={image}/>
         {name}
       </div>
-      {itemsArray &&
-        <div className='categoryItems'>
-          {itemsArray.map((item, i) => {
-            return (
-              <Item key={i} item={item} />
-            )
-          })}
-        </div>
+      {name === 'quick' ? <div className='categoryItems'>
+        {itemsArray.map((item, i) => {
+          return (
+            <Item key={i} item={item} />
+          )
+        })}
+      </div> : <div className='categoryItems'>
+        {itemsArray.slice(0, 5).map((item, i) => {
+          return (
+            <Item key={i} item={item} />
+          )
+        })}
+      </div>
       }
     </div>
   )

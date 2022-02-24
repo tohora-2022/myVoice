@@ -5,7 +5,7 @@ const initialState = ''
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_CATEGORY:
-      return action.category
+      return action.categoryId
     case CLEAR_CATEGORY:
       return ''
     default:
