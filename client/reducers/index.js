@@ -1,9 +1,7 @@
 import { combineReducers } from 'redux'
 
-import category from './category'
-import outputReducer from './Output'
+import fruits from './fruits'
 
 export default combineReducers({
-  output: outputReducer,
-  category
+  fruits
 })
