@@ -3,4 +3,59 @@
 html, 
 body {
   font-family: 'Montserrat', sans-serif;
+  margin: 0px;
+}
+
+.outputs {
+  margin: 16px;
+}
+
+.inputs {
+  display: flex;
+}
+
+.category {
+  display: flex;
+  margin: 8px 16px 8px 16px;
+}
+
+.categoryName {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.categoryItems {
+  display: flex;
+  justify-content: space-between;
+}
+
+.categoryItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.categoryImage {
+  width: 10vw;
+  margin: 0px 16px 0px 16px;
+}
+
+.sidebar {
+  border: 2px solid #000;
+  border-radius: 8px;
+  width: 256px;
+  margin: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
 }
