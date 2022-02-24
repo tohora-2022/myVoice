@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import { fetchCategories } from '../actions/category'
 import Category from './Category'
+import OutputBox from './OutputBox'
 import Sidebar from './Sidebar'
 
 function App () {
@@ -19,7 +20,7 @@ function App () {
   return (
     <>
       <div className='outputs'>
-        <p>{output}</p>
+        <OutputBox />
       </div>
       <div className='inputs'>
         <div>
