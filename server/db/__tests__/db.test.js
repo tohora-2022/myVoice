@@ -26,7 +26,6 @@ describe('getItems', () => {
     expect.assertions(2)
     return db.getItems(102, testDb)
       .then(items => {
-        console.log('items', items)
         expect(items[0]).toEqual({
           itemId: 1,
           word: 'all done',

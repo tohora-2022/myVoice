@@ -1,0 +1,407 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for server/db/seeds/items.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">server/db/seeds</a> items.js</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>3/3</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>0/0</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>2/2</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>3/3</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+    </div>
+    <div class='status-line high'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a>
+<a name='L100'></a><a href='#L100'>100</a>
+<a name='L101'></a><a href='#L101'>101</a>
+<a name='L102'></a><a href='#L102'>102</a>
+<a name='L103'></a><a href='#L103'>103</a>
+<a name='L104'></a><a href='#L104'>104</a>
+<a name='L105'></a><a href='#L105'>105</a>
+<a name='L106'></a><a href='#L106'>106</a>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">exports.seed = function (knex) {
+  return knex('items').del()
+    .then(function () {
+      return knex('items').insert([
+        { id: 1, word: 'all done', image: '/images/actions/all_done.png', categories_id: 102, tag: 'verb' },
+        { id: 2, word: 'drink', image: '/images/actions/drink.png', categories_id: 102, tag: 'verb' },
+        { id: 3, word: 'eat', image: '/images/actions/eat.png', categories_id: 102, tag: 'verb' },
+        { id: 4, word: 'have', image: '/images/actions/have.png', categories_id: 102, tag: 'verb' },
+        { id: 5, word: 'help', image: '/images/actions/help.png', categories_id: 102, tag: 'verb' },
+        { id: 6, word: 'leave', image: '/images/actions/leave.png', categories_id: 102, tag: 'verb' },
+        { id: 7, word: 'play', image: '/images/actions/play.png', categories_id: 102, tag: 'verb' },
+        { id: 8, word: 'quiet', image: '/images/actions/quiet.png', categories_id: 102, tag: 'adjective' },
+        { id: 9, word: 'want', image: '/images/actions/want.png', categories_id: 102, tag: 'verb' },
+        { id: 10, word: 'he', image: '/images/descriptions/he.png', categories_id: 103, tag: 'pronoun' },
+        { id: 11, word: 'her', image: '/images/descriptions/her.png', categories_id: 103, tag: 'pronoun' },
+        { id: 12, word: 'I', image: '/images/descriptions/i.png', categories_id: 103, tag: 'pronoun' },
+        { id: 13, word: 'it', image: '/images/descriptions/it.png', categories_id: 103, tag: 'pronoun' },
+        { id: 14, word: 'me', image: '/images/descriptions/me.png', categories_id: 103, tag: 'pronoun' },
+        { id: 15, word: 'mine', image: '/images/descriptions/mine.png', categories_id: 103, tag: 'pronoun' },
+        { id: 16, word: 'them', image: '/images/descriptions/them.png', categories_id: 103, tag: 'pronoun' },
+        { id: 17, word: 'we', image: '/images/descriptions/we.png', categories_id: 103, tag: 'pronoun' },
+        { id: 18, word: 'brush teeth', image: '/images/activites/brush_teeth.png', categories_id: 107, tag: 'verb' },
+        { id: 19, word: 'catch', image: '/images/activites/catch.png', categories_id: 107, tag: 'verb' },
+        { id: 20, word: 'conversation', image: '/images/activites/conversation.png', categories_id: 107, tag: 'noun' },
+        { id: 21, word: 'dance', image: '/images/activites/dance.png', categories_id: 107, tag: 'verb' },
+        { id: 22, word: 'draw', image: '/images/activites/draw.png', categories_id: 107, tag: 'verb' },
+        { id: 23, word: 'eat', image: '/images/activites/eat.png', categories_id: 107, tag: 'verb' },
+        { id: 24, word: 'hold hands', image: '/images/activites/hold_hands.png', categories_id: 107, tag: 'verb' },
+        { id: 25, word: 'homework', image: '/images/activites/homework.png', categories_id: 107, tag: 'noun' },
+        { id: 26, word: 'jump rope', image: '/images/activites/jump_rope.png', categories_id: 107, tag: 'noun' },
+        { id: 27, word: 'run', image: '/images/activites/run.png', categories_id: 107, tag: 'verb' },
+        { id: 28, word: 'pants', image: '/images/clothes/pants.png', categories_id: 108, tag: 'noun' },
+        { id: 29, word: 'shorts', image: '/images/clothes/shorts.png', categories_id: 108, tag: 'noun' },
+        { id: 30, word: 'swimsuit', image: '/images/clothes/swimsuit.png', categories_id: 108, tag: 'noun' },
+        { id: 31, word: 'shirt', image: '/images/clothes/shirt.png', categories_id: 108, tag: 'noun' },
+        { id: 32, word: 'sweater', image: '/images/clothes/sweater.png', categories_id: 108, tag: 'noun' },
+        { id: 33, word: 'socks', image: '/images/clothes/socks.png', categories_id: 108, tag: 'noun' },
+        { id: 34, word: 'underwear', image: '/images/clothes/underwear.png', categories_id: 108, tag: 'noun' },
+        { id: 35, word: 'umbrella', image: '/images/clothes/umbrella.png', categories_id: 108, tag: 'noun' },
+        { id: 36, word: 'pajamas', image: '/images/clothes/pajamas.png', categories_id: 108, tag: 'noun' },
+        { id: 37, word: 'get dressed', image: '/images/clothes/get_dressed.png', categories_id: 108, tag: 'preposition' },
+        { id: 38, word: 'angry', image: '/images/help/angry.png', categories_id: 104, tag: 'adjective' },
+        { id: 39, word: 'bad', image: '/images/help/bad.png', categories_id: 104, tag: 'adjective' },
+        { id: 40, word: 'feel', image: '/images/help/feel.png', categories_id: 104, tag: 'verb' },
+        { id: 41, word: 'frustrated', image: '/images/help/frustrated.png', categories_id: 104, tag: 'adjective' },
+        { id: 42, word: 'good', image: '/images/help/good.png', categories_id: 104, tag: 'adjective' },
+        { id: 43, word: 'happy', image: '/images/help/happy.png', categories_id: 104, tag: 'adjective' },
+        { id: 44, word: 'hot', image: '/images/help/hot.png', categories_id: 104, tag: 'adjective' },
+        { id: 45, word: 'I have', image: '/images/quick/i_have.png', categories_id: 101, tag: 'verb' },
+        { id: 46, word: 'lost', image: '/images/help/lost.png', categories_id: 104, tag: 'verb' },
+        { id: 47, word: 'need help', image: '/images/help/need_help.png', categories_id: 104, tag: 'verb' },
+        { id: 48, word: 'sad', image: '/images/help/sad.png', categories_id: 104, tag: 'adjective' },
+        { id: 49, word: 'rest', image: '/images/help/rest.png', categories_id: 104, tag: 'verb' },
+        { id: 50, word: 'scared', image: '/images/help/scared.png', categories_id: 104, tag: 'adjective' },
+        { id: 51, word: 'shocked', image: '/images/help/shocked.png', categories_id: 104, tag: 'adjective' },
+        { id: 52, word: 'sick', image: '/images/help/sick.png', categories_id: 104, tag: 'adjective' },
+        { id: 53, word: 'thirsty', image: '/images/help/thirsty.png', categories_id: 104, tag: 'adjective' },
+        { id: 54, word: 'tired', image: '/images/help/tired.png', categories_id: 104, tag: 'adjective' },
+        { id: 55, word: 'too loud', image: '/images/help/too_loud.png', categories_id: 104, tag: 'adjective' },
+        { id: 56, word: 'uncomfortable', image: '/images/help/uncomfortable.png', categories_id: 104, tag: 'adjective' },
+        { id: 57, word: 'worried', image: '/images/help/worried.png', categories_id: 104, tag: 'adjective' },
+        { id: 58, word: 'hurt', image: '/images/help/hurt.png', categories_id: 104, tag: 'verb' },
+        { id: 59, word: 'stomach hurts', image: '/images/help/stomach_hurts.png', categories_id: 104, tag: 'verb' },
+        { id: 60, word: 'milk', image: '/images/food/milk.png', categories_id: 106, tag: 'noun' },
+        { id: 61, word: 'juice', image: '/images/food/juice.png', categories_id: 106, tag: 'noun' },
+        { id: 62, word: 'hungry', image: '/images/food/hungry.png', categories_id: 106, tag: 'adjective' },
+        { id: 63, word: 'drink', image: '/images/food/drink.png', categories_id: 106, tag: 'verb' },
+        { id: 64, word: 'water', image: '/images/food/water.png', categories_id: 106, tag: 'noun' },
+        { id: 65, word: 'fruit', image: '/images/food/fruit.png', categories_id: 106, tag: 'noun' },
+        { id: 66, word: 'dinner', image: '/images/food/dinner.png', categories_id: 106, tag: 'noun' },
+        { id: 67, word: 'snack', image: '/images/food/snack.png', categories_id: 106, tag: 'noun' },
+        { id: 68, word: 'breakfast', image: '/images/food/breakfast.png', categories_id: 106, tag: 'noun' },
+        { id: 69, word: 'lunch', image: '/images/food/lunch.png', categories_id: 106, tag: 'noun' },
+        { id: 70, word: 'no', image: '/images/no.png', categories_id: 109, tag: 'determiner' },
+        { id: 71, word: 'yes', image: '/images/yes.png', categories_id: 109, tag: 'determiner' },
+        { id: 72, word: 'sister', image: '/images/people/sister.png', categories_id: 105, tag: 'noun' },
+        { id: 73, word: 'babysitter', image: '/images/people/babysitter.png', categories_id: 105, tag: 'noun' },
+        { id: 74, word: 'paramedic', image: '/images/people/paramedic.png', categories_id: 105, tag: 'noun' },
+        { id: 75, word: 'brother', image: '/images/people/brother.png', categories_id: 105, tag: 'noun' },
+        { id: 76, word: 'friend', image: '/images/people/friend.png', categories_id: 105, tag: 'noun' },
+        { id: 77, word: 'police', image: '/images/people/police.png', categories_id: 105, tag: 'noun' },
+        { id: 78, word: 'mom', image: '/images/people/mom.png', categories_id: 105, tag: 'noun' },
+        { id: 79, word: 'you', image: '/images/people/you.png', categories_id: 105, tag: 'pronoun' },
+        { id: 80, word: 'doctor', image: '/images/people/doctor.png', categories_id: 105, tag: 'noun' },
+        { id: 81, word: 'teacher', image: '/images/people/teacher.png', categories_id: 105, tag: 'noun' },
+        { id: 82, word: 'What is your name?', image: '/images/quick/what_is_your_name.png', categories_id: 105, tag: 'question' },
+        { id: 84, word: 'like', image: '/images/quick/like.png', categories_id: 101, tag: 'verb' },
+        { id: 85, word: 'need', image: '/images/quick/need.png', categories_id: 101, tag: 'verb' },
+        { id: 86, word: 'okay', image: '/images/quick/okay.png', categories_id: 101, tag: 'determiner' },
+        { id: 87, word: 'out', image: '/images/quick/out.png', categories_id: 101, tag: 'preposition' },
+        { id: 88, word: 'please', image: '/images/quick/please.png', categories_id: 101, tag: 'question' },
+        { id: 89, word: 'thank you', image: '/images/quick/thank_you.png', categories_id: 101, tag: 'conjunction' },
+        { id: 90, word: 'wait', image: '/images/quick/wait.png', categories_id: 101, tag: 'verb' },
+        { id: 91, word: 'what', image: '/images/quick/what.png', categories_id: 101, tag: 'determiner' },
+        { id: 92, word: 'and', image: '/images/quick/and.png', categories_id: 101, tag: 'preposition' },
+        { id: 93, word: 'go to the bathroom', image: '/images/quick/go_to_bathroom.png', categories_id: 101, tag: 'conjunction' },
+        { id: 94, word: 'help', image: '/images/quick/help.png', categories_id: 101, tag: 'verb' },
+        { id: 95, word: 'in', image: '/images/quick/in.png', categories_id: 101, tag: 'preposition' },
+        { id: 96, word: 'I want', image: '/images/quick/i_want.png', categories_id: 101, tag: 'conjunction' },
+        { id: 97, word: 'hello', image: '/images/quick/hello.png', categories_id: 101, tag: 'noun' },
+        { id: 98, word: 'repeat', image: '/images/quick/repeat.png', categories_id: 101, tag: 'verb' },
+        { id: 99, word: 'sorry', image: '/images/quick/sorry.png', categories_id: 101, tag: 'adjective' },
+        { id: 100, word: 'stop', image: '/images/quick/stop.png', categories_id: 101, tag: 'verb' },
+        { id: 101, word: 'bye', image: '/images/quick/bye.png', categories_id: 101, tag: 'noun' },
+        { id: 102, word: 'do not know', image: '/images/quick/do_not_know.png', categories_id: 101, tag: 'important' },
+        { id: 103, word: 'do not want', image: '/images/quick/do_not_want.png', categories_id: 101, tag: 'important' }
+      ])
+    })
+}
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
+                at Fri Feb 25 2022 10:57:13 GMT+1300 (New Zealand Daylight Time)
+            </div>
+        </div>
+        <script src="../../../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../../../sorter.js"></script>
+        <script src="../../../block-navigation.js"></script>
+    </body>
+</html>
+    
