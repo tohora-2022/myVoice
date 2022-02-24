@@ -25,10 +25,13 @@ export function clearCategory () {
   }
 }
 
-export function displayItems (items) {
-  return {
-    type: DISPLAY_ITEMS,
-    items
+export function fetchItems (id) {
+  return dispatch => {
+    return getItems(id)
+      .then(items => {
+        dispatch(displayItems(items))
+        return null
+      })
   }
 }
 
@@ -42,12 +45,9 @@ export function fetchCategories () {
   }
 }
 
-export function fetchItems (id) {
-  return dispatch => {
-    return getItems(id)
-      .then(items => {
-        dispatch(displayItems(items))
-        return null
-      })
+export function displayItems (items) {
+  return {
+    type: DISPLAY_ITEMS,
+    items
   }
 }
