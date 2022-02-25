@@ -28,8 +28,6 @@ describe('<DisplayCategory />', () => {
     })
       .then(() => {
         const listItems = screen.getAllByRole('img')
-        const description = screen.getByText('play')
-        console.log(description)
         expect(listItems).toHaveLength(2)
         expect(listItems[0].alt).toBe('play')
         expect(listItems[1].alt).toBe('brush teeth')
