@@ -39,7 +39,7 @@ export default function Sidebar () {
   return (
     <>
       <Flex >
-        <Box width={200} bg='gray.50' maxW='xs' align='right' h='100%' borderRadius='md' border='2px' borderColor='orange'>
+        <Box width={200} bg='gray.50' maxW='xs' align='right' h='100%' borderRadius='md' mr={10} border='2px' borderColor='orange'>
           <VStack outline='orange.100' direction='row' align='center'>
             <Center ><Button _hover={{ bg: 'orange.300' }} mt='40px' bg='orange.100' size='lg' variant='solid' onClick={homeHandlers}>Home <IoHomeOutline /></Button></Center>
             <Center ><Button _hover={{ bg: 'orange.300' }} mt='50px' bg='orange.100' size='lg' variant='solid' onClick={() => speakHandler('Yes')}>Yes <IoCheckmarkCircleOutline /></Button></Center>
