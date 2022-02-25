@@ -8,11 +8,9 @@ export default function DisplayCategory () {
   const categoryId = useSelector(state => state.category)
   const [displayItems, setDisplayItems] = useState()
 
-  console.log(categoryId)
   useEffect(() => {
     getItems(categoryId)
       .then((items) => {
-        console.log('items: ', items)
         setDisplayItems(items)
         return null
       })
