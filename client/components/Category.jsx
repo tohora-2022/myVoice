@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useBreakpointValue, HStack, Image, Center } from '@chakra-ui/react'
 
 import Item from './Item'
@@ -21,7 +21,6 @@ function Category ({ name, id, image }) {
       .catch(e => console.log(e))
   }, [])
 
-
   const numToShow = useBreakpointValue({
     base: 5,
     sm: 7
@@ -33,7 +32,6 @@ function Category ({ name, id, image }) {
     md: '150px'
   })
 
-
   const categoryClickHandler = () => {
     dispatch(setCategory(id))
     dispatch(activePage('singleCategory'))
@@ -43,7 +41,7 @@ function Category ({ name, id, image }) {
     <>
       <HStack spacing={name === 'quick' ? 2 : 6} mx={3} px={2} borderRadius={5} mb={1} h={rowHeight} border='2px' borderColor='orange'>
         <Center onClick={categoryClickHandler} height="full">
-          <Image src={image} maxWidth="130px" height="auto"/>
+          <Image src={image} alt={name} maxWidth="130px" height="auto"/>
         </Center>
         {name === 'quick' ? <>
           {itemsArray.map((item, i) => {

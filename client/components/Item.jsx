@@ -16,13 +16,13 @@ export default function Item (props) {
   }
   return (
     <Center
-      onClick={(e) => handleItemClick(e, itemDetails.word, itemDetails.image)}
+      onClick={(e) => handleItemClick(e, itemDetails.word, itemDetails.itemImage)}
       width={{ base: '110px', md: '130px' }}
       height="full"
     >
       <Image
-        src={`${itemDetails.image}`}
-        alt={`${itemDetails.word}`}
+        src={itemDetails.itemImage}
+        alt={itemDetails.word}
         maxHeight="full"
       />
     </Center>
