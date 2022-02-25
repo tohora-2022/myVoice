@@ -16,7 +16,6 @@ export default function Item (props) {
   return (
     <div className='categoryItem' onClick={(e) => handleItemClick(e, itemDetails.word, itemDetails.itemImage)}>
       <img className='categoryImage' src={itemDetails.itemImage} alt={itemDetails.word}/>
-      <p>{itemDetails.word}</p>
     </div>
   )
 }
