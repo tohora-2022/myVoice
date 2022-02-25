@@ -14,8 +14,8 @@ export default function Item (props) {
     speechSynthesis.speak(utterance)
   }
   return (
-    <div className='categoryItem' onClick={(e) => handleItemClick(e, itemDetails.word, itemDetails.image)}>
-      <img className='categoryImage' src={`${itemDetails.image}`} alt={`${itemDetails.word}`}/>
+    <div className='categoryItem' onClick={(e) => handleItemClick(e, itemDetails.word, itemDetails.itemImage)}>
+      <img className='categoryImage' src={itemDetails.itemImage} alt={itemDetails.word}/>
     </div>
   )
 }

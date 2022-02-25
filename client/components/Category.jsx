@@ -20,16 +20,6 @@ function Category ({ name, id, image }) {
       .catch(e => console.log(e))
   }, [])
 
-  // // Dynamic Dimensions, to be used later for other display sizes.
-  // const [screenSize, setScreenSize] = useState({ dynamicWidth: window.innerWidth, dynamicHeight: window.innerHeight })
-  // const setDimension = () => { setScreenSize({ dynamicWidth: window.innerWidth, dynamicHeight: window.innerHeight }) }
-
-  // useEffect(() => {
-  //   window.addEventListener('resize', setDimension)
-  //   setItemsArray(itemsArray.slice(0, 5))
-  //   return () => { window.removeEventListener('resize', setDimension) }
-  // }, [screenSize])
-
   const categoryClickHandler = () => {
     dispatch(setCategory(id))
     dispatch(activePage('singleCategory'))
@@ -38,7 +28,7 @@ function Category ({ name, id, image }) {
   return (
     <div className={`category category_${imageSize}`}>
       <div className='categoryName' onClick={categoryClickHandler}>
-        <img className='categoryImage' src={image}/>
+        <img className='categoryImage' src={image} alt={name}/>
       </div>
       {name === 'quick' ? <div className='categoryItems'>
         {itemsArray.map((item, i) => {
