@@ -9,6 +9,6 @@ describe('checks the reducer', () => {
   })
   test('DISPLAY_CATEGORIES sets the categories', () => {
     const state = categoriesReducer(['oldTestCategories'], displayCategories(['newTestCategories1', 'newTestCategories2']))
-    expect(state).toEqual(['newTestCategories1', 'newTestCategories2'])
+    expect(state).toEqual(['newTestCategories1'])
   })
 })

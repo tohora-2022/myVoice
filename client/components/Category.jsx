@@ -37,7 +37,7 @@ function Category ({ name, id, image }) {
   return (
     <div className='category'>
       <div className='categoryName' onClick={categoryClickHandler}>
-        <img className='categoryImage' src={image}/>
+        <img className='categoryImage' src={image} alt={name}/>
       </div>
       {name === 'quick' ? <div className='categoryItems'>
         {itemsArray.map((item, i) => {
