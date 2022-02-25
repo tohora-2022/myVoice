@@ -1,6 +1,6 @@
 import categoryReducer from '../category'
 
-import { setCategory, clearCategory } from '../../actions/category'
+import { setCategory } from '../../actions/category'
 
 describe('checks the reducer', () => {
   test('initial state is empty string', () => {
@@ -10,9 +10,5 @@ describe('checks the reducer', () => {
   test('SET_CATEGORY sets the category', () => {
     const state = categoryReducer('testCategoryOld', setCategory('testCategoryNew'))
     expect(state).toEqual('testCategoryNew')
-  })
-  test('CLEAR_CATEGORY clears the category', () => {
-    const state = categoryReducer('testCategory', clearCategory())
-    expect(state).toEqual('')
   })
 })

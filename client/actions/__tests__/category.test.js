@@ -1,4 +1,4 @@
-import { displayCategories, setCategory, clearCategory, displayItems, fetchCategories, fetchItems } from '../category'
+import { displayCategories, setCategory, fetchCategories } from '../category'
 import { getCategories, getItems } from '../../apis/api'
 
 jest.mock('../../apis/api')
@@ -40,21 +40,6 @@ describe('setCategory', () => {
   })
 })
 
-describe('clearCategory', () => {
-  it('clears selected category in the store', () => {
-    const action = clearCategory()
-    expect(action.type).toEqual('CLEAR_CATEGORY')
-  })
-})
-
-describe('displayItems', () => {
-  it('sets the display items in the store.', () => {
-    const action = displayItems(testItems)
-    expect(action.type).toEqual('DISPLAY_ITEMS')
-    expect(action.items).toEqual(testItems)
-  })
-})
-
 describe('fetchCategories', () => {
   it('gets the categories and calls displayCategories', () => {
     const dispatch = jest.fn()
@@ -63,19 +48,6 @@ describe('fetchCategories', () => {
         expect(dispatch).toHaveBeenCalled()
         expect(dispatch.mock.calls[0][0].type).toEqual('DISPLAY_CATEGORIES')
         expect(dispatch.mock.calls[0][0].categories).toEqual(testCategories)
-        return null
-      })
-  })
-})
-
-describe('fetchItems', () => {
-  it('gets the items and calls displayItems', () => {
-    const dispatch = jest.fn()
-    return fetchItems(1)(dispatch)
-      .then(() => {
-        expect(dispatch).toHaveBeenCalled()
-        expect(dispatch.mock.calls[0][0].type).toEqual('DISPLAY_ITEMS')
-        expect(dispatch.mock.calls[0][0].items).toEqual(testItems)
         return null
       })
   })
