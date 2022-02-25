@@ -33,7 +33,6 @@ describe('<DisplayCategory />', () => {
         expect(listItems).toHaveLength(2)
         expect(listItems[0].alt).toBe('play')
         expect(listItems[1].alt).toBe('brush teeth')
-        expect(description).toContain('p')
         return null
       })
   })
