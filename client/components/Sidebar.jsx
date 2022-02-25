@@ -1,13 +1,12 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 
-import { activePage, clearCategory } from '../actions'
+import { activePage } from '../actions'
 
 function Sidebar () {
   const dispatch = useDispatch()
 
   function homeHandlers () {
-    dispatch(clearCategory())
     dispatch(activePage('home'))
   }
 
