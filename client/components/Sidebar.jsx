@@ -1,11 +1,10 @@
 import React from 'react'
-
 import { useSelector, useDispatch } from 'react-redux'
 import { changeZoom } from '../actions/zoom'
 import { Button, Box, Center, Flex, VStack } from '@chakra-ui/react'
 import { IoHomeOutline, IoWarningOutline, IoCloseCircleOutline, IoCheckmarkCircleOutline, IoFlashOutline } from 'react-icons/io5'
 import { AiOutlineZoomIn, AiOutlineZoomOut } from 'react-icons/ai'
-import { activePage, clearCategory } from '../actions'
+import { activePage } from '../actions'
 
 export default function Sidebar () {
   const currentZoom = useSelector(state => state.zoom)
