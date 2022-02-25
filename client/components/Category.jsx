@@ -38,7 +38,6 @@ function Category ({ name, id, image }) {
     <div className='category'>
       <div className='categoryName' onClick={categoryClickHandler}>
         <img className='categoryImage' src={image}/>
-        {name}
       </div>
       {name === 'quick' ? <div className='categoryItems'>
         {itemsArray.map((item, i) => {
