@@ -11,7 +11,6 @@ export default function DisplayCategory () {
   useEffect(() => {
     getItems(categoryId)
       .then((items) => {
-        console.log('items: ', items)
         setDisplayItems(items)
         return null
       })

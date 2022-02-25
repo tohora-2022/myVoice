@@ -21,6 +21,7 @@ function Category ({ name, id, image }) {
       .catch(e => console.log(e))
   }, [])
 
+
   const numToShow = useBreakpointValue({
     base: 5,
     sm: 7
@@ -31,6 +32,7 @@ function Category ({ name, id, image }) {
     sm: '100px',
     md: '150px'
   })
+
 
   const categoryClickHandler = () => {
     dispatch(setCategory(id))

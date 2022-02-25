@@ -12,10 +12,10 @@ describe('getCategories', () => {
     expect.assertions(4)
     return db.getCategories(testDb)
       .then(categories => {
-        expect(categories[0]).toEqual({ id: 101, category: 'quick' })
-        expect(categories[2]).toEqual({ id: 103, category: 'describe' })
-        expect(categories[4]).toEqual({ id: 105, category: 'people' })
-        expect(categories[7]).toEqual({ id: 108, category: 'clothes' })
+        expect(categories[0]).toEqual({ id: 101, category: 'quick', image: 'none' })
+        expect(categories[2]).toEqual({ id: 103, category: 'descriptions', image: '/images/descriptions/descriptions-category.png' })
+        expect(categories[4]).toEqual({ id: 105, category: 'people', image: '/images/people/people-category.png' })
+        expect(categories[7]).toEqual({ id: 108, category: 'clothes', image: '/images/clothes/clothes-category.png' })
         return null
       })
   })
@@ -29,7 +29,7 @@ describe('getItems', () => {
         expect(items[0]).toEqual({
           itemId: 1,
           word: 'all done',
-          image: '/images/actions/all_done.png',
+          itemImage: '/images/actions/all_done.png',
           tag: 'verb',
           categoryId: 102,
           category: 'actions'
@@ -37,7 +37,7 @@ describe('getItems', () => {
         expect(items[8]).toEqual({
           itemId: 9,
           word: 'want',
-          image: '/images/actions/want.png',
+          itemImage: '/images/actions/want.png',
           tag: 'verb',
           categoryId: 102,
           category: 'actions'

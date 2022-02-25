@@ -17,8 +17,6 @@ function App () {
     dispatch(fetchCategories())
   }, [])
 
-  const image = 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png'
-
   return (
     <>
       <div className='outputs'>
@@ -29,7 +27,7 @@ function App () {
           <DisplayCategory />
         </> : <div>
           {categories?.map(each => {
-            return <Category key={each.id} name={each.category} id={each.id} image={image}/>
+            return <Category key={each.id} name={each.category} id={each.id} image={each.image}/>
           })}
         </div>}
         <Sidebar/>

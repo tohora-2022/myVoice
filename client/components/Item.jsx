@@ -26,6 +26,5 @@ export default function Item (props) {
         maxHeight="full"
       />
     </Center>
-
   )
 }

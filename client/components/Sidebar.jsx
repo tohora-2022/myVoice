@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { useSelector, useDispatch } from 'react-redux'
 import { changeZoom } from '../actions/zoom'
 import { Button, Box, Center, Flex, VStack } from '@chakra-ui/react'
@@ -21,7 +22,6 @@ export default function Sidebar () {
   }
 
   function homeHandlers () {
-    dispatch(clearCategory())
     dispatch(activePage('home'))
   }
 
