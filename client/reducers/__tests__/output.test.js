@@ -11,6 +11,10 @@ describe('checks the reducer', () => {
     const state = outputReducer(['testCategoryOld'], addOutputItem('testCategoryNew'))
     expect(state).toEqual(['testCategoryOld', 'testCategoryNew'])
   })
+  test('ADD_OUTPUT_ITEMS add the items in the action to the state', () => {
+    const state = outputReducer(['testCategoryOld'], addOutputItem(['testCategoryNew1', 'testCategoryNew2']))
+    expect(state).toEqual(['testCategoryOld', 'testCategoryNew1', 'testCategoryNew2'])
+  })
   test('REMOVE_OUTPUT_ITEM sets the output items to the new array', () => {
     const state = outputReducer(['testCategory1', 'testCategory2'], removeLastOutputItem(['testCategory1']))
     expect(state).toEqual(['testCategory1'])

@@ -8,6 +8,14 @@ describe('addOutputItem', () => {
   })
 })
 
+describe('addOutputItems', () => {
+  it('adds output items to store', () => {
+    const action = addOutputItem(['testOutputItem1', 'testOutputItem2'])
+    expect(action.type).toEqual('SET_OUTPUT_ITEMS')
+    expect(action.items).toEqual(['testOutputItem1', 'testOutputItem2'])
+  })
+})
+
 describe('removeLastOutputItem', () => {
   it('removes last output item in the store', () => {
     const action = removeLastOutputItem('testOutputItems')

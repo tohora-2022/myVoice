@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { clearOutput, removeLastOutputItem } from '../actions'
+import { addOutputItems, clearOutput, removeLastOutputItem } from '../actions'
 
 export default function OutputBox () {
   const output = useSelector(state => state.output)
   const dispatch = useDispatch()
 
   const [displayOutput, setDisplayOutput] = useState(output)
+  const [userInput, setUserInput] = useState('')
 
   useEffect(() => {
     setDisplayOutput(output)
@@ -29,6 +30,18 @@ export default function OutputBox () {
     dispatch(clearOutput())
   }
 
+  function handleUserInputSubmit (event) {
+    event.preventDefault()
+    const utterance = new SpeechSynthesisUtterance(userInput)
+    speechSynthesis.speak(utterance)
+    dispatch(addOutputItems(userInput.split(' ').map(word => [word])))
+    setUserInput('')
+  }
+
+  function handleUserInputChange (event) {
+    setUserInput(event.target.value)
+  }
+
   return (
     <div>
       <button onClick={(e) => handleAudioSubmit(e)}>Audio</button>
@@ -39,12 +52,21 @@ export default function OutputBox () {
       })}
       <div>
         {displayOutput.map((pic, y) => {
-          return (
-            <img key={`${pic[0]}-${y}`} className='categoryImage' src={pic[1]} alt={pic[0]}/>
-
-          )
+          if (pic[1]) {
+            return <img key={`${pic[0]}-${y}`} className='categoryImage' src={pic[1]} alt={pic[0]}/>
+          } else {
+            return <span key={`${pic[0]}-${y}`} className='categoryImage'>{pic[0]}</span>
+          }
         })}
+        <form onSubmit={handleUserInputSubmit}>
+          <input
+            className='outputBoxUserInput'
+            onChange={handleUserInputChange}
+            value={userInput}
+            name='userInput' />
+        </form>
       </div>
+      <button onClick={handleUserInputSubmit}>Submit</button>
       <button onClick={handleDelete}>Delete</button>
       <button onClick={handleClearAll}>Clear</button>
     </div>
