@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 import Item from './Item'
 
@@ -9,6 +9,7 @@ import { getItems } from '../apis/api'
 function Category ({ name, id, image }) {
   const [itemsArray, setItemsArray] = useState([])
   const dispatch = useDispatch()
+  const imageSize = useSelector(state => state.zoom)
 
   useEffect(() => {
     getItems(id)
@@ -25,7 +26,7 @@ function Category ({ name, id, image }) {
   }
 
   return (
-    <div className='category'>
+    <div className={`category category_${imageSize}`}>
       <div className='categoryName' onClick={categoryClickHandler}>
         <img className='categoryImage' src={image} alt={name}/>
       </div>

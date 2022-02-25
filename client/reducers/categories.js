@@ -2,7 +2,7 @@ import { DISPLAY_CATEGORIES } from '../actions'
 
 const initialState = []
 
-const reducer = (state = initialState, action) => {
+export default function categories (state = initialState, action) {
   switch (action.type) {
     case DISPLAY_CATEGORIES:
       return action.categories.slice(0, -1)
@@ -10,5 +10,3 @@ const reducer = (state = initialState, action) => {
       return state
   }
 }
-
-export default reducer

@@ -4,10 +4,12 @@ import activePageReducer from './activePage'
 import category from './category'
 import categories from './categories'
 import outputReducer from './Output'
+import zoomReducer from './zoom'
 
 export default combineReducers({
   activePage: activePageReducer,
   output: outputReducer,
   category,
-  categories
+  categories,
+  zoom: zoomReducer
 })
