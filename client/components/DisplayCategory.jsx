@@ -20,7 +20,7 @@ export default function DisplayCategory () {
   return (
     <div className='categoryItems'>
       {displayItems?.map(item => {
-        return <Item key={item.itemId} item={item}/>
+        return <Item key={item.itemId} item={item} />
       })}
     </div>
   )
