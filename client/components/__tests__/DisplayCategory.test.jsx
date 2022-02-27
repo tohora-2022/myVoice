@@ -1,11 +1,17 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { screen, render, waitFor } from '@testing-library/react'
+import Router from "react-router-dom";
 
 import DisplayCategory from '../DisplayCategory'
-import { getItems } from '../../apis/api'
+import { getAllItems } from '../../apis/api'
 
 jest.mock('../../apis/api')
+
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useParams: jest.fn(),
+ }));
 
 describe('<DisplayCategory />', () => {
   const fakeStore = {
@@ -20,18 +26,12 @@ describe('<DisplayCategory />', () => {
   })
 
   it('displays items from redux state', () => {
-    getItems.mockReturnValue(Promise.resolve([{ itemId: 1, word: 'play', image: 'images/actions/play.png' }, { itemId: 2, word: 'brush teeth', image: 'images/actions/brush_teeth.png' }]))
-    fakeStore.getState.mockReturnValue({ category: 101 })
+    jest.spyOn(Router, 'useParams').mockReturnValue({ name: 'actionCheese' })
+    fakeStore.getState.mockReturnValue({ items: { actionCheese: [{ itemId: 1, word: 'play', image: 'images/actions/play.png' }, { itemId: 2, word: 'brush teeth', image: 'images/actions/brush_teeth.png' }] } })
     render(<Provider store={fakeStore}><DisplayCategory/></Provider>)
-    return waitFor(() => {
-      expect(getItems).toHaveBeenCalled()
-    })
-      .then(() => {
-        const listItems = screen.getAllByRole('img')
-        expect(listItems).toHaveLength(2)
-        expect(listItems[0].alt).toBe('play')
-        expect(listItems[1].alt).toBe('brush teeth')
-        return null
-      })
+    const listItems = screen.getAllByRole('img')
+    expect(listItems).toHaveLength(2)
+    expect(listItems[0].alt).toBe('play')
+    expect(listItems[1].alt).toBe('brush teeth')
   })
 })
