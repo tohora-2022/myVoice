@@ -4,7 +4,6 @@ import { Routes, Route } from 'react-router-dom'
 
 import { fetchCategories, fetchItems } from '../actions'
 
-import Category from './Category'
 import Categories from './Categories'
 import DisplayCategory from './DisplayCategory'
 import OutputBox from './OutputBox'
@@ -12,12 +11,7 @@ import Sidebar from './Sidebar'
 import Header from './Header'
 
 function App () {
-  const categories = useSelector(state => state.categories)
-  const activePage = useSelector(state => state.activePage)
   const dispatch = useDispatch()
-  // {categories?.map(each => {
-  //   return <Category key={each.id} name={each.category} id={each.id} image={each.image}/>
-  // })}
 
   useEffect(() => {
     dispatch(fetchCategories())

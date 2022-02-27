@@ -1,5 +1,5 @@
 import { displayCategories, setCategory, fetchCategories } from '../category'
-import { getCategories, getItems } from '../../apis/api'
+import { getCategories } from '../../apis/api'
 
 jest.mock('../../apis/api')
 
@@ -22,7 +22,7 @@ const testItems = [
 ]
 
 getCategories.mockReturnValue(Promise.resolve(testCategories))
-getItems.mockReturnValue(Promise.resolve(testItems))
+// getItems.mockReturnValue(Promise.resolve(testItems))
 
 describe('displayCategories', () => {
   it('sets the displayed categories in the store', () => {

@@ -7,11 +7,6 @@ export function getCategories () {
     .then(res => res.body)
 }
 
-export function getItems (id) {
-  return request.get(rootUrl + `/${id}`)
-    .then(res => res.body)
-}
-
 export function getAllItems () {
   return request.get(rootUrl + `/items`)
     .then(res => res.body)

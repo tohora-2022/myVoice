@@ -1,5 +1,5 @@
 import nock from 'nock'
-import { getCategories, getItems } from '../api.js'
+import { getCategories } from '../api.js'
 
 const testCategories = [
   { id: '1', category: 'testCategory1' },

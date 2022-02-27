@@ -1,30 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { useBreakpointValue, HStack, Image, Center } from '@chakra-ui/react'
 
 import Item from './Item'
 
-import { setCategory, activePage } from '../actions'
-import { getItems } from '../apis/api'
-
 function Category ({ name, id, image }) {
-  const [itemsArray, setItemsArray] = useState([])
   const items = useSelector(state => state.items[name])
-  console.log(items)
-  const dispatch = useDispatch()
   // const imageSize = useSelector(state => state.zoom)
-
- 
-
-  // useEffect(() => {
-  //   getItems(id)
-  //     .then(items => {
-  //       setItemsArray(items)
-  //       return null
-  //     })
-  //     .catch(e => console.log(e))
-  // }, [])
 
   const numToShow = useBreakpointValue({
     base: 5,
