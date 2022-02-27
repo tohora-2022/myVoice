@@ -9,6 +9,25 @@ router.get('/categories', (req, res) => {
     .catch(e => res.status(500).send(e))
 })
 
+// Get all categories /api/v1/aac/items
+router.get('/items', (req, res) => {
+  let categoriesNames = []
+  db.getCategories()
+    .then(categories => {
+      categoriesNames = categories.map(category => category.category)
+      return db.getAllItems()
+    })
+    .then(items => {
+      const resObj = {}
+      categoriesNames.forEach(categoryName => {
+        const filteredItems = items.filter(item => item.category === categoryName)
+        resObj[categoryName] = filteredItems
+      })
+      res.json(resObj)
+    })
+    .catch(e => res.status(500).send(e))
+})
+
 // Get all categories /api/v1/aac
 router.get('/:categoryId', (req, res) => {
   db.getItems(req.params.categoryId)
