@@ -6,6 +6,7 @@ import Category from './Category'
 import DisplayCategory from './DisplayCategory'
 import OutputBox from './OutputBox'
 import Sidebar from './Sidebar'
+import Header from './Header'
 
 function App () {
   const categories = useSelector(state => state.categories)
@@ -18,6 +19,7 @@ function App () {
 
   return (
     <>
+    <Header />
       <div className='outputs'>
         <OutputBox />
       </div>
