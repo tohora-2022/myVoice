@@ -39,7 +39,7 @@ function Category ({ name, id, image }) {
 
   return (
     <>
-      <HStack spacing={name === 'quick' ? 2 : 6} mx={3} px={2} borderRadius={5} mb={1} h={rowHeight} border='2px' borderColor='orange'>
+      <HStack spacing={name === 'quick' ? 2 : 6} mx={3} px={2} borderRadius={5} mb={1} h={rowHeight} border='2px' borderColor='blue.600'>
         <Center onClick={categoryClickHandler} height="full">
           <Image src={image} alt={name} maxWidth="130px" height="auto"/>
         </Center>

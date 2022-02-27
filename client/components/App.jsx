@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { Flex, Container } from '@chakra-ui/react'
+
 
 import { fetchCategories } from '../actions'
 import Category from './Category'
@@ -19,20 +21,20 @@ function App () {
 
   return (
     <>
-    <Header />
-      <div className='outputs'>
-        <OutputBox />
-      </div>
-      <div className='inputs'>
+    <Container maxWidth='container.2xl'>
+      <Header />
+      <OutputBox />
+      <Flex>
         {(activePage === 'singleCategory') ? <>
           <DisplayCategory />
-        </> : <div>
+        </> : <div >
           {categories?.map(each => {
             return <Category key={each.id} name={each.category} id={each.id} image={each.image}/>
           })}
         </div>}
         <Sidebar/>
-      </div>
+      </Flex>
+    </Container>
     </>
   )
 }
