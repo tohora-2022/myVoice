@@ -21,18 +21,17 @@ function App () {
 
   return (
     <>
-
-    <Container maxWidth='container.2xl' backgroundColor='#A6EF18'>
-      <Header />
-      <OutputBox />
-      <Flex>
-        <Routes>
-          <Route path='/' element={<Categories />} />
-          <Route path='/:name' element={<DisplayCategory />} />
-        </Routes>
-        <Sidebar/>
-      </Flex>
-    </Container>
+      <Container maxWidth='container.2xl' backgroundColor='#A6EF18'>
+        <Header />
+        <OutputBox />
+        <Flex>
+          <Routes>
+            <Route path='/' element={<Categories />} />
+            <Route path='/:name' element={<DisplayCategory />} />
+          </Routes>
+          <Sidebar/>
+        </Flex>
+      </Container>
     </>
   )
 }

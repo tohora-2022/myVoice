@@ -11,20 +11,18 @@ const Header = () => {
       align="center"
       wrap="wrap"
       color="white"
-      backgroundImage='/images/Bannemonkey.png' width='100%' pr={1}
+      backgroundImage='/images/Bannemonkey.png' pr={1}
     >
-  
       <Box align="center">
-
-      <Image
-      borderRadius={60}
-       boxSize='100px'
-       width='110px'
-       boxShadow='dark-lg' rounded='md' bg='white'align="center"
-  src='/images/MyVoiceLogo.png'
-  alt='My Voice'
-/>
-      </Box>    
+        <Image
+          borderRadius={60}
+          boxSize='100px'
+          width='110px'
+          boxShadow='dark-lg' rounded='md' bg='white'align="center"
+          src='/images/MyVoiceLogo.png'
+          alt='My Voice'
+        />
+      </Box>
     </Box>
   )
 }
