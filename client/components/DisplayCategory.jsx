@@ -1,25 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
 
 import Item from './Item'
-import { getItems } from '../apis/api'
 
 export default function DisplayCategory () {
-  const categoryId = useSelector(state => state.category)
-  const [displayItems, setDisplayItems] = useState()
-
-  useEffect(() => {
-    getItems(categoryId)
-      .then((items) => {
-        setDisplayItems(items)
-        return null
-      })
-      .catch(e => console.log(e))
-  }, [])
+  const { name } = useParams()
+  const category = useSelector(state => state.items[name])
 
   return (
     <div className='categoryItems'>
-      {displayItems?.map(item => {
+      {category?.map(item => {
         return <Item key={item.itemId} item={item} />
       })}
     </div>

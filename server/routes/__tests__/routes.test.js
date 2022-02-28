@@ -33,7 +33,7 @@ describe('GET /api/v1/aac/categories', () => {
     return request(server)
       .get('/api/v1/aac/categories')
       .then(res => {
-        expect(res.status).toEqual(200)
+        expect(res.status).toBe(200)
         expect(res.body).toEqual(testCategories)
         return null
       })
@@ -45,7 +45,7 @@ describe('GET /api/v1/aac/categories', () => {
     return request(server)
       .get('/api/v1/aac/categories')
       .then(res => {
-        expect(res.status).toEqual(500)
+        expect(res.status).toBe(500)
         return null
       })
   })
@@ -58,7 +58,7 @@ describe('GET /api/v1/aac/:categoryId', () => {
     return request(server)
       .get('/api/v1/aac/1')
       .then(res => {
-        expect(res.status).toEqual(200)
+        expect(res.status).toBe(200)
         expect(res.body).toEqual(testItems)
         return null
       })
@@ -70,7 +70,7 @@ describe('GET /api/v1/aac/:categoryId', () => {
     return request(server)
       .get('/api/v1/aac/1')
       .then(res => {
-        expect(res.status).toEqual(500)
+        expect(res.status).toBe(500)
         return null
       })
   })

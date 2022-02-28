@@ -1,11 +1,7 @@
-import React from "react";
-import {
-  Image,
-  Box,
-} from "@chakra-ui/react";
+import React from 'react'
+import { Image, Box } from '@chakra-ui/react'
 
 const Header = () => {
- 
   return (
     <Box
       as="nav"
@@ -30,7 +26,7 @@ const Header = () => {
 />
       </Box>    
     </Box>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

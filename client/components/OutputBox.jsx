@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Button, Box, Grid, Image, GridItem, WrapItem, Center, Flex, Input, HStack } from '@chakra-ui/react'
+
 import { AiOutlineSound, AiOutlineDelete } from 'react-icons/ai'
-import { RiChatDeleteLine, RiSendPlaneLine } from "react-icons/ri";
+import { RiChatDeleteLine, RiSendPlaneLine } from 'react-icons/ri'
 import { addOutputItems, clearOutput, removeLastOutputItem } from '../actions'
 
 export default function OutputBox () {
@@ -46,14 +47,14 @@ export default function OutputBox () {
 
   return (
     <>
-      <Grid fontSize='2xl'backgroundColor='#d8fe8e' pt={1} height='120px' border='2px' mt={5} borderRadius='20px' borderColor='blue.600' templateColumns='repeat(15, 1fr)'>
+      <Grid fontSize='2xl' backgroundColor='#d8fe8e' pt={1} height='120px' border='2px' mt={5} borderRadius='20px' borderColor='blue.600' templateColumns='repeat(15, 1fr)'>
         {displayOutput.map((pic, y) => {
           if (pic[1]) {
-            return  <Image boxSize='110px'borderRadius='20px' borderColor='#21ad09' mb={2} key={`${pic[0]}-${y}`} className='categoryImage' src={pic[1]} alt={pic[0]} />
+            return  <Image boxSize='110px' borderRadius='20px' borderColor='#21ad09' mb={2} key={`${pic[0]}-${y}`} className='categoryImage' src={pic[1]} alt={pic[0]} />
           } else {
             return <span key={`${pic[0]}-${y}`} className='categoryImage'>{pic[0]}</span>
           }
-          })}
+        })}
         <GridItem colStart={15} colEnd={15} h='10' >
           <Button mt={6} ml='30px' bg='#00C3F7' size='lg' variant='solid' Button _hover={{ bg: 'blue.600' }} onClick={(e) => handleAudioSubmit(e)}><AiOutlineSound /></Button>
         </GridItem>
@@ -77,7 +78,7 @@ export default function OutputBox () {
           </form>
         </GridItem>
         <GridItem colStart={2} colEnd={2}>
-          <Button mt='5px' ml='10px'bg='#00C3F7' size='md' variant='solid'  Button _hover={{ bg: 'blue.600' }} onClick={handleUserInputSubmit}>Submit <RiSendPlaneLine /></Button>
+          <Button mt='5px' ml='10px'bg='#00C3F7' size='md' variant='solid' Button _hover={{ bg: 'blue.600' }} onClick={handleUserInputSubmit}>Submit <RiSendPlaneLine /></Button>
         </GridItem>
         <GridItem colStart={13} colEnd={13}>
           <Button mt='5px' mr={1}bg='#00C3F7' size='md' variant='solid' Button _hover={{ bg: 'blue.600' }} onClick={handleDelete}>Delete <RiChatDeleteLine /></Button>
