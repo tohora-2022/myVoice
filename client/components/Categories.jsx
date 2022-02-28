@@ -7,18 +7,14 @@ import QuickRows from './QuickRows'
 function Categories () {
   const categories = useSelector(state => state.categories)
 
-  // function splitInHalf (arr) {
-  //   const half = Math.ceil(arr.length / 2)
-  //   const firstHalf = arr.slice(0, half)
-  //   const secondHalf = arr.slice(-half)
-
-  //   return [firstHalf, secondHalf]
-  // }
-
   return (
     <div>
       {categories?.map(each => {
-        each.category === 'quick' ? <QuickRows key={each.id} name={each.category}/> : <Category key={each.id} name={each.category} id={each.id} image={each.image}/>
+        if (each.category === 'quick') {
+          return <QuickRows key={each.id} name={each.category}/>
+        } if (each.category !== 'quick') {
+          return <Category key={each.id} name={each.category} id={each.id} image={each.image}/>
+        }
       })}
     </div>
   )
