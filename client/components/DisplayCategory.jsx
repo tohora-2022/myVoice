@@ -30,10 +30,10 @@ export default function DisplayCategory () {
   }, [items])
 
   return (
-    <Wrap justify='center' padding='2' margin='2' borderRadius={5} border='2px' borderColor='blue.600'>
+    <Wrap justify='center' padding='1' margin='2' borderRadius={5} border='2px' borderColor='blue.600'>
       {items?.map((item, i) => {
         return (
-          <WrapItem key={i}>
+          <WrapItem padding='1' margin='1' key={i}>
             <Center>
               <Item item={item} />
             </Center>

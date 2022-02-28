@@ -21,6 +21,7 @@ export default function Item (props) {
       height="full"
     >
       <Image
+        borderRadius={20}
         src={itemDetails.itemImage}
         alt={itemDetails.word}
         maxHeight="full"
