@@ -1,6 +1,5 @@
 const request = require('supertest')
 const server = require('../../server')
-// const db = require('../../db/db')
 
 const { getCategories, getItems } = require('../../db/db')
 
