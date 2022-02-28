@@ -1,25 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import React from 'react'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { useBreakpointValue, HStack, Image, Center } from '@chakra-ui/react'
 
 import Item from './Item'
 
-import { setCategory, activePage } from '../actions'
-import { getItems } from '../apis/api'
-
 function Category ({ name, id, image }) {
-  const [itemsArray, setItemsArray] = useState([])
-  const dispatch = useDispatch()
-  // const imageSize = useSelector(state => state.zoom)
-
-  useEffect(() => {
-    getItems(id)
-      .then(items => {
-        setItemsArray(items)
-        return null
-      })
-      .catch(e => console.log(e))
-  }, [])
+  const items = useSelector(state => state.items[name])
+  const zoom = useSelector(state => state.zoom)
 
   const numToShow = useBreakpointValue({
     base: 5,
@@ -27,30 +15,27 @@ function Category ({ name, id, image }) {
   })
 
   const rowHeight = useBreakpointValue({
-    base: '60px',
+    base: '70px',
     sm: '100px',
-    md: '150px'
+    md: `${(zoom)}px`
   })
-
-  const categoryClickHandler = () => {
-    dispatch(setCategory(id))
-    dispatch(activePage('singleCategory'))
-  }
 
   return (
     <>
-      <HStack spacing={name === 'quick' ? 2 : 6}mx={3} px={2} borderRadius={5} mb={1} h={rowHeight} border='2px' borderColor='blue.600'>
-        <Center onClick={categoryClickHandler} height="full" >
-          <Image borderRadius='20px' src={image} alt={name} maxWidth="130px" height="auto" />
+      <HStack spacing={name === 'quick' ? 2 : 6} mx={3} px={2} borderRadius={5} mb={1} h={rowHeight} border='2px' borderColor='blue.600'>
+        <Center height="full">
+          <Link to={`/${name}`}>
+            <Image src={image} alt={name} borderRadius='20px' maxWidth={`${zoom}px`} height="auto"/>
+          </Link>
         </Center>
         {name === 'quick' ? <>
-          {itemsArray.map((item, i) => {
+          {items?.map((item, i) => {
             return (
-              <Item key={i} item={item}  />
+              <Item key={i} item={item} />
             )
           })}
         </> : <>
-          {itemsArray.slice(0, numToShow).map((item, i) => {
+          {items?.slice(0, numToShow).map((item, i) => {
             return <Item key={i} item={item} />
           })}
         </>

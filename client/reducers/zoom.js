@@ -1,6 +1,6 @@
-import { SET_ZOOM } from '../actions/zoom'
+import { SET_ZOOM } from '../actions'
 
-const initialState = 'medium'
+const initialState = '130'
 
 export default function zoomReducer (state = initialState, action) {
   switch (action.type) {
