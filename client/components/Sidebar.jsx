@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { changeZoom } from '../actions'
 import { Button, Box, Center, Flex, VStack } from '@chakra-ui/react'
-import { IoHomeOutline, IoWarningOutline, IoCloseCircleOutline, IoCheckmarkCircleOutline, IoFlashOutline } from 'react-icons/io5'
+import { IoHomeOutline, IoWarningOutline, IoCloseCircleOutline, IoCheckmarkCircleOutline, IoFlashOutline, IoHeartOutline } from 'react-icons/io5'
 import { AiOutlineZoomIn, AiOutlineZoomOut } from 'react-icons/ai'
 
 export default function Sidebar () {
@@ -39,6 +39,7 @@ export default function Sidebar () {
             <Link to='/'>
               <Center ><Button _hover={{ bg: 'blue.600' }} mt='40px' bg='#00C3F7' size='lg' variant='solid' textStyle='Concert+One' color='white' >Home <IoHomeOutline /></Button></Center>
             </Link>
+            <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' bg='#00C3F7' size='lg' variant='solid' onClick={() => speakHandler('Favourites')}>Favourites <IoHeartOutline /></Button></Center>
             <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' bg='#00C3F7' size='lg' variant='solid' onClick={() => speakHandler('Yes')}>Yes <IoCheckmarkCircleOutline /></Button></Center>
             <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' bg='#00C3F7'size='lg' variant='solid' onClick={() => speakHandler('No')}>No  <IoCloseCircleOutline /></Button></Center>
             <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' bg='#00C3F7'size='lg' variant='solid' onClick={() => speakHandler('Sorry I made a mistake, give me a moment.')}>Mistake<IoFlashOutline /></Button></Center>
