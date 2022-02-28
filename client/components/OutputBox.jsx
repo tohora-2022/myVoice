@@ -54,7 +54,7 @@ export default function OutputBox () {
           } else {
             return <span key={`${pic[0]}-${y}`} className='categoryImage'>{pic[0]}</span>
           }
-          })}
+        })}
         <GridItem colStart={15} colEnd={15}>
           <Button mt={8} ml='30px' bg='#00C3F7' size='md' variant='solid' Button _hover={{ bg: 'blue.600' }} onClick={(e) => handleAudioSubmit(e)}><AiOutlineSound size='30px' /></Button>
         </GridItem>
@@ -78,7 +78,7 @@ export default function OutputBox () {
           </form>
         </GridItem>
         <GridItem colStart={2} colEnd={2} >
-          <Button mt='5px' ml='10px' bg='#00C3F7' size='md' variant='solid' fontFamily='Schoolbell' fontSize='2xl'  Button _hover={{ bg: 'blue.600' }} onClick={handleUserInputSubmit}>Submit <RiSendPlaneLine /></Button>
+          <Button mt='5px' ml='10px' bg='#00C3F7' size='md' variant='solid' fontFamily='Schoolbell' fontSize='2xl' Button _hover={{ bg: 'blue.600' }} onClick={handleUserInputSubmit}>Submit <RiSendPlaneLine /></Button>
         </GridItem>
         <GridItem colStart={13} colEnd={13} mr={3}>
           <Button mt='5px' mr={1}bg='#00C3F7' size='md' variant='solid' fontFamily='Schoolbell' fontSize='2xl' Button _hover={{ bg: 'blue.600' }} onClick={handleDelete}>Delete <RiChatDeleteLine /></Button>

@@ -31,7 +31,7 @@ function Category ({ name, id, image }) {
         {name === 'quick' ? <>
           {items?.map((item, i) => {
             return (
-              <Item key={i} item={item}  />
+              <Item key={i} item={item} />
             )
           })}
         </> : <>
