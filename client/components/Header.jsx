@@ -9,16 +9,17 @@ const Header = () => {
   return (
     <Box
       as="nav"
+      width='100%'
       height='120px'
       padding={2}
       align="center"
       wrap="wrap"
-      bg="#21ad09"
       color="white"
+      backgroundImage='/images/Bannemonkey.png' width='100%' pr={1}
     >
-      
+  
       <Box align="center">
-    
+
       <Image
       borderRadius={60}
        boxSize='100px'

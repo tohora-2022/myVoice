@@ -38,9 +38,9 @@ export default function Sidebar () {
   return (
     <>
       <Flex >
-        <Box width={200} bg='#21ad09' maxW='xs' align='right' h='100%' borderRadius='md' mr={10} border='2px' borderColor='green.600'>
+        <Box width={200} bg='#21AD09' maxW='xs' align='right' h='100%' borderRadius='md' mr={10} border='2px' borderColor='green.600'>
           <VStack outline='orange.100' direction='row' align='center'>
-            <Center ><Button _hover={{ bg: 'blue.600' }} mt='40px' bg='#00C3F7' size='lg' variant='solid'  onClick={homeHandlers}>Home <IoHomeOutline /></Button></Center>
+            <Center ><Button _hover={{ bg: 'blue.600' }} fontFamily='Concert One' mt='40px' bg='#00C3F7' size='lg' variant='solid'  onClick={homeHandlers}>Home <IoHomeOutline /></Button></Center>
             <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' bg='#00C3F7' size='lg' variant='solid' onClick={() => speakHandler('Favourites')}>Favourites <IoHeartOutline /></Button></Center>
             <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' bg='#00C3F7' size='lg' variant='solid' onClick={() => speakHandler('Yes')}>Yes <IoCheckmarkCircleOutline /></Button></Center>
             <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' bg='#00C3F7'size='lg' variant='solid' onClick={() => speakHandler('No')}>No  <IoCloseCircleOutline /></Button></Center>
