@@ -1,12 +1,12 @@
-import {SET_ITEMS} from '../actions'
+import { SET_ITEMS } from '../actions'
 
-const initialState = {}
+const initialState = { }
 
 export default function itemsReducer (state = initialState, action) {
-    switch (action.type) {
+  switch (action.type) {
     case SET_ITEMS:
-        return action.items
+      return action.items
     default:
-        return state
-    }
+      return state
+  }
 }

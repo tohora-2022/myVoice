@@ -37,7 +37,7 @@ export default function Sidebar () {
         <Box width={200} bg='#21ad09' maxW='xs' align='right' h='100%' borderRadius='md' mr={10} border='2px' borderColor='green.600'>
           <VStack outline='orange.100' direction='row' align='center'>
             <Link to='/'>
-              <Center ><Button _hover={{ bg: 'blue.600' }} mt='40px' bg='#00C3F7' size='lg' variant='solid' textStyle='Concert+One' >Home <IoHomeOutline /></Button></Center>
+              <Center ><Button _hover={{ bg: 'blue.600' }} mt='40px' bg='#00C3F7' size='lg' variant='solid' textStyle='Concert+One' color='white' >Home <IoHomeOutline /></Button></Center>
             </Link>
             <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' bg='#00C3F7' size='lg' variant='solid' onClick={() => speakHandler('Yes')}>Yes <IoCheckmarkCircleOutline /></Button></Center>
             <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' bg='#00C3F7'size='lg' variant='solid' onClick={() => speakHandler('No')}>No  <IoCloseCircleOutline /></Button></Center>

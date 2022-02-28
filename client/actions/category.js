@@ -30,9 +30,9 @@ export function fetchCategories () {
 export function fetchItems () {
   return dispatch => {
     return getAllItems()
-    .then(items => {
-      dispatch(setItems(items))
-      return null
-    })
+      .then(items => {
+        dispatch(setItems(items))
+        return null
+      })
   }
 }

@@ -24,6 +24,7 @@ router.get('/items', (req, res) => {
         resObj[categoryName] = filteredItems
       })
       res.json(resObj)
+      return null
     })
     .catch(e => res.status(500).send(e))
 })

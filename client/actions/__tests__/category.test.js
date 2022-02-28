@@ -1,4 +1,4 @@
-import { displayCategories, setCategory, fetchCategories } from '../category'
+import { displayCategories, fetchCategories } from '../category'
 import { getCategories } from '../../apis/api'
 
 jest.mock('../../apis/api')
@@ -13,22 +13,13 @@ const testCategories = [
   { id: '7', category: 'testCategory7' }
 ]
 
-const testItems = [
-  { itemId: '1', word: 'testWord1', image: '/images/testCategory1/testImage1.png', tag: 'testTag1', categoryId: '1', category: 'testCategory1' },
-  { itemId: '2', word: 'testWord2', image: '/images/testCategory1/testImage2.png', tag: 'testTag1', categoryId: '1', category: 'testCategory1' },
-  { itemId: '3', word: 'testWord3', image: '/images/testCategory1/testImage3.png', tag: 'testTag1', categoryId: '1', category: 'testCategory1' },
-  { itemId: '4', word: 'testWord4', image: '/images/testCategory1/testImage4.png', tag: 'testTag1', categoryId: '1', category: 'testCategory1' },
-  { itemId: '5', word: 'testWord5', image: '/images/testCategory1/testImage5.png', tag: 'testTag1', categoryId: '1', category: 'testCategory1' }
-]
-
 getCategories.mockReturnValue(Promise.resolve(testCategories))
-// getItems.mockReturnValue(Promise.resolve(testItems))
 
 describe('displayCategories', () => {
   it('sets the displayed categories in the store', () => {
     const action = displayCategories(testCategories)
-    expect(action.type).toEqual('DISPLAY_CATEGORIES')
-    expect(action.categories).toEqual(testCategories)
+    expect(action.type).toBe('DISPLAY_CATEGORIES')
+    expect(action.categories).toBe(testCategories)
   })
 })
 
@@ -38,8 +29,8 @@ describe('fetchCategories', () => {
     return fetchCategories()(dispatch)
       .then(() => {
         expect(dispatch).toHaveBeenCalled()
-        expect(dispatch.mock.calls[0][0].type).toEqual('DISPLAY_CATEGORIES')
-        expect(dispatch.mock.calls[0][0].categories).toEqual(testCategories)
+        expect(dispatch.mock.calls[0][0].type).toBe('DISPLAY_CATEGORIES')
+        expect(dispatch.mock.calls[0][0].categories).toBe(testCategories)
         return null
       })
   })

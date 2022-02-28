@@ -8,6 +8,6 @@ export function getCategories () {
 }
 
 export function getAllItems () {
-  return request.get(rootUrl + `/items`)
+  return request.get(rootUrl + '/items')
     .then(res => res.body)
 }

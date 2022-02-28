@@ -1,17 +1,16 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import { screen, render, waitFor } from '@testing-library/react'
-import Router from "react-router-dom";
+import { screen, render } from '@testing-library/react'
+import Router from 'react-router-dom'
 
 import DisplayCategory from '../DisplayCategory'
-import { getAllItems } from '../../apis/api'
 
 jest.mock('../../apis/api')
 
-jest.mock("react-router-dom", () => ({
-  ...jest.requireActual("react-router-dom"),
-  useParams: jest.fn(),
- }));
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useParams: jest.fn()
+}))
 
 describe('<DisplayCategory />', () => {
   const fakeStore = {
