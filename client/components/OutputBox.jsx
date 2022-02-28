@@ -62,7 +62,7 @@ export default function OutputBox () {
           }
         })}
         <GridItem colStart={15} colEnd={15} h='10' >
-          <Button mt={6} ml='30px' bg='#00C3F7' size='lg' variant='solid' Button _hover={{ bg: 'blue.600' }} onClick={(e) => handleAudioSubmit(e)}><AiOutlineSound /></Button>
+          <Button mt={6} ml='30px' bg='#00C3F7' size='lg' variant='solid' button _hover={{ bg: 'blue.600' }} onClick={(e) => handleAudioSubmit(e)}><AiOutlineSound /></Button>
         </GridItem>
       </Grid>
       <Grid templateColumns='repeat(10, 1fr)'>
@@ -83,13 +83,13 @@ export default function OutputBox () {
           </form>
         </GridItem>
         <GridItem colStart={2} colEnd={2}>
-          <Button mt='5px' ml='10px'bg='#00C3F7' size='md' variant='solid' Button _hover={{ bg: 'blue.600' }} onClick={handleUserInputSubmit}>Submit <RiSendPlaneLine /></Button>
+          <Button mt='5px' ml='10px'bg='#00C3F7' size='md' variant='solid' button _hover={{ bg: 'blue.600' }} onClick={handleUserInputSubmit}>Submit <RiSendPlaneLine /></Button>
         </GridItem>
         <GridItem colStart={13} colEnd={13}>
-          <Button mt='5px' mr={1}bg='#00C3F7' size='md' variant='solid' Button _hover={{ bg: 'blue.600' }} onClick={handleDelete}>Delete <RiChatDeleteLine /></Button>
+          <Button mt='5px' mr={1}bg='#00C3F7' size='md' variant='solid' button _hover={{ bg: 'blue.600' }} onClick={handleDelete}>Delete <RiChatDeleteLine /></Button>
         </GridItem>
         <GridItem colStart={15} colEnd={15}>
-          <Button mt='5px' bg='#00C3F7' size='md' variant='solid' Button _hover={{ bg: 'blue.600' }} onClick={handleClearAll}>Clear<AiOutlineDelete /></Button>
+          <Button mt='5px' bg='#00C3F7' size='md' variant='solid' button _hover={{ bg: 'blue.600' }} onClick={handleClearAll}>Clear<AiOutlineDelete /></Button>
         </GridItem>
       </Grid>
     </>

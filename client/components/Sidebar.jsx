@@ -5,6 +5,9 @@ import { changeZoom } from '../actions'
 import { Button, Box, Center, Flex, VStack } from '@chakra-ui/react'
 import { IoHomeOutline, IoWarningOutline, IoCloseCircleOutline, IoCheckmarkCircleOutline, IoFlashOutline, IoHeartOutline } from 'react-icons/io5'
 import { AiOutlineZoomIn, AiOutlineZoomOut } from 'react-icons/ai'
+import { useAuth0 } from '@auth0/auth0-react'
+
+import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 
 export default function Sidebar () {
   const currentZoom = useSelector(state => state.zoom)
@@ -31,6 +34,21 @@ export default function Sidebar () {
     }
   }
 
+  const { logout, loginWIthRedirect } = useAuth0()
+
+  function handleRegister (e) {
+    e.preventDefault()
+    loginWIthRedirect({ redirectUri: `${window.location.origin}/register` })
+  }
+  function handleLogIn (e) {
+    e.preventDefault()
+    loginWIthRedirect()
+  }
+  function handleLogOut (e) {
+    e.preventDefault()
+    logout()
+  }
+
   return (
     <>
       <Flex >
@@ -41,11 +59,24 @@ export default function Sidebar () {
             </Link>
             <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' bg='#00C3F7' size='lg' variant='solid' onClick={() => speakHandler('Favourites')}>Favourites <IoHeartOutline /></Button></Center>
             <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' bg='#00C3F7' size='lg' variant='solid' onClick={() => speakHandler('Yes')}>Yes <IoCheckmarkCircleOutline /></Button></Center>
-            <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' bg='#00C3F7'size='lg' variant='solid' onClick={() => speakHandler('No')}>No  <IoCloseCircleOutline /></Button></Center>
-            <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' bg='#00C3F7'size='lg' variant='solid' onClick={() => speakHandler('Sorry I made a mistake, give me a moment.')}>Mistake<IoFlashOutline /></Button></Center>
+            <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' bg='#00C3F7' size='lg' variant='solid' onClick={() => speakHandler('No')}>No  <IoCloseCircleOutline /></Button></Center>
+            <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' bg='#00C3F7' size='lg' variant='solid' onClick={() => speakHandler('Sorry I made a mistake, give me a moment.')}>Mistake<IoFlashOutline /></Button></Center>
             <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' bg='#00C3F7' size='lg'variant='solid' onClick={start}>ALERT!<IoWarningOutline /></Button></Center>
             <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' bg='#00C3F7' size='lg'variant='solid' onClick={() => handleZoom('in')}>Zoom in<AiOutlineZoomIn /></Button></Center>
             <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' mb='40px' bg='#00C3F7'size='lg' variant='solid' onClick={() => handleZoom('out')}>Zoom out<AiOutlineZoomOut /></Button></Center>
+            <IfAuthenticated>
+              <Link to='/'>
+                <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' mb='40px' bg='#00C3F7'size='lg' variant='solid' onClick={(e) => handleLogOut()}>Log out<AiOutlineZoomOut /></Button></Center>
+              </Link>
+            </IfAuthenticated>
+            <IfNotAuthenticated>
+              <Link>
+                <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' mb='40px' bg='#00C3F7'size='lg' variant='solid' onClick={(e) => handleRegister(e)}>Register<AiOutlineZoomOut /></Button></Center>
+              </Link>
+              <Link>
+                <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' mb='40px' bg='#00C3F7'size='lg' variant='solid' onClick={(e) => handleLogIn(e)}>Log in<AiOutlineZoomOut /></Button></Center>
+              </Link>
+            </IfNotAuthenticated>
           </VStack>
         </Box>
       </Flex>
