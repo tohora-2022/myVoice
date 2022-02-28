@@ -66,15 +66,15 @@ export default function Sidebar () {
             <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' mb='40px' bg='#00C3F7'size='lg' variant='solid' onClick={() => handleZoom('out')}>Zoom out<AiOutlineZoomOut /></Button></Center>
             <IfAuthenticated>
               <Link to='/'>
-                <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' mb='40px' bg='#00C3F7'size='lg' variant='solid' onClick={(e) => handleLogOut()}>Log out<AiOutlineZoomOut /></Button></Center>
+                <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' mb='40px' bg='#00C3F7'size='lg' variant='solid' onClick={(e) => handleLogOut()}>Log out</Button></Center>
               </Link>
             </IfAuthenticated>
             <IfNotAuthenticated>
-              <Link>
-                <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' mb='40px' bg='#00C3F7'size='lg' variant='solid' onClick={(e) => handleRegister(e)}>Register<AiOutlineZoomOut /></Button></Center>
-              </Link>
-              <Link>
-                <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' mb='40px' bg='#00C3F7'size='lg' variant='solid' onClick={(e) => handleLogIn(e)}>Log in<AiOutlineZoomOut /></Button></Center>
+              <Link to='/'>
+                <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' mb='40px' bg='#00C3F7'size='lg' variant='solid' onClick={(e) => handleRegister(e)}>Register</Button></Center>
+              </Link >
+              <Link to='/'>
+                <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' mb='40px' bg='#00C3F7'size='lg' variant='solid' onClick={(e) => handleLogIn(e)}>Log in</Button></Center>
               </Link>
             </IfNotAuthenticated>
           </VStack>

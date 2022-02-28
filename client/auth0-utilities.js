@@ -3,6 +3,7 @@ import { setUser } from './actions'
 import store from './store'
 
 export async function cacheUser (useAuth0, state) {
+  console.log('hi')
   const { getAccessTokenSilently, isAuthenticated, user } = useAuth0()
 
   if (isAuthenticated && !state?.token) {
