@@ -25,7 +25,7 @@ function Category ({ name, id, image }) {
       <HStack spacing={6} mx={3} px={2} borderRadius={5} mb={1} h={rowHeight} border='2px' borderColor='blue.600'>
         <Center height="full">
           <Link to={`/${name}`}>
-            <Image src={image} alt={name} maxWidth="130px" height="auto"/>
+            <Image src={image} alt={name} borderRadius='20px' maxWidth="130px" height="auto"/>
           </Link>
         </Center>
 
