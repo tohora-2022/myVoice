@@ -22,24 +22,16 @@ function Category ({ name, id, image }) {
 
   return (
     <>
-      <HStack spacing={name === 'quick' ? 2 : 6} mx={3} px={2} borderRadius={5} mb={1} h={rowHeight} border='2px' borderColor='blue.600'>
+      <HStack spacing={6} mx={3} px={2} borderRadius={5} mb={1} h={rowHeight} border='2px' borderColor='blue.600'>
         <Center height="full">
           <Link to={`/${name}`}>
             <Image src={image} alt={name} borderRadius='20px' maxWidth={`${zoom}px`} height="auto"/>
           </Link>
         </Center>
-        {name === 'quick' ? <>
-          {items?.map((item, i) => {
-            return (
-              <Item key={i} item={item} />
-            )
-          })}
-        </> : <>
-          {items?.slice(0, numToShow).map((item, i) => {
-            return <Item key={i} item={item} />
-          })}
-        </>
-        }
+
+        {items?.slice(0, numToShow).map(item => {
+          return <Item key={item.itemId} item={item} />
+        })}
       </HStack>
     </>
   )

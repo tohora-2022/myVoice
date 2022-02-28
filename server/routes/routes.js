@@ -1,5 +1,6 @@
 const express = require('express')
 const db = require('../db/db')
+const checkJwt = require('../auth0')
 
 const router = express.Router()
 
@@ -34,6 +35,9 @@ router.get('/:categoryId', (req, res) => {
   db.getItems(req.params.categoryId)
     .then(items => res.json(items))
     .catch(e => res.status(500).send(e))
+})
+
+router.post('/favourites', checkJwt, (req, res) => {
 })
 
 module.exports = router
