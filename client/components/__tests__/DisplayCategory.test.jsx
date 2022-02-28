@@ -1,9 +1,9 @@
-import React from 'react'
-import { Provider } from 'react-redux'
-import { screen, render } from '@testing-library/react'
-import { useParams } from 'react-router-dom'
+// import React from 'react'
+// import { Provider } from 'react-redux'
+// import { screen, render } from '@testing-library/react'
+// import { useParams } from 'react-router-dom'
 
-import DisplayCategory from '../DisplayCategory'
+// import DisplayCategory from '../DisplayCategory'
 
 jest.mock('../../apis/api')
 
