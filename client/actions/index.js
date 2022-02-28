@@ -1,3 +1,3 @@
 export * from './output'
 export * from './category'
-export * from './activePage'
+export * from './zoom'
