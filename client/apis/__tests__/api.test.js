@@ -1,5 +1,5 @@
 import nock from 'nock'
-import { getCategories, getItems } from '../api.js'
+import { getCategories, getAllItems } from '../api.js'
 
 const testCategories = [
   { id: '1', category: 'testCategory1' },
@@ -34,13 +34,13 @@ describe('getCategories', () => {
   })
 })
 
-describe('getItems', () => {
+describe('getAllItems', () => {
   it('should return a single categoriesItems', () => {
     const scope = nock('http://localhost')
-      .get('/api/v1/aac/1')
+      .get('/api/v1/aac/items')
       .reply(200, testItems)
 
-    return getItems(1)
+    return getAllItems(1)
       .then(items => {
         scope.done()
         expect(items).toEqual(testItems)

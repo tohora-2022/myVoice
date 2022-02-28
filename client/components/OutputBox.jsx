@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Button, Box, Grid, Image, GridItem, WrapItem, Center, Flex, Input, HStack } from '@chakra-ui/react'
+import { Button, Grid, Image, GridItem, Input } from '@chakra-ui/react'
+
 import { AiOutlineSound, AiOutlineDelete } from 'react-icons/ai'
-import { RiChatDeleteLine, RiSendPlaneLine } from "react-icons/ri";
+import { RiChatDeleteLine, RiSendPlaneLine } from 'react-icons/ri'
 import { addOutputItems, clearOutput, removeLastOutputItem } from '../actions'
 
 export default function OutputBox () {
@@ -49,7 +50,7 @@ export default function OutputBox () {
       <Grid fontSize='2xl'backgroundColor='#d8fe8e' pt={1} height='120px' ml={3} border='2px' mt={5} borderRadius='20px' borderColor='blue.600' templateColumns='repeat(15, 1fr)'>
         {displayOutput.map((pic, y) => {
           if (pic[1]) {
-            return  <Image boxSize='110px'borderRadius='20px' borderColor='#21ad09' mb={2} key={`${pic[0]}-${y}`} className='categoryImage' src={pic[1]} alt={pic[0]} />
+            return <Image boxSize='110px' borderRadius='20px' borderColor='#21ad09' mb={2} key={`${pic[0]}-${y}`} className='categoryImage' src={pic[1]} alt={pic[0]} />
           } else {
             return <span key={`${pic[0]}-${y}`} className='categoryImage'>{pic[0]}</span>
           }
@@ -61,19 +62,19 @@ export default function OutputBox () {
       <Grid ml={5} templateColumns='repeat(10, 1fr)'>
         <GridItem colStart={1} colEnd={1}>
           <form onSubmit={handleUserInputSubmit}>
-          <Input
-            mt='10px'
-            isInvalid
-            size='sm' 
-            backgroundColor='#8FF4E7'
-            width='400px'
-            borderRadius='20px'
-            errorBorderColor='#21ad09'
-            placeholder='Write something to say'
-            className='outputBoxUserInput'
-            onChange={handleUserInputChange}
-            value={userInput}
-            name='userInput' />
+            <Input
+              mt='10px'
+              isInvalid
+              size='sm'
+              backgroundColor='#8FF4E7'
+              width='400px'
+              borderRadius='20px'
+              errorBorderColor='#21ad09'
+              placeholder='Write something to say'
+              className='outputBoxUserInput'
+              onChange={handleUserInputChange}
+              value={userInput}
+              name='userInput' />
           </form>
         </GridItem>
         <GridItem colStart={2} colEnd={2} >

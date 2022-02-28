@@ -1,4 +1,4 @@
-import { SET_ZOOM } from '../actions/zoom'
+import { SET_ZOOM } from '../actions'
 
 const initialState = 'medium'
 
