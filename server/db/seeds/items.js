@@ -13,7 +13,7 @@ exports.seed = function (knex) {
         { id: 9, word: 'want', image: '/images/actions/want.png', categories_id: 102, tag: 'verb' },
         { id: 10, word: 'he', image: '/images/descriptions/he.png', categories_id: 103, tag: 'pronoun' },
         { id: 11, word: 'her', image: '/images/descriptions/her.png', categories_id: 103, tag: 'pronoun' },
-        { id: 12, word: 'I', image: '/images/descriptions/i.png', categories_id: 103, tag: 'pronoun' },
+        { id: 12, word: 'i', image: '/images/descriptions/i.png', categories_id: 103, tag: 'pronoun' },
         { id: 13, word: 'it', image: '/images/descriptions/it.png', categories_id: 103, tag: 'pronoun' },
         { id: 14, word: 'me', image: '/images/descriptions/me.png', categories_id: 103, tag: 'pronoun' },
         { id: 15, word: 'mine', image: '/images/descriptions/mine.png', categories_id: 103, tag: 'pronoun' },
