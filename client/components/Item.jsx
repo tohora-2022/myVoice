@@ -8,10 +8,8 @@ export default function Item (props) {
   const dispatch = useDispatch()
   const itemDetails = props.item
 
-
-  let synth = window.speechSynthesis
-  let voices = synth.getVoices()
-
+  const synth = window.speechSynthesis
+  const voices = synth.getVoices()
 
   function handleItemClick (e, word, image) {
     e.preventDefault()
@@ -26,8 +24,7 @@ export default function Item (props) {
     <Center
       onClick={(e) => handleItemClick(e, itemDetails.word, itemDetails.itemImage)}
       width={{ base: '120px', md: `${zoom}px` }}
-      height="full"
-    >
+      height="full">
       <Image
         boxSize= {`${zoom}px`}
         padding={1}

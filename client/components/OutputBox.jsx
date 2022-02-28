@@ -10,14 +10,11 @@ export default function OutputBox () {
   const output = useSelector(state => state.output)
   const dispatch = useDispatch()
 
-
-
   const [displayOutput, setDisplayOutput] = useState(output)
   const [userInput, setUserInput] = useState('')
 
-  let synth = window.speechSynthesis
-  let voices = synth.getVoices()
-
+  const synth = window.speechSynthesis
+  const voices = synth.getVoices()
 
   useEffect(() => {
     setDisplayOutput(output)
@@ -28,7 +25,7 @@ export default function OutputBox () {
     utterance.voice = voices[0]
     speechSynthesis.speak(utterance)
   }
-  
+
   function handleDelete (e) {
     e.preventDefault()
     const tempArray = displayOutput.slice(0, -1)
