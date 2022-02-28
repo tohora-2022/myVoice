@@ -38,7 +38,6 @@ router.get('/:categoryId', (req, res) => {
 })
 
 router.post('/favourites', checkJwt, (req, res) => {
-  
 })
 
 module.exports = router
