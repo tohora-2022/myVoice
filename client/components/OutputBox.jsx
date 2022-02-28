@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Button, Grid, Image, GridItem, Input } from '@chakra-ui/react'
+
 import { AiOutlineSound, AiOutlineDelete } from 'react-icons/ai'
 import { RiChatDeleteLine, RiSendPlaneLine } from 'react-icons/ri'
 import { addOutputItems, clearOutput, removeLastOutputItem } from '../actions'
@@ -46,17 +47,10 @@ export default function OutputBox () {
 
   return (
     <>
-      <Grid fontSize='2xl' align='center' pl='10px' templateColumns='repeat(10, 1fr)'>
-        {displayOutput.map((item, x) => {
-          return (
-            <span key={`${item[0]}-${x}`}> {item[0]}</span>
-          )
-        })}
-      </Grid >
-      <Grid pt={1} height='110px' border='2px' mt={7} borderRadius='20px' borderColor='blue.600' templateColumns='repeat(15, 1fr)'>
+      <Grid fontSize='2xl' backgroundColor='#d8fe8e' pt={1} height='120px' border='2px' mt={5} borderRadius='20px' borderColor='blue.600' templateColumns='repeat(15, 1fr)'>
         {displayOutput.map((pic, y) => {
           if (pic[1]) {
-            return <Image boxSize='100px'borderRadius='20px' borderColor='#21ad09' mb={2} key={`${pic[0]}-${y}`} className='categoryImage' src={pic[1]} alt={pic[0]} />
+            return <Image boxSize='110px' borderRadius='20px' borderColor='#21ad09' mb={2} key={`${pic[0]}-${y}`} className='categoryImage' src={pic[1]} alt={pic[0]} />
           } else {
             return <span key={`${pic[0]}-${y}`} className='categoryImage'>{pic[0]}</span>
           }
@@ -72,6 +66,7 @@ export default function OutputBox () {
               mt='10px'
               isInvalid
               size='sm'
+              backgroundColor='#8FF4E7'
               width='400px'
               borderRadius='20px'
               errorBorderColor='#21ad09'

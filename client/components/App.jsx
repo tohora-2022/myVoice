@@ -21,7 +21,7 @@ function App () {
 
   return (
     <>
-      <Container maxWidth='container.2xl'>
+      <Container maxWidth='container.2xl' backgroundColor='#A6EF18'>
         <Header />
         <OutputBox />
         <Flex>

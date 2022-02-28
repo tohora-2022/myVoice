@@ -4,20 +4,21 @@ import { Image, Box } from '@chakra-ui/react'
 const Header = () => {
   return (
     <Box
-      as='nav'
+      as="nav"
+      width='100%'
       height='120px'
       padding={2}
-      align='center'
-      wrap='wrap'
-      bg='#21ad09'
-      color='white'
+      align="center"
+      wrap="wrap"
+      color="white"
+      backgroundImage='/images/Bannemonkey.png' pr={1}
     >
-      <Box align='center'>
+      <Box align="center">
         <Image
           borderRadius={60}
           boxSize='100px'
           width='110px'
-          boxShadow='dark-lg' rounded='md' bg='white'align='center'
+          boxShadow='dark-lg' rounded='md' bg='white'align="center"
           src='/images/MyVoiceLogo.png'
           alt='My Voice'
         />
