@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Flex, Container } from '@chakra-ui/react'
 import { Routes, Route } from 'react-router-dom'
-
 
 import { fetchCategories, fetchItems } from '../actions'
 
@@ -22,18 +21,17 @@ function App () {
 
   return (
     <>
-
-    <Container maxWidth='container.2xl'>
-      <Header />
-      <OutputBox />
-      <Flex>
-        <Routes>
-          <Route path='/' element={<Categories />} />
-          <Route path='/:name' element={<DisplayCategory />} />
-        </Routes>
-        <Sidebar/>
-      </Flex>
-    </Container>
+      <Container maxWidth='container.2xl'>
+        <Header />
+        <OutputBox />
+        <Flex>
+          <Routes>
+            <Route path='/' element={<Categories />} />
+            <Route path='/:name' element={<DisplayCategory />} />
+          </Routes>
+          <Sidebar/>
+        </Flex>
+      </Container>
     </>
   )
 }
