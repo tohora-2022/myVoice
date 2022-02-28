@@ -8,7 +8,7 @@ import { AiOutlineZoomIn, AiOutlineZoomOut } from 'react-icons/ai'
 
 export default function Sidebar () {
   const currentZoom = useSelector(state => state.zoom)
-  const possibleZoom = ['small', 'medium', 'large']
+  const possibleZoom = ['130', '170', '210']
   const dispatch = useDispatch()
   const speakHandler = (word) => {
     const utterance = new SpeechSynthesisUtterance(word)
@@ -21,7 +21,6 @@ export default function Sidebar () {
   }
 
   function handleZoom (change) {
-    console.log('change')
     const zoomIndex = possibleZoom.indexOf(currentZoom)
     if (change === 'in' && zoomIndex !== possibleZoom.length - 1) {
       return dispatch(changeZoom(possibleZoom[zoomIndex + 1]))

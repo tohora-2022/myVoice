@@ -1,9 +1,10 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addOutputItem } from '../actions'
 import { Image, Center } from '@chakra-ui/react'
 
 export default function Item (props) {
+  const zoom = useSelector(state => state.zoom)
   const dispatch = useDispatch()
   const itemDetails = props.item
 
@@ -17,10 +18,11 @@ export default function Item (props) {
   return (
     <Center
       onClick={(e) => handleItemClick(e, itemDetails.word, itemDetails.itemImage)}
-      width={{ base: '110px', md: '130px' }}
+      width={{ base: '110px', md: `${zoom}px` }}
       height="full"
     >
       <Image
+        boxSize= {`${zoom}px`}
         src={itemDetails.itemImage}
         alt={itemDetails.word}
         maxHeight="full"
