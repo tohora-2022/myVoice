@@ -1,10 +1,10 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { changeZoom } from '../actions/zoom'
+import { Link } from 'react-router-dom'
+import { changeZoom } from '../actions'
 import { Button, Box, Center, Flex, VStack } from '@chakra-ui/react'
 import { IoHomeOutline, IoWarningOutline, IoCloseCircleOutline, IoCheckmarkCircleOutline, IoFlashOutline, IoHeartOutline } from 'react-icons/io5'
 import { AiOutlineZoomIn, AiOutlineZoomOut } from 'react-icons/ai'
-import { activePage } from '../actions'
 
 export default function Sidebar () {
   const currentZoom = useSelector(state => state.zoom)
@@ -18,10 +18,6 @@ export default function Sidebar () {
 
   const start = () => {
     audio.play()
-  }
-
-  function homeHandlers () {
-    dispatch(activePage('home'))
   }
 
   function handleZoom (change) {
@@ -40,7 +36,9 @@ export default function Sidebar () {
       <Flex >
         <Box width={200} bg='#21ad09' maxW='xs' align='right' h='100%' borderRadius='md' mr={10} border='2px' borderColor='green.600'>
           <VStack outline='orange.100' direction='row' align='center'>
-            <Center ><Button _hover={{ bg: 'blue.600' }} mt='40px' bg='#00C3F7' size='lg' variant='solid'  onClick={homeHandlers}>Home <IoHomeOutline /></Button></Center>
+            <Link to='/'>
+              <Center ><Button _hover={{ bg: 'blue.600' }} mt='40px' bg='#00C3F7' size='lg' variant='solid' textStyle='Concert+One' color='white' >Home <IoHomeOutline /></Button></Center>
+            </Link>            
             <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' bg='#00C3F7' size='lg' variant='solid' onClick={() => speakHandler('Favourites')}>Favourites <IoHeartOutline /></Button></Center>
             <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' bg='#00C3F7' size='lg' variant='solid' onClick={() => speakHandler('Yes')}>Yes <IoCheckmarkCircleOutline /></Button></Center>
             <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' bg='#00C3F7'size='lg' variant='solid' onClick={() => speakHandler('No')}>No  <IoCloseCircleOutline /></Button></Center>

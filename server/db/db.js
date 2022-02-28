@@ -11,7 +11,14 @@ function getItems (categoryId, db = connection) {
     .select('items.id as itemId', 'word', 'items.image as itemImage', 'tag', 'categories_id as categoryId', 'category')
 }
 
+function getAllItems (db = connection) {
+  return db('categories')
+    .join('items', 'categories.id', 'items.categories_id')
+    .select('items.id as itemId', 'word', 'items.image as itemImage', 'tag', 'categories_id as categoryId', 'category')
+}
+
 module.exports = {
   getCategories,
-  getItems
+  getItems,
+  getAllItems
 }
