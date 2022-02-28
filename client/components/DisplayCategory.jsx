@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { useBreakpointValue, Wrap, WrapItem, Center } from '@chakra-ui/react'
 
 import Item from './Item'
+import BackButton from './BackButton'
 
 export default function DisplayCategory () {
   const { name } = useParams()
@@ -31,6 +32,9 @@ export default function DisplayCategory () {
 
   return (
     <Wrap justify='center' padding='1' margin='2' borderRadius={5} border='2px' borderColor='blue.600'>
+      <WrapItem padding='1' margin='1'>
+        <BackButton/>
+      </WrapItem>
       {items?.map((item, i) => {
         return (
           <WrapItem padding='1' margin='1' key={i}>
