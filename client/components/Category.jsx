@@ -7,7 +7,7 @@ import Item from './Item'
 
 function Category ({ name, id, image }) {
   const items = useSelector(state => state.items[name])
-  const zoom = useSelector(state => state.zoom)
+  // const imageSize = useSelector(state => state.zoom)
 
   const numToShow = useBreakpointValue({
     base: 5,
@@ -17,21 +17,30 @@ function Category ({ name, id, image }) {
   const rowHeight = useBreakpointValue({
     base: '60px',
     sm: '100px',
-    md: `${(zoom)}px`
+    md: '150px'
   })
 
   return (
     <>
-      <HStack spacing={6} mx={3} px={2} borderRadius={5} mb={1} h={rowHeight} border='2px' borderColor='blue.600'>
+      <HStack spacing={name === 'quick' ? 2 : 6} mx={3} px={2} borderRadius={5} mb={1} h={rowHeight} border='2px' borderColor='blue.600'>
         <Center height="full">
           <Link to={`/${name}`}>
-            <Image src={image} alt={name} borderRadius='20px' maxWidth={`${zoom}px`} height="auto"/>
+            <Image src={image} alt={name} maxWidth="130px" height="auto"/>
           </Link>
-        </Center>
 
-        {items?.slice(0, numToShow).map(item => {
-          return <Item key={item.itemId} item={item} />
-        })}
+        </Center>
+        {name === 'quick' ? <>
+          {items?.map((item, i) => {
+            return (
+              <Item key={i} item={item} />
+            )
+          })}
+        </> : <>
+          {items?.slice(0, numToShow).map((item, i) => {
+            return <Item key={i} item={item} />
+          })}
+        </>
+        }
       </HStack>
     </>
   )

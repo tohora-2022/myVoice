@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Button, Grid, Image, GridItem, Input } from '@chakra-ui/react'
-
 import { AiOutlineSound, AiOutlineDelete } from 'react-icons/ai'
 import { RiChatDeleteLine, RiSendPlaneLine } from 'react-icons/ri'
 import { addOutputItems, clearOutput, removeLastOutputItem } from '../actions'
@@ -47,26 +46,32 @@ export default function OutputBox () {
 
   return (
     <>
-      <Grid fontSize='2xl'backgroundColor='#d8fe8e' pt={1} height='120px' ml={3} border='2px' mt={5} borderRadius='20px' borderColor='blue.600' templateColumns='repeat(15, 1fr)'>
+      <Grid fontSize='2xl' align='center' pl='10px' templateColumns='repeat(10, 1fr)'>
+        {displayOutput.map((item, x) => {
+          return (
+            <span key={`${item[0]}-${x}`}> {item[0]}</span>
+          )
+        })}
+      </Grid >
+      <Grid pt={1} height='110px' border='2px' mt={7} borderRadius='20px' borderColor='blue.600' templateColumns='repeat(15, 1fr)'>
         {displayOutput.map((pic, y) => {
           if (pic[1]) {
-            return <Image boxSize='110px' borderRadius='20px' borderColor='#21ad09' mb={2} key={`${pic[0]}-${y}`} className='categoryImage' src={pic[1]} alt={pic[0]} />
+            return <Image boxSize='100px'borderRadius='20px' borderColor='#21ad09' mb={2} key={`${pic[0]}-${y}`} className='categoryImage' src={pic[1]} alt={pic[0]} />
           } else {
             return <span key={`${pic[0]}-${y}`} className='categoryImage'>{pic[0]}</span>
           }
         })}
-        <GridItem colStart={15} colEnd={15}>
-          <Button mt={8} ml='30px' bg='#00C3F7' size='md' variant='solid' Button _hover={{ bg: 'blue.600' }} onClick={(e) => handleAudioSubmit(e)}><AiOutlineSound size='30px' /></Button>
+        <GridItem colStart={15} colEnd={15} h='10' >
+          <Button mt={6} ml='30px' bg='#00C3F7' size='lg' variant='solid' button _hover={{ bg: 'blue.600' }} onClick={(e) => handleAudioSubmit(e)}><AiOutlineSound /></Button>
         </GridItem>
       </Grid>
-      <Grid ml={5} templateColumns='repeat(10, 1fr)'>
+      <Grid templateColumns='repeat(10, 1fr)'>
         <GridItem colStart={1} colEnd={1}>
           <form onSubmit={handleUserInputSubmit}>
             <Input
               mt='10px'
               isInvalid
               size='sm'
-              backgroundColor='#8FF4E7'
               width='400px'
               borderRadius='20px'
               errorBorderColor='#21ad09'
@@ -77,14 +82,14 @@ export default function OutputBox () {
               name='userInput' />
           </form>
         </GridItem>
-        <GridItem colStart={2} colEnd={2} >
-          <Button mt='5px' ml='10px' bg='#00C3F7' size='md' variant='solid' fontFamily='Schoolbell' fontSize='2xl' Button _hover={{ bg: 'blue.600' }} onClick={handleUserInputSubmit}>Submit <RiSendPlaneLine /></Button>
+        <GridItem colStart={2} colEnd={2}>
+          <Button mt='5px' ml='10px'bg='#00C3F7' size='md' variant='solid' button _hover={{ bg: 'blue.600' }} onClick={handleUserInputSubmit}>Submit <RiSendPlaneLine /></Button>
         </GridItem>
-        <GridItem colStart={13} colEnd={13} mr={3}>
-          <Button mt='5px' mr={1}bg='#00C3F7' size='md' variant='solid' fontFamily='Schoolbell' fontSize='2xl' Button _hover={{ bg: 'blue.600' }} onClick={handleDelete}>Delete <RiChatDeleteLine /></Button>
+        <GridItem colStart={13} colEnd={13}>
+          <Button mt='5px' mr={1}bg='#00C3F7' size='md' variant='solid' button _hover={{ bg: 'blue.600' }} onClick={handleDelete}>Delete <RiChatDeleteLine /></Button>
         </GridItem>
-        <GridItem colStart={15} colEnd={15}mr={3}>
-          <Button mt='5px' mb='5px' bg='#00C3F7' mr={3} size='md' variant='solid' fontFamily='Schoolbell' fontSize='2xl'Button _hover={{ bg: 'blue.600' }} onClick={handleClearAll}>Clear<AiOutlineDelete /></Button>
+        <GridItem colStart={15} colEnd={15}>
+          <Button mt='5px' bg='#00C3F7' size='md' variant='solid' button _hover={{ bg: 'blue.600' }} onClick={handleClearAll}>Clear<AiOutlineDelete /></Button>
         </GridItem>
       </Grid>
     </>
