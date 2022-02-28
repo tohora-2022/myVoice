@@ -25,6 +25,7 @@ export default function Item (props) {
         src={itemDetails.itemImage}
         alt={itemDetails.word}
         maxHeight="full"
+        borderRadius='20px'
       />
     </Center>
   )
