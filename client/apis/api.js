@@ -12,8 +12,18 @@ export function getAllItems () {
     .then(res => res.body)
 }
 
+export function newFavourite  (item, token) {
+  return request.post(`${rootUrl}` + 'favourites')
+  .set('Authorization', `Bearer ${token}`)
+  .send(item)
+  .then (res => res.body)
+  .catch(e => console.log(e))
+}
+
 export async function addUser (user) {
   return request.post(`${rootUrl}/users`)
   .send(user)
   .catch(e => console.log(e))
 }
+
+
