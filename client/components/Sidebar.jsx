@@ -38,7 +38,7 @@ export default function Sidebar () {
   return (
     <>
       <Flex >
-        <Box width={200} bg='#21AD09' maxW='xs' pt='25px' align='right' h='100%' borderRadius='md' mr={10} border='2px' borderColor='green.600'>
+        <Box width={200} backgroundImage='./images/giraffe.png' height='full'size='xs' pt='25px' align='right' h='100%' borderRadius='md' mr={10} border='2px' borderColor='green.600'>
           <VStack outline='orange.100' fontFamily='Schoolbell' fontSize='2xl' direction='row' align='center'>
             <Center ><Button _hover={{ bg: 'blue.600' }} bg='#00C3F7' w='150px' h='60px' fontFamily='Schoolbell' fontSize='2xl' variant='solid'  onClick={homeHandlers}>Home <IoHomeOutline /></Button></Center>
             <Center ><Button _hover={{ bg: 'blue.600' }} mt='40px' bg='#00C3F7' w='150px' h='60px'  fontFamily='Schoolbell' fontSize='xl'  variant='solid' onClick={() => speakHandler('Favourites')}>Favourites <IoHeartOutline /></Button></Center>
