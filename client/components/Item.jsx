@@ -5,24 +5,31 @@ import { Image, Center } from '@chakra-ui/react'
 
 export default function Item (props) {
   const dispatch = useDispatch()
-  const itemDetails = props.item
+  // If we destructure this here, it can make the rest much clearer (IMO)
+  const { word, itemImage } = props.item
 
-  function handleItemClick (e, word, image) {
+  // TODO: since word and itemImage are values that are already in scope
+  // you can use them directly in the handleItemClick function. Use the `useCallback` hook
+  // so to unecessary re-renders: https://reactjs.org/docs/hooks-reference.html#usecallback
+  const handleItemClick = React.useCallback(function (e) {
     e.preventDefault()
-    const shortItem = [word, image]
+    const shortItem = [word, itemImage]
     dispatch(addOutputItem(shortItem))
+
+    // TODO: how do we test this?
     const utterance = new SpeechSynthesisUtterance(word)
     speechSynthesis.speak(utterance)
-  }
+  }, [word, itemImage])
+
   return (
     <Center
-      onClick={(e) => handleItemClick(e, itemDetails.word, itemDetails.itemImage)}
+      onClick={handleItemClick}
       width={{ base: '110px', md: '130px' }}
       height="full"
     >
       <Image
-        src={itemDetails.itemImage}
-        alt={itemDetails.word}
+        src={itemImage}
+        alt={word}
         maxHeight="full"
       />
     </Center>

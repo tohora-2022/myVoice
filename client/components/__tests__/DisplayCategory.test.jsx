@@ -20,6 +20,7 @@ describe('<DisplayCategory />', () => {
   })
 
   it('displays items from redux state', () => {
+    // TODO: This line is sooooo long
     getItems.mockReturnValue(Promise.resolve([{ itemId: 1, word: 'play', image: 'images/actions/play.png' }, { itemId: 2, word: 'brush teeth', image: 'images/actions/brush_teeth.png' }]))
     fakeStore.getState.mockReturnValue({ category: 101 })
     render(<Provider store={fakeStore}><DisplayCategory/></Provider>)

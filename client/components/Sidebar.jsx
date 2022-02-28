@@ -40,7 +40,8 @@ export default function Sidebar () {
       <Flex >
         <Box width={200} bg='#21ad09' maxW='xs' align='right' h='100%' borderRadius='md' mr={10} border='2px' borderColor='green.600'>
           <VStack outline='orange.100' direction='row' align='center'>
-            <Center ><Button _hover={{ bg: 'blue.600' }} mt='40px' bg='#00C3F7' size='lg' variant='solid' textStyle='Concert+One'fontColor='white' onClick={homeHandlers}>Home <IoHomeOutline /></Button></Center>
+            { /* TODO: react doesn't support fontColor (with a capital C), please read the error messages in your console */ }
+            <Center ><Button _hover={{ bg: 'blue.600' }} mt='40px' bg='#00C3F7' size='lg' variant='solid' textStyle='Concert+One'fontcolor='white' onClick={homeHandlers}>Home <IoHomeOutline /></Button></Center>
             <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' bg='#00C3F7' size='lg' variant='solid' onClick={() => speakHandler('Yes')}>Yes <IoCheckmarkCircleOutline /></Button></Center>
             <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' bg='#00C3F7'size='lg' variant='solid' onClick={() => speakHandler('No')}>No  <IoCloseCircleOutline /></Button></Center>
             <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' bg='#00C3F7'size='lg' variant='solid' onClick={() => speakHandler('Sorry I made a mistake, give me a moment.')}>Mistake<IoFlashOutline /></Button></Center>

@@ -2,7 +2,7 @@ exports.seed = function (knex) {
   return knex('categories').del()
     .then(function () {
       return knex('categories').insert([
-        { id: 101, category: 'quick', image: 'none' },
+        { id: 101, category: 'quick', image: 'none' }, // TODO: 'none' is a valid URL, you should use null to indicate that there is no image
         { id: 102, category: 'actions', image: '/images/actions/actions-category.png' },
         { id: 103, category: 'descriptions', image: '/images/descriptions/descriptions-category.png' },
         { id: 104, category: 'feelings', image: '/images/feelings/feelings-category.png' },
