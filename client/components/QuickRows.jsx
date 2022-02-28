@@ -10,15 +10,6 @@ export default function QuickRows ({ name }) {
   const half = Math.ceil(items?.length / 2)
   const firstHalf = items?.slice(0, half)
   const secondHalf = items?.slice(-half)
-  // const firstHalf = function (arr) {
-  //   const half = Math.ceil(arr.length / 2)
-  //   return arr.slice(0, half)
-  // }
-
-  // const secondHalf = function (arr) {
-  //   const half = Math.ceil(arr.length / 2)
-  //   return arr.slice(-half)
-  // }
 
   const numToShow = useBreakpointValue({
     base: 5,
@@ -33,7 +24,7 @@ export default function QuickRows ({ name }) {
 
   return (
     <>
-      <HStack spacing={12} mx={3} px={2} borderRadius={5} mb={1} h={rowHeight} border='2px' borderColor='blue.600'>
+      <HStack spacing={50} mx={3}px={2} borderRadius={5} mb={1} h={rowHeight} border='2px' borderColor='blue.600'>
         <Center height="full">
           {firstHalf?.slice(0, numToShow).map(item => {
             return <Item key={item.itemId} item={item} />
