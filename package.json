@@ -50,6 +50,7 @@
     "nock": "^13.2.4",
     "pg": "^8.5.1",
     "react-icons": "^4.3.1",
+    "react-router": "^6.2.1",
     "superagent": "^6.1.0"
   },
   "devDependencies": {

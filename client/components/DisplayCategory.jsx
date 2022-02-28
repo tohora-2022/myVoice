@@ -7,6 +7,7 @@ import Item from './Item'
 export default function DisplayCategory () {
   const { name } = useParams()
   const category = useSelector(state => state.items[name])
+ 
 
   return (
     <div className='categoryItems'>

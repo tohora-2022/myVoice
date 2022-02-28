@@ -34,18 +34,15 @@ export default function Sidebar () {
     }
   }
 
-  const { logout, loginWIthRedirect } = useAuth0()
+  const { logout, loginWithRedirect } = useAuth0()
 
   function handleRegister (e) {
-    e.preventDefault()
-    loginWIthRedirect({ redirectUri: `${window.location.origin}/register` })
+    loginWithRedirect({ redirectUri: `${window.location.origin}/` })
   }
   function handleLogIn (e) {
-    e.preventDefault()
-    loginWIthRedirect()
+    loginWithRedirect()
   }
   function handleLogOut (e) {
-    e.preventDefault()
     logout()
   }
 
