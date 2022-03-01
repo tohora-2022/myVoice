@@ -11,7 +11,7 @@ import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 
 export default function Sidebar () {
   const currentZoom = useSelector(state => state.zoom)
-  const possibleZoom = ['130', '170', '210']
+  const possibleZoom = ['130', '150', '170', '190', '210']
   const dispatch = useDispatch()
   const speakHandler = (word) => {
     const utterance = new SpeechSynthesisUtterance(word)
@@ -58,8 +58,8 @@ export default function Sidebar () {
             <Center ><Button _hover={{ bg: 'blue.600' }} mt='40px' bg='#00C3F7' w='150px' h='60px' fontFamily='Schoolbell' fontSize='xl' variant='solid' onClick={() => speakHandler('No')}>No  <IoCloseCircleOutline /></Button></Center>
             <Center ><Button _hover={{ bg: 'blue.600' }} mt='40px' bg='#00C3F7' w='150px' h='60px' fontFamily='Schoolbell' fontSize='xl' variant='solid' onClick={() => speakHandler('Sorry I made a mistake, give me a moment.')}>Mistake<IoFlashOutline /></Button></Center>
             <Center ><Button _hover={{ bg: 'blue.600' }} mt='40px' bg='#00C3F7' w='150px' h='60px' fontFamily='Schoolbell' fontSize='xl' variant='solid' onClick={start}>ALERT!<IoWarningOutline /></Button></Center>
-            <Center ><Button _hover={{ bg: 'blue.600' }} mt='40px' bg='#00C3F7' w='150px' h='60px' fontFamily='Schoolbell' fontSize='xl' variant='solid' onClick={() => handleZoom('in')}>Zoom in<AiOutlineZoomIn /></Button></Center>
-            <Center ><Button _hover={{ bg: 'blue.600' }} mt='40px' mb='40px' bg='#00C3F7' h='60px' fontFamily='Schoolbell' fontSize='xl' w='150px' variant='solid' onClick={() => handleZoom('out')}>Zoom out<AiOutlineZoomOut /></Button></Center>
+            <Center ><Button _hover={{ bg: 'blue.600' }} mt='40px' bg='#00C3F7' w='150px' h='60px' fontFamily='Schoolbell' fontSize='xl' variant='solid' onClick={() => handleZoom('in')}>Bigger<AiOutlineZoomIn /></Button></Center>
+            <Center ><Button _hover={{ bg: 'blue.600' }} mt='40px' mb='40px' bg='#00C3F7' h='60px' fontFamily='Schoolbell' fontSize='xl' w='150px' variant='solid' onClick={() => handleZoom('out')}>Smaller<AiOutlineZoomOut /></Button></Center>
             <IfAuthenticated>
               <Link to='/'>
                 <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' mb='40px' bg='#00C3F7'size='lg' variant='solid' onClick={(e) => handleLogOut()}>Log out</Button></Center>
