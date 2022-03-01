@@ -11,12 +11,16 @@ export default function OutputBox () {
 
   const [displayOutput, setDisplayOutput] = useState(output)
 
+  const synth = window.speechSynthesis
+  const voices = synth.getVoices()
+
   useEffect(() => {
     setDisplayOutput(output)
   }, [output])
 
   function handleAudioSubmit (e) {
-    const utterance = new SpeechSynthesisUtterance(displayOutput.map(item => item[0]).join(' '))
+    const utterance = new SpeechSynthesisUtterance(displayOutput.map(item => item[0]).join(' , '))
+    utterance.voice = voices[0]
     speechSynthesis.speak(utterance)
   }
 
