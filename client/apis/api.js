@@ -19,12 +19,12 @@ export function addUser (user) {
     .catch(e => console.log(e))
 }
 
-// export function seeFavouriteButton (token) {
-//   return request.get(`${rootUrl}` + '/favourites-button')
-//     .set('Authorization', `Bearer ${token}`)
-//     .then(res => res.body)
-//     .catch(e => console.log(e))
-// }
+export function getFavourites (token) {
+  return request.get(`${rootUrl}` + '/users/favourites')
+    .set('Authorization', `Bearer ${token}`)
+    .then(res => res.body)
+    .catch(e => console.log(e))
+}
 
 export function addFavourite (item, token) {
   return request.post(`${rootUrl}` + '/users/add-favourite')

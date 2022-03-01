@@ -26,6 +26,18 @@ router.post('/', checkJwt, async (req, res) => {
   }
 })
 
+router.get('/favourites', checkJwt, async (req, res) => {
+  const userId = await db.findUserId(req.user?.sub)
+  fv.getAllFavourites(userId[0].id)
+    .then(favourites => {
+      return res.json(favourites)
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).send('DB error')
+    })
+})
+
 router.post('/add-favourite', checkJwt, async (req, res) => {
   const userId = await db.findUserId(req.user?.sub)
   const item = req.body.item
