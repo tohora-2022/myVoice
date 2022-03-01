@@ -6,8 +6,6 @@ import { Button, Box, Center, Flex, VStack } from '@chakra-ui/react'
 import { IoHomeOutline, IoWarningOutline, IoCloseCircleOutline, IoCheckmarkCircleOutline, IoFlashOutline, IoHeartOutline } from 'react-icons/io5'
 import { AiOutlineZoomIn, AiOutlineZoomOut } from 'react-icons/ai'
 
-import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
-
 export default function Sidebar () {
   const currentZoom = useSelector(state => state.zoom)
   const possibleZoom = ['130', '150', '170', '190', '210']
