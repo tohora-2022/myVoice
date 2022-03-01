@@ -24,12 +24,12 @@ export default function QuickRows ({ name }) {
 
   return (
     <>
-      <HStack spacing={6} mx={3}px={2} borderRadius={5} mb={1} h={rowHeight} border='2px' borderColor='blue.600'>
+      <HStack width='1500px' spacing={16} mx={3} px={10} borderRadius={5} mb={1} h={rowHeight} border='2px' borderColor='pink.400'>
         {firstHalf?.slice(0, numToShow).map(item => {
           return <Item key={item.itemId} item={item} />
         })}
       </HStack>
-      <HStack spacing={6} mx={3} px={2} borderRadius={5} mb={1} h={rowHeight} border='2px' borderColor='blue.600'>
+      <HStack width='1500px' spacing={16} mx={3} px={10} borderRadius={5} mb={1} h={rowHeight} border='2px' borderColor='pink.400'>
         {secondHalf?.slice(0, numToShow).map(item => {
           return <Item key={item.itemId} item={item} />
         })}

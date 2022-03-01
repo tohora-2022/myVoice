@@ -47,7 +47,7 @@ export default function Sidebar () {
 
   return (
     <>
-      <Flex >
+      <Flex ml='120px' >
         <Box width={200} backgroundImage='./images/giraffe.png' height='full'size='xs' pt='25px' align='right' h='100%' borderRadius='md' mr={10} border='2px' borderColor='green.600'>
           <VStack outline='orange.100' fontFamily='Schoolbell' fontSize='2xl' direction='row' align='center'>
             <Link to='/'>

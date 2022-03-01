@@ -21,10 +21,12 @@ export default function Item (props) {
   }
 
   return (
+
     <Center
       onClick={(e) => handleItemClick(e, itemDetails.word, itemDetails.itemImage)}
-      width={{ base: '120px', md: `${zoom}px` }}
-      height="full">
+      width={{ base: '150px', md: `${zoom}px` }}
+      height="full"
+    >
       <Image
         boxSize= {`${zoom}px`}
         padding={1}
