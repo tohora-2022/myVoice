@@ -9,6 +9,7 @@ import { cacheUser } from '../auth0-utilities'
 
 import Categories from './Categories'
 import DisplayCategory from './DisplayCategory'
+import Favourites from './Favourites'
 import OutputBox from './OutputBox'
 import Sidebar from './Sidebar'
 import Header from './Header'
@@ -31,6 +32,7 @@ function App () {
           <Routes>
             <Route path='/' element={<Categories />} />
             <Route path='/:name' element={<DisplayCategory />} />
+            <Route path='/user/favourites' element={<Favourites />} />
           </Routes>
           <Sidebar/>
         </Flex>
