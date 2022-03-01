@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Image, Center } from '@chakra-ui/react'
 import { Link, useLocation } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 export default function BackButton () {
+  const zoom = useSelector(state => state.zoom)
   const imageSrc = '/images/backButton.png'
   const [path, setPath] = useState(useLocation().pathname)
 
@@ -15,7 +17,7 @@ export default function BackButton () {
   return (
     <Link to={`${path}/..`}>
       <Center
-        width={{ base: '110px', md: '130px' }}
+        width={{ base: '110px', md: `${zoom}px` }}
         height="full"
         padding='2'>
         <Image
