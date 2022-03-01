@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Image, Box, Center } from '@chakra-ui/react'
+import { Button, Image, Box } from '@chakra-ui/react'
 import { useAuth0 } from '@auth0/auth0-react'
 import { Link } from 'react-router-dom'
 
