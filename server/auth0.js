@@ -1,10 +1,8 @@
 const jwt = require('express-jwt')
 const jwks = require('jwks-rsa')
 
-// TODO: set the domain and audience (API Identifier)
-const domain = 'tohora-2022-scott.au.auth0.com'
+const domain = 'https://tohora-2022-scott.au.auth0.com'
 const audience = 'https://myvoice/api'
-
 
 const checkJwt = jwt({
   secret: jwks.expressJwtSecret({

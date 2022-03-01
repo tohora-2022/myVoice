@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { useBreakpointValue, HStack, Center } from '@chakra-ui/react'
+import { useBreakpointValue, HStack } from '@chakra-ui/react'
 
 import Item from './Item'
 
@@ -24,19 +24,15 @@ export default function QuickRows ({ name }) {
 
   return (
     <>
-      <HStack spacing={50} mx={3}px={2} borderRadius={5} mb={1} h={rowHeight} border='2px' borderColor='blue.600'>
-        <Center height="full">
-          {firstHalf?.slice(0, numToShow).map(item => {
-            return <Item key={item.itemId} item={item} />
-          })}
-        </Center>
+      <HStack spacing={6} mx={3}px={2} borderRadius={5} mb={1} h={rowHeight} border='2px' borderColor='blue.600'>
+        {firstHalf?.slice(0, numToShow).map(item => {
+          return <Item key={item.itemId} item={item} />
+        })}
       </HStack>
       <HStack spacing={6} mx={3} px={2} borderRadius={5} mb={1} h={rowHeight} border='2px' borderColor='blue.600'>
-        <Center height="full">
-          {secondHalf?.slice(0, numToShow).map(item => {
-            return <Item key={item.itemId} item={item} />
-          })}
-        </Center>
+        {secondHalf?.slice(0, numToShow).map(item => {
+          return <Item key={item.itemId} item={item} />
+        })}
       </HStack>
     </>
   )

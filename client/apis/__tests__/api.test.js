@@ -22,7 +22,7 @@ const testItems = [
 describe('getCategories', () => {
   it('should return categories', () => {
     const scope = nock('http://localhost')
-      .get('/api/v1/aac/categories')
+      .get('/api/v1/aac/displays/categories')
       .reply(200, testCategories)
 
     return getCategories()
@@ -37,7 +37,7 @@ describe('getCategories', () => {
 describe('getAllItems', () => {
   it('should return a single categoriesItems', () => {
     const scope = nock('http://localhost')
-      .get('/api/v1/aac/items')
+      .get('/api/v1/aac/displays/items')
       .reply(200, testItems)
 
     return getAllItems(1)
