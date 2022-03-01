@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clientId={'rRrcleN76am9LNnMikk5oaxFk9ZqONdX'}
         redirectUri={window.location.origin}
         audience='https://myvoice/api'
-      >,
+      >
         <Provider store={store}>
           <BrowserRouter>
             <App />
