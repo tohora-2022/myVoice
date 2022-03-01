@@ -32,3 +32,10 @@ export function addFavourite (item, token) {
     .send(item)
     .catch(e => console.log(e))
 }
+
+export function addCustomItem (formData, token) {
+  return request.post(`${rootUrl}/customItems/upload`)
+    .set('Authorization', `Bearer ${token}`)
+    .send(formData)
+    .catch(e => console.log(e))
+}

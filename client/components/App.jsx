@@ -8,6 +8,7 @@ import { fetchCategories, fetchItems } from '../actions'
 import { cacheUser } from '../auth0-utilities'
 
 import Categories from './Categories'
+import CustomItem from './CustomItem'
 import DisplayCategory from './DisplayCategory'
 import OutputBox from './OutputBox'
 import Sidebar from './Sidebar'
@@ -30,6 +31,7 @@ function App () {
         <Flex>
           <Routes>
             <Route path='/' element={<Categories />} />
+            <Route path='/custom' element={<CustomItem />} />
             <Route path='/:name' element={<DisplayCategory />} />
           </Routes>
           <Sidebar/>
