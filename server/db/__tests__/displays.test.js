@@ -12,7 +12,7 @@ describe('getCategories', () => {
     expect.assertions(4)
     return db.getCategories(testDb)
       .then(categories => {
-        expect(categories[0]).toEqual({ id: 101, category: 'quick', image: 'none' })
+        expect(categories[0]).toEqual({ id: 101, category: 'quick', image: null })
         expect(categories[2]).toEqual({ id: 103, category: 'descriptions', image: '/images/descriptions/descriptions-category.png' })
         expect(categories[4]).toEqual({ id: 105, category: 'people', image: '/images/people/people-category.png' })
         expect(categories[7]).toEqual({ id: 108, category: 'clothes', image: '/images/clothes/clothes-category.png' })
