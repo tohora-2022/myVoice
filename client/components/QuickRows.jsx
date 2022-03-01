@@ -17,9 +17,9 @@ export default function QuickRows ({ name }) {
   })
 
   const rowHeight = useBreakpointValue({
-    base: '60px',
-    sm: '100px',
-    md: '150px'
+    base: '50px',
+    sm: '90px',
+    md: '140px'
   })
 
   return (

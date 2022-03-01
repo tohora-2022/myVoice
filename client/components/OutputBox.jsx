@@ -87,7 +87,7 @@ export default function OutputBox () {
 
   return (
     <>
-      <Grid fontSize='2xl'backgroundColor='#d8fe8e' pt={1} height='120px' ml={3} border='2px' mt={5} borderRadius='20px' borderColor='blue.600' templateColumns='repeat(15, 1fr)'>
+      <Grid fontSize='2xl'backgroundColor='#d8fe8e' pt={1} pl={5} height='120px' ml={3} border='2px' mt={5} borderRadius='20px' borderColor='blue.600' templateColumns='repeat(15, 1fr)'>
         {displayOutput.map((pic, y) => {
           if (pic[1]) {
             return <Image boxSize='110px' borderRadius='20px' borderColor='#21ad09' mb={2} key={`${pic[0]}-${y}`} className='categoryImage' src={pic[1]} alt={pic[0]} />
