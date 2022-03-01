@@ -15,7 +15,7 @@ function Category ({ name, id, image }) {
   })
 
   const rowHeight = useBreakpointValue({
-    base: '60px',
+    base: '70px',
     sm: '100px',
     md: `${(zoom)}px`
   })

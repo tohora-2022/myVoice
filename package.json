@@ -1,6 +1,9 @@
 {
   "name": "boilerplate-fullstack",
   "version": "2.0.0",
+  "engines": {
+    "node": "16.x"
+  },
   "main": "server/index.js",
   "license": "MIT",
   "keywords": [
@@ -38,6 +41,7 @@
     ]
   },
   "dependencies": {
+    "@auth0/auth0-react": "^1.9.0",
     "@chakra-ui/icons": "^1.1.7",
     "@chakra-ui/react": "^1.8.5",
     "@emotion/react": "^11.8.1",
@@ -47,9 +51,12 @@
     "framer-motion": "^6.2.8",
     "knex": "^1.0.2",
     "nock": "^13.2.4",
-    "pg": "^8.5.1",
+    "pg": "^8.7.3",
     "react-icons": "^4.3.1",
-    "superagent": "^6.1.0"
+    "react-router": "^6.2.1",
+    "superagent": "^6.1.0",
+    "express-jwt": "^6.1.0",
+    "jwks-rsa": "^2.0.5"
   },
   "devDependencies": {
     "@babel/core": "7.12.3",

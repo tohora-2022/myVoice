@@ -5,6 +5,9 @@ import { changeZoom } from '../actions'
 import { Button, Box, Center, Flex, VStack } from '@chakra-ui/react'
 import { IoHomeOutline, IoWarningOutline, IoCloseCircleOutline, IoCheckmarkCircleOutline, IoFlashOutline, IoHeartOutline } from 'react-icons/io5'
 import { AiOutlineZoomIn, AiOutlineZoomOut } from 'react-icons/ai'
+import { useAuth0 } from '@auth0/auth0-react'
+
+import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 
 export default function Sidebar () {
   const currentZoom = useSelector(state => state.zoom)
@@ -30,10 +33,22 @@ export default function Sidebar () {
     }
   }
 
+  const { logout, loginWithRedirect } = useAuth0()
+
+  function handleRegister (e) {
+    loginWithRedirect({ redirectUri: `${window.location.origin}/` })
+  }
+  function handleLogIn (e) {
+    loginWithRedirect()
+  }
+  function handleLogOut (e) {
+    logout()
+  }
+
   return (
     <>
       <Flex >
-        <Box width={200} bg='#21AD09' maxW='xs' pt='25px' align='right' h='100%' borderRadius='md' mr={10} border='2px' borderColor='green.600'>
+        <Box width={200} backgroundImage='./images/giraffe.png' height='full'size='xs' pt='25px' align='right' h='100%' borderRadius='md' mr={10} border='2px' borderColor='green.600'>
           <VStack outline='orange.100' fontFamily='Schoolbell' fontSize='2xl' direction='row' align='center'>
             <Link to='/'>
               <Center ><Button _hover={{ bg: 'blue.600' }} bg='#00C3F7' w='150px' h='60px' fontFamily='Schoolbell' fontSize='2xl' variant='solid'>Home <IoHomeOutline /></Button></Center>
@@ -45,6 +60,19 @@ export default function Sidebar () {
             <Center ><Button _hover={{ bg: 'blue.600' }} mt='40px' bg='#00C3F7' w='150px' h='60px' fontFamily='Schoolbell' fontSize='xl' variant='solid' onClick={start}>ALERT!<IoWarningOutline /></Button></Center>
             <Center ><Button _hover={{ bg: 'blue.600' }} mt='40px' bg='#00C3F7' w='150px' h='60px' fontFamily='Schoolbell' fontSize='xl' variant='solid' onClick={() => handleZoom('in')}>Zoom in<AiOutlineZoomIn /></Button></Center>
             <Center ><Button _hover={{ bg: 'blue.600' }} mt='40px' mb='40px' bg='#00C3F7' h='60px' fontFamily='Schoolbell' fontSize='xl' w='150px' variant='solid' onClick={() => handleZoom('out')}>Zoom out<AiOutlineZoomOut /></Button></Center>
+            <IfAuthenticated>
+              <Link to='/'>
+                <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' mb='40px' bg='#00C3F7'size='lg' variant='solid' onClick={(e) => handleLogOut()}>Log out</Button></Center>
+              </Link>
+            </IfAuthenticated>
+            <IfNotAuthenticated>
+              <Link to='/'>
+                <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' mb='40px' bg='#00C3F7'size='lg' variant='solid' onClick={(e) => handleRegister(e)}>Register</Button></Center>
+              </Link >
+              <Link to='/'>
+                <Center ><Button _hover={{ bg: 'blue.600' }} mt='50px' mb='40px' bg='#00C3F7'size='lg' variant='solid' onClick={(e) => handleLogIn(e)}>Log in</Button></Center>
+              </Link>
+            </IfNotAuthenticated>
           </VStack>
         </Box>
       </Flex>

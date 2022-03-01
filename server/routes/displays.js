@@ -1,15 +1,15 @@
 const express = require('express')
-const db = require('../db/db')
+const db = require('../db/displays')
 
 const router = express.Router()
 
+// Get all categories /api/v1/aac/displays
 router.get('/categories', (req, res) => {
   db.getCategories()
     .then(categories => res.json(categories))
     .catch(e => res.status(500).send(e))
 })
 
-// Get all categories /api/v1/aac/items
 router.get('/items', (req, res) => {
   let categoriesNames = []
   db.getCategories()
@@ -29,7 +29,6 @@ router.get('/items', (req, res) => {
     .catch(e => res.status(500).send(e))
 })
 
-// Get all categories /api/v1/aac
 router.get('/:categoryId', (req, res) => {
   db.getItems(req.params.categoryId)
     .then(items => res.json(items))
