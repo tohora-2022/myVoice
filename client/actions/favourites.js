@@ -1,4 +1,4 @@
-import { addFavourite, getFavourites } from '../apis/api'
+import { addFavourite, getFavourites, deleteFavourite } from '../apis/api'
 
 export const ADD_FAVOURITES = 'ADD_FAVOURITES'
 export const SET_FAVOURITES = 'SET_FAVOURITES'
@@ -32,6 +32,16 @@ export function newFavourite (item, token) {
     return addFavourite(item, token)
       .then(favourites => {
         dispatch(includeFavourite(favourites))
+        return null
+      })
+  }
+}
+
+export function removeFavourite (item, token) {
+  return dispatch => {
+    return deleteFavourite(item, token)
+      .then(favourites => {
+        dispatch(userFavourites(favourites))
         return null
       })
   }

@@ -9,7 +9,6 @@ import BackButton from './BackButton'
 export default function DisplayCategory () {
   const { name } = useParams()
   const items = useSelector(state => state.items[name])
-  // const imageSize = useSelector(state => state.zoom)
   const itemsRowsArray = []
 
   const numToShow = useBreakpointValue({

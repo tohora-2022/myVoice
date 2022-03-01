@@ -13,22 +13,30 @@ export function getAllItems () {
 }
 
 export function addUser (user) {
-  return request.post(`${rootUrl}/users`)
+  return request.post(rootUrl + '/users')
     .set('Authorization', `Bearer ${user.token}`)
     .send(user)
     .catch(e => console.log(e))
 }
 
 export function getFavourites (token) {
-  return request.get(`${rootUrl}` + '/users/favourites')
+  return request.get(rootUrl + '/users/favourites')
     .set('Authorization', `Bearer ${token}`)
     .then(res => res.body)
     .catch(e => console.log(e))
 }
 
 export function addFavourite (item, token) {
-  return request.post(`${rootUrl}` + '/users/add-favourite')
+  return request.post(rootUrl + '/users/add-favourite')
     .set('Authorization', `Bearer ${token}`)
     .send({ item })
+    .catch(e => console.log(e))
+}
+
+export function deleteFavourite (item, token) {
+  return request.delete(rootUrl + '/users/remove-favourite')
+    .set('Authorization', `Bearer ${token}`)
+    .send({ item })
+    .then(res => res.body)
     .catch(e => console.log(e))
 }

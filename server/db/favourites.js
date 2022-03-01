@@ -7,11 +7,6 @@ function getAllFavourites (userId, db = connection) {
     .select('items.id as itemId', 'word', 'items.image as itemImage', 'tag', 'favourites.users_id as usersId')
 }
 
-function addFavourite (userId, favourite, db = connection) {
-  return db('favourites')
-    .insert({ users_id: userId, items_id: favourite })
-}
-
 function favouriteExists (userId, itemId, db = connection) {
   return db('favourites')
     .where('users_id', userId)
@@ -22,8 +17,21 @@ function favouriteExists (userId, itemId, db = connection) {
     })
 }
 
+function addFavourite (userId, favourite, db = connection) {
+  return db('favourites')
+    .insert({ users_id: userId, items_id: favourite })
+}
+
+function deleteFavourite (userId, itemId, db = connection) {
+  return db('favourites')
+    .del()
+    .where('users_id', userId)
+    .where('items_id', itemId)
+}
+
 module.exports = {
   getAllFavourites,
   addFavourite,
+  deleteFavourite,
   favouriteExists
 }

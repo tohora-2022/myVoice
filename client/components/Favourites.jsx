@@ -11,7 +11,6 @@ export default function Favourites () {
   const dispatch = useDispatch()
   const items = useSelector(state => state.favourites)
   const user = useSelector(state => state.user)
-  // const imageSize = useSelector(state => state.zoom)
   const itemsRowsArray = []
 
   const numToShow = useBreakpointValue({
@@ -42,7 +41,6 @@ export default function Favourites () {
         <BackButton/>
       </WrapItem>
       {items?.map((item, i) => {
-        console.log(item)
         return (
           <WrapItem padding='1' margin='1' key={i}>
             <Center>

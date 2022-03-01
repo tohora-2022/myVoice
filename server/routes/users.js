@@ -55,4 +55,20 @@ router.post('/add-favourite', checkJwt, async (req, res) => {
     })
 })
 
+router.delete('/remove-favourite', checkJwt, async (req, res) => {
+  const userId = await db.findUserId(req.user?.sub)
+  const itemId = req.body.item
+  return fv.deleteFavourite(userId[0].id, itemId)
+    .then(() => {
+      return fv.getAllFavourites(userId[0].id)
+    })
+    .then((favourites) => {
+      return res.json(favourites)
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).send('DB error')
+    })
+})
+
 module.exports = router
