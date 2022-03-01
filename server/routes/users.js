@@ -6,7 +6,6 @@ const router = express.Router()
 
 // Add user /api/v1/aac/users
 router.post('/', checkJwt, async (req, res) => {
-  console.log('route: ', req.user)
   const auth0Id = req.user?.sub
   const { email } = req.body
   const user = {

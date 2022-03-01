@@ -21,7 +21,6 @@ export function newFavourite (item, token) {
 }
 
 export function addUser (user) {
-  console.log('happening:', user)
   return request.post(`${rootUrl}/users`)
     .set('Authorization', `Bearer ${user.token}`)
     .send(user)
