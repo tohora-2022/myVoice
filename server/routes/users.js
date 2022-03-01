@@ -26,44 +26,21 @@ router.post('/', checkJwt, async (req, res) => {
   }
 })
 
-// router.get('/favourites-button', (req, res) => {
-//   const id = db.findUserId(req.user?.sub)
-//   fv.getFavButton(id)
-//     .then((opportunity) => {
-//       res.json(opportunity)
-//       return null
-//     })
-//     .catch((err) => {
-//       console.log(err)
-//       res.status(500).send('Error')
-//     })
-// })
-
 router.post('/add-favourite', checkJwt, async (req, res) => {
-  const userId = db.findUserId(req.user?.sub)
-  console.log(userId)
+  const userId = await db.findUserId(req.user?.sub)
   const item = req.body.item
-  fv.addFavourite(userId, item)
+  fv.favouriteExists(userId[0].id, item)
+    .then(favExists => {
+      if (favExists) {
+        return res.sendStatus(200)
+      }
+      return fv.addFavourite(userId[0].id, item)
+    })
     .then(() => res.status(200))
     .catch(err => {
       console.log(err)
       res.status(500).send('DB error')
     })
 })
-
-// const auth0Id = req.user?.sub
-// const { item } = req.body
-// return db.findUserId(auth0Id)
-// try {
-//   fv.addFavourite(auth0Id, item)
-//     .then(() => res.status(200))
-//     .catch(err => {
-//       console.log(err)
-//       res.status(500).send('DB error')
-//     })
-// } catch (err) {
-//   console.error(err)
-//   res.status(500).send(err.message)
-// }
 
 module.exports = router

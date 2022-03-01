@@ -14,10 +14,22 @@ function getFavButton (userId, db = connection) {
 }
 
 function addFavourite (userId, favourite, db = connection) {
-  return db('favourites').where('users_id', userId).insert(favourite)
+  return db('favourites')
+    .insert({ users_id: userId, items_id: favourite })
+}
+
+function favouriteExists (userId, itemId, db = connection) {
+  return db('favourites')
+    .where('users_id', userId)
+    .where('items_id', itemId)
+    .count('items_id as iId')
+    .then(count => {
+      return count[0].iId > 0
+    })
 }
 
 module.exports = {
   getFavButton,
-  addFavourite
+  addFavourite,
+  favouriteExists
 }

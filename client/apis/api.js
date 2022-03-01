@@ -29,6 +29,6 @@ export function addUser (user) {
 export function addFavourite (item, token) {
   return request.post(`${rootUrl}` + '/users/add-favourite')
     .set('Authorization', `Bearer ${token}`)
-    .send(item)
+    .send({ item })
     .catch(e => console.log(e))
 }
