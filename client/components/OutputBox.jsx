@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Button, Grid, Image, GridItem, Input } from '@chakra-ui/react'
+import { Button, Grid, Image, GridItem, Input, Center } from '@chakra-ui/react'
 
 import { AiOutlineSound, AiOutlineDelete } from 'react-icons/ai'
 import { RiChatDeleteLine, RiSendPlaneLine } from 'react-icons/ri'
@@ -86,9 +86,17 @@ export default function OutputBox () {
       <Grid fontSize='2xl'backgroundColor='#d8fe8e' pt={1} height='120px' ml={3} border='2px' mt={5} borderRadius='20px' borderColor='blue.600' templateColumns='repeat(15, 1fr)'>
         {displayOutput.map((pic, y) => {
           if (pic[1]) {
-            return <Image boxSize='110px' borderRadius='20px' borderColor='#21ad09' mb={2} key={`${pic[0]}-${y}`} className='categoryImage' src={pic[1]} alt={pic[0]} />
+            return (
+              <Center justifyContent='center'>
+                <Image boxSize='110px' borderRadius='20px' borderColor='#21ad09' mb={3} key={`${pic[0]}-${y}`} className='categoryImage' src={pic[1]} alt={pic[0]} />
+              </Center>
+            )
           } else {
-            return <span key={`${pic[0]}-${y}`} className='categoryImage'>{pic[0]}</span>
+            return (
+              <Center textTransform='capitalize' as='u' fontWeight='bold'>
+                {pic[0]}
+              </Center>
+            )
           }
         })}
         <GridItem colStart={15} colEnd={15}>
