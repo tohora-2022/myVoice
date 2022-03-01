@@ -8,21 +8,26 @@ export default function Item (props) {
   const dispatch = useDispatch()
   const itemDetails = props.item
 
+  const synth = window.speechSynthesis
+  const voices = synth.getVoices()
+
   function handleItemClick (e, word, image) {
     e.preventDefault()
     const shortItem = [word, image]
     dispatch(addOutputItem(shortItem))
     const utterance = new SpeechSynthesisUtterance(word)
+    utterance.voice = voices[0]
     speechSynthesis.speak(utterance)
   }
+
   return (
     <Center
       onClick={(e) => handleItemClick(e, itemDetails.word, itemDetails.itemImage)}
-      width={{ base: '110px', md: `${zoom}px` }}
-      height="full"
-    >
+      width={{ base: '120px', md: `${zoom}px` }}
+      height="full">
       <Image
         boxSize= {`${zoom}px`}
+        padding={1}
         src={itemDetails.itemImage}
         alt={itemDetails.word}
         maxHeight="full"
