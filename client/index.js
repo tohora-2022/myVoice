@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <BrowserRouter>
             <App />
           </BrowserRouter>
-        </Provider>,
+        </Provider>
       </Auth0Provider>
     </ChakraProvider>,
     document.getElementById('app')
