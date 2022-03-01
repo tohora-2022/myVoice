@@ -31,7 +31,7 @@ export default function DisplayCategory () {
   }, [items])
 
   return (
-    <Wrap justify='center' padding='1' margin='2' borderRadius={5} border='2px' borderColor='blue.600'>
+    <Wrap justify='center' align='center' padding='1' margin='2' borderRadius={5} border='2px' borderColor='blue.600'>
       <WrapItem padding='1' margin='1'>
         <BackButton/>
       </WrapItem>

@@ -6,6 +6,7 @@ import Item from './Item'
 
 export default function QuickRows ({ name }) {
   const items = useSelector(state => state.items[name])
+  const zoom = useSelector(state => state.zoom)
 
   const half = Math.ceil(items?.length / 2)
   const firstHalf = items?.slice(0, half)
@@ -17,9 +18,9 @@ export default function QuickRows ({ name }) {
   })
 
   const rowHeight = useBreakpointValue({
-    base: '50px',
-    sm: '90px',
-    md: '140px'
+    base: '60px',
+    sm: '100px',
+    md: `${zoom}`
   })
 
   return (
