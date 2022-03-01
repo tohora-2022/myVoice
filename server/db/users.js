@@ -1,5 +1,10 @@
 const connection = require('./connection')
 
+function createUser (user, db = connection) {
+  return db('users')
+    .insert(user)
+}
+
 function userExists (auth0Id, db = connection) {
   return db('users')
     .count('auth0_id as n')
@@ -9,12 +14,14 @@ function userExists (auth0Id, db = connection) {
     })
 }
 
-function createUser (user, db = connection) {
+function findUserId (auth0Id, db = connection) {
   return db('users')
-    .insert(user)
+    .where('auth0_id', auth0Id)
+    .select()
 }
 
 module.exports = {
   createUser,
-  userExists
+  userExists,
+  findUserId
 }
