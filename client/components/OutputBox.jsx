@@ -8,6 +8,7 @@ import { addOutputItems, clearOutput, removeLastOutputItem } from '../actions'
 
 export default function OutputBox () {
   const output = useSelector(state => state.output)
+  const items = useSelector(state => state.items)
   const dispatch = useDispatch()
 
   const [displayOutput, setDisplayOutput] = useState(output)
@@ -42,8 +43,42 @@ export default function OutputBox () {
     const utterance = new SpeechSynthesisUtterance(userInput)
     speechSynthesis.speak(utterance)
 
-    dispatch(addOutputItems(userInput.split(' ').map(word => [word])))
+    const userInputArray = userInput.split(' ').map(word => [word])
+    const userInputPayload = userInputArray.map(word => {
+      const item = customFilter(items, 'word', word[0].toLowerCase())
+      if (item) {
+        return [item.word, item.itemImage]
+      } else {
+        return [word]
+      }
+    })
+    dispatch(addOutputItems(userInputPayload))
     setUserInput('')
+  }
+
+  const customFilter = (object, key, value) => {
+    if (Array.isArray(object)) {
+      for (const obj of object) {
+        const result = customFilter(obj, key, value)
+        if (result) {
+          return obj
+        }
+      }
+    } else {
+      // eslint-disable-next-line no-prototype-builtins
+      if (object.hasOwnProperty(key) && object[key] === value) {
+        return object
+      }
+
+      for (const k of Object.keys(object)) {
+        if (typeof object[k] === 'object') {
+          const o = customFilter(object[k], key, value)
+          if (o !== null && typeof o !== 'undefined') { return o }
+        }
+      }
+
+      return null
+    }
   }
 
   function handleUserInputChange (event) {
