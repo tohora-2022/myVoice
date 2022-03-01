@@ -1,9 +1,9 @@
 const request = require('supertest')
 const server = require('../../server')
 
-const { getCategories, getItems } = require('../../db/db')
+const { getCategories, getItems } = require('../../db/displays')
 
-jest.mock('../../db/db')
+jest.mock('../../db/displays')
 
 const testCategories = [
   { id: '1', category: 'testCategory1' },
@@ -25,12 +25,12 @@ const testItems = [
 
 beforeEach(() => jest.clearAllMocks())
 
-describe('GET /api/v1/aac/categories', () => {
+describe('GET /api/v1/aac/displays/categories', () => {
   test('returns categories from database.', () => {
     getCategories.mockReturnValue(Promise.resolve(testCategories))
     expect.assertions(2)
     return request(server)
-      .get('/api/v1/aac/categories')
+      .get('/api/v1/aac/displays/categories')
       .then(res => {
         expect(res.status).toBe(200)
         expect(res.body).toEqual(testCategories)
@@ -42,7 +42,7 @@ describe('GET /api/v1/aac/categories', () => {
     getCategories.mockImplementation(() => Promise.reject(new Error('Database Error')))
     expect.assertions(1)
     return request(server)
-      .get('/api/v1/aac/categories')
+      .get('/api/v1/aac/displays/categories')
       .then(res => {
         expect(res.status).toBe(500)
         return null
@@ -50,12 +50,12 @@ describe('GET /api/v1/aac/categories', () => {
   })
 })
 
-describe('GET /api/v1/aac/:categoryId', () => {
+describe('GET /api/v1/aac/displays/:categoryId', () => {
   test('returns items from database.', () => {
     getItems.mockReturnValue(Promise.resolve(testItems))
     expect.assertions(2)
     return request(server)
-      .get('/api/v1/aac/1')
+      .get('/api/v1/aac/displays/1')
       .then(res => {
         expect(res.status).toBe(200)
         expect(res.body).toEqual(testItems)
@@ -67,7 +67,7 @@ describe('GET /api/v1/aac/:categoryId', () => {
     getItems.mockImplementation(() => Promise.reject(new Error('Database Error')))
     expect.assertions(1)
     return request(server)
-      .get('/api/v1/aac/1')
+      .get('/api/v1/aac/displays/1')
       .then(res => {
         expect(res.status).toBe(500)
         return null
