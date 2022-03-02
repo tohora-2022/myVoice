@@ -74,20 +74,14 @@ describe('POST /api/va/aac/users/add-favourite', () => {
     const item = { id: 907, user_id: 1002, items_id: 54 }
     favDb.favouriteExists.mockReturnValue(Promise.resolve(false))
     favDb.addFavourite.mockImplementation(Promise.resolve(item))
-    // expect.assertions(2)
+    expect.assertions(2)
     return request(server)
       .post('/api/v1/aac/users/add-favourite')
       .send(item)
-      // .end((err, res) => {
       .then(res => {
-        console.log('res: ', res.status)
         expect(favDb.addFavourite).toHaveBeenCalledTimes(1)
-        expect(favDb.addFavourite).toHaveBeenCalledWith(907)
+        expect(favDb.addFavourite).toHaveBeenCalledWith(expect.anything(), item)
         return null
       })
   })
-
-  // it('returns 500 if error', () => {
-  //   console.log
-  // })
 })
