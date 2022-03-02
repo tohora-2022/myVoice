@@ -17,7 +17,7 @@ export default function AddButton ({ extension }) {
   return (
     <Link to={`${path}/${extension}`}>
       <Center
-        width={{ base: '110px', md: `${zoom}px` }}
+        width={{ base: '110px', md: `${zoom.width}px` }}
         height="full"
         padding='2'>
         <Image
