@@ -1,5 +1,5 @@
-import { displayCategories, fetchCategories } from '../category'
-import { getCategories } from '../../apis/api'
+import { displayCategories, fetchCategories, setItems, fetchItems } from '../category'
+import { getCategories, getAllItems } from '../../apis/api'
 
 jest.mock('../../apis/api')
 
@@ -33,5 +33,38 @@ describe('fetchCategories', () => {
         expect(dispatch.mock.calls[0][0].categories).toBe(testCategories)
         return null
       })
+  })
+})
+
+describe('Check items', () => {
+  const fakeItems = [
+    { id: '1', word: 'hi', image: 'https://greeting' },
+    { id: '2', word: 'cheese', image: 'https://brie.co' },
+    { id: '3', word: 'happy', image: 'https://happy.me' }
+  ]
+
+  getAllItems.mockReturnValue(Promise.resolve(fakeItems))
+
+  describe('setItems', () => {
+    it('sets the displayed items in the store', () => {
+      const action = setItems(fakeItems)
+      expect(action.type).toBe('SET_ITEMS')
+      expect(action.items).toBe(fakeItems)
+    })
+  })
+
+  describe('fetchItems', () => {
+    it('gets the items and calls setItems', () => {
+      const dispatch = jest.fn()
+
+      expect.assertions(3)
+      return fetchItems()(dispatch)
+        .then(() => {
+          expect(dispatch).toHaveBeenCalled()
+          expect(dispatch.mock.calls[0][0].type).toBe('SET_ITEMS')
+          expect(dispatch.mock.calls[0][0].items).toBe(fakeItems)
+          return null
+        })
+    })
   })
 })
