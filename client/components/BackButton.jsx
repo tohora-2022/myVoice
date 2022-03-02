@@ -16,7 +16,7 @@ export default function BackButton () {
   return (
     <Center
       onClick={onClickHandler}
-      width={{ base: '110px', md: `${zoom}px` }}
+      width={{ base: '110px', md: `${zoom.width}px` }}
       height="full"
       padding='2'>
       <Image

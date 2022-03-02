@@ -3,10 +3,10 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useBreakpointValue, Wrap, WrapItem, Center } from '@chakra-ui/react'
 
 import ItemFav from './ItemFav'
+import Item from './Item'
 import BackButton from './BackButton'
 
 import { fetchFavourites } from '../actions'
-import Item from './Item'
 
 export default function Favourites () {
   const dispatch = useDispatch()
