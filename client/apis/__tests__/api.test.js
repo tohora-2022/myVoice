@@ -1,5 +1,5 @@
 import nock from 'nock'
-import { getCategories, getAllItems } from '../api.js'
+import { getCategories, getAllItems, addUser, getFavourites, addFavourite, deleteFavourite } from '../api.js'
 
 const testCategories = [
   { id: '1', category: 'testCategory1' },
@@ -44,6 +44,84 @@ describe('getAllItems', () => {
       .then(items => {
         scope.done()
         expect(items).toEqual(testItems)
+        return null
+      })
+  })
+})
+
+describe('addUser', () => {
+  it('should add a new user from auth0', () => {
+    const scopedUser = {
+      auth0Id: 'auth|6453',
+      email: 'thatsme@gmail.com'
+    }
+    const scope = nock('http://localhost')
+      .post('/api/v1/aac/users')
+      .reply(200)
+
+    expect.assertions(1)
+    return addUser(scopedUser)
+      .then(res => {
+        scope.done()
+        expect(res.statusCode).toBe(200)
+        return null
+      })
+  })
+})
+
+describe('getFavourites', () => {
+  const fakeFav = [{ itemId: 101, word: 'me', image: 'http://here.co' }, { itemId: 52, word: 'hello', image: 'http://hello.co' }]
+  const token = 1234
+
+  it('gets all favourites with GET /api/v1/aac/users/favourites', () => {
+    const scope = nock('http://localhost')
+      .get('/api/v1/aac/users/favourites')
+      .reply(200, fakeFav)
+
+    expect.assertions(2)
+    return getFavourites(token)
+      .then(res => {
+        scope.done()
+        expect(res).toEqual(fakeFav)
+        expect(res).toHaveLength(2)
+        return null
+      })
+  })
+})
+
+describe('addFavourite', () => {
+  const fakeFav = [{ userId: 9000, itemId: 3 }]
+  const token = 1234
+
+  it('create a new favourite with POST /api/v1/aac/users/add-favourite', () => {
+    const scope = nock('http://localhost')
+      .post('/api/v1/aac/users/add-favourite')
+      .reply(200, fakeFav)
+
+    expect.assertions(1)
+    return addFavourite(fakeFav, token)
+      .then(res => {
+        scope.done()
+        expect(res.statusCode).toBe(200)
+        return null
+      })
+  })
+})
+
+describe('deleteFavourite', () => {
+  const fakeFav = [{ userId: 9000, itemId: 3 }]
+  const token = 1234
+
+  it('delete a favourite with DELETE /api/v1/aac/users/remove-favourite', () => {
+    const scope = nock('http://localhost')
+      .delete('/api/v1/aac/users/remove-favourite')
+      .reply(200, fakeFav)
+
+    expect.assertions(1)
+    return deleteFavourite(fakeFav, token)
+      .then(res => {
+        scope.done()
+        expect(res).toEqual(fakeFav)
         return null
       })
   })

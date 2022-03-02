@@ -40,7 +40,7 @@ router.get('/favourites', checkJwt, async (req, res) => {
 
 router.post('/add-favourite', checkJwt, async (req, res) => {
   const userId = await db.findUserId(req.user?.sub)
-  const item = req.body.item
+  const item = req.body
   fv.favouriteExists(userId[0].id, item)
     .then(favExists => {
       if (favExists) {
@@ -48,7 +48,7 @@ router.post('/add-favourite', checkJwt, async (req, res) => {
       }
       return fv.addFavourite(userId[0].id, item)
     })
-    .then(() => res.status(200))
+    .then(() => res.status(201))
     .catch(err => {
       console.log(err)
       res.status(500).send('DB error')

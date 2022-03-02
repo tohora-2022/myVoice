@@ -15,6 +15,7 @@ import Favourites from './Favourites'
 import OutputBox from './OutputBox'
 import Sidebar from './Sidebar'
 import Header from './Header'
+import Footer from './Footer'
 
 function App () {
   const dispatch = useDispatch()
@@ -47,6 +48,7 @@ function App () {
           </Routes>
           <Sidebar/>
         </Flex>
+        <Footer />
       </Container>
     </>
   )

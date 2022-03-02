@@ -17,9 +17,9 @@ function favouriteExists (userId, itemId, db = connection) {
     })
 }
 
-function addFavourite (userId, favourite, db = connection) {
+function addFavourite (userId, item, db = connection) {
   return db('favourites')
-    .insert({ users_id: userId, items_id: favourite })
+    .insert({ users_id: userId, items_id: item })
 }
 
 function deleteFavourite (userId, itemId, db = connection) {
