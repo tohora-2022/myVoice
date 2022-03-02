@@ -11,6 +11,40 @@ jest.mock('../../db/favourites')
 
 beforeEach(() => jest.clearAllMocks())
 
+describe('POST user', () => {
+  checkJwt.mockImplementation((req, res, next) => {
+    req.user = {
+      sub: 'auth|123'
+    }
+    next()
+  })
+  const testUserRequest = { email: 'testEmail' }
+  it('can get an existing user', () => {
+    userDb.userExists.mockReturnValue(Promise.resolve(true))
+    // userDb.createUser.mockReturnValue(Promise.resolve(false))
+    expect.assertions(1)
+    return request(server)
+      .post('/api/v1/aac/users')
+      .send(testUserRequest)
+      .then(res => {
+        expect(res.status).toBe(200)
+        return null
+      })
+  })
+  it('can get an create a user', () => {
+    userDb.userExists.mockReturnValue(Promise.resolve(false))
+    // userDb.createUser.mockReturnValue(Promise.resolve(false))
+    expect.assertions(1)
+    return request(server)
+      .post('/api/v1/aac/users')
+      .send(testUserRequest)
+      .then(res => {
+        expect(res.status).toBe(201)
+        return null
+      })
+  })
+})
+
 describe('GET user favourites', () => {
   checkJwt.mockImplementation((req, res, next) => {
     req.user = {
@@ -36,7 +70,7 @@ describe('GET user favourites', () => {
   })
 
   it('returns 500 if hits an error', () => {
-    // console.log = jest.fn()
+    console.log = jest.fn()
     userDb.findUserId.mockReturnValue(Promise.resolve([{ id: 1001 }]))
     favDb.getAllFavourites.mockImplementation(() => Promise.reject(new Error('DB error')))
     expect.assertions(1)

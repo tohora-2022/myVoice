@@ -1,4 +1,4 @@
-import { ADD_FAVOURITES, SET_FAVOURITES } from '../actions'
+import { SET_FAVOURITES, ADD_FAVOURITES } from '../actions'
 
 const initialState = []
 

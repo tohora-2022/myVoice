@@ -1,4 +1,4 @@
-import outputReducer from '../Output'
+import outputReducer from '../output'
 
 import { addOutputItem, addOutputItems, removeLastOutputItem, clearOutput } from '../../actions/output'
 
