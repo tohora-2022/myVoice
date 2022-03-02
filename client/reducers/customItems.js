@@ -10,9 +10,6 @@ export default function customItems (state = initialState, action) {
       return [...state].concat([action.customItem])
     case POP_CUSTOM_ITEM:
       return [...state].filter(customItem => {
-        console.log('customItem', customItem)
-        console.log('action', action)
-        console.log('customItem.id !== action.id', customItem.id !== action.idDeleted)
         return customItem.id !== action.idDeleted
       })
     default:

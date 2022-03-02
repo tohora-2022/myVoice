@@ -39,7 +39,6 @@ export function addCustomItem (formData, token) {
 }
 
 export function popCustomItem (idDeleted) {
-  console.log('action idDeleted ', idDeleted)
   return {
     type: POP_CUSTOM_ITEM,
     idDeleted
