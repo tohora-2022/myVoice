@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
 import categories from './categories'
-import outputReducer from './Output'
+import outputReducer from './output'
 import zoomReducer from './zoom'
 import itemsReducer from './items'
 import favouritesReducer from './favourites'
