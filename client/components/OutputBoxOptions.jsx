@@ -73,7 +73,8 @@ export default function OutputBoxOptions ({ displayOutput, output }) {
       <GridItem colStart={1} colEnd={1}>
         <form onSubmit={handleUserInputSubmit}>
           <Input
-            mt='10px'
+            margin='8px'
+            mb='16px'
             isInvalid
             size='sm'
             backgroundColor='#8FF4E7'
