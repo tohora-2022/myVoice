@@ -9,7 +9,6 @@ import { fetchFavourites } from '../actions'
 
 export default function Favourites () {
   const dispatch = useDispatch()
-  const zoom = useSelector(state => state.zoom)
   const items = useSelector(state => state.favourites)
   const user = useSelector(state => state.user)
   const itemsRowsArray = []
