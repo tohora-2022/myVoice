@@ -54,7 +54,7 @@ export default function Favourites () {
         return (
           <WrapItem padding='1' margin='1' key={i}>
             <Center>
-              <Item item={item} />
+              <ItemFav item={item} />
             </Center>
           </WrapItem>
         )

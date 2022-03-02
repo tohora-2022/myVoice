@@ -30,12 +30,12 @@ export default function CustomItem (props) {
   return (
     <>
       <Center
-        width={{ base: '120px', md: `${zoom}px` }}
+        width={{ base: '120px', md: `${zoom.width}px` }}
         height="full">
         <Flex direction='column'>
           <Image
             onClick={(e) => handleItemClick(e, itemDetails.word, itemDetails.itemImage)}
-            boxSize= {`${zoom}px`}
+            boxSize= {`${zoom.width}px`}
             padding={1}
             src={itemDetails.itemImage}
             alt={itemDetails.word}
