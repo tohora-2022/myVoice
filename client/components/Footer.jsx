@@ -19,7 +19,7 @@ const Footer = () => {
            Ben
           </Link>
           and
-          <Link pl={1}color='blue.600' href=''>
+          <Link pl={1}color='blue.600' href='https://www.linkedin.com/in/scott-symon-277605225/ os' isExternal>
             Scott
           </Link>
           <Text>
