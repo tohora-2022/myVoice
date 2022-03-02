@@ -1,19 +1,19 @@
 import { addFavourite, getFavourites, deleteFavourite } from '../apis/api'
 
-export const ADD_FAVOURITES = 'ADD_FAVOURITES'
 export const SET_FAVOURITES = 'SET_FAVOURITES'
-
-export function includeFavourite (favourite) {
-  return {
-    type: ADD_FAVOURITES,
-    favourite
-  }
-}
+export const ADD_FAVOURITES = 'ADD_FAVOURITES'
 
 export function userFavourites (favourites) {
   return {
     type: SET_FAVOURITES,
     favourites
+  }
+}
+
+export function includeFavourite (favourite) {
+  return {
+    type: ADD_FAVOURITES,
+    favourite
   }
 }
 
