@@ -50,14 +50,14 @@ describe('GET user favourites', () => {
 })
 
 // On hold as id doesn't recognise req.body.item on line 43
-// describe('POST /api/va/aac/users/add-favourite', () => {
+// ('POST /api/va/aac/users/add-favourite', () => {
 //   checkJwt.mockImplementation((req, res, next) => {
 //     req.user = {
 //       sub: 'auth|123'
 //     }
 //     next()
 //   })
-//   it('adds favourite to users', () => {
+//   ('adds favourite to users', () => {
 //     const item = { id: 907, user_id: 1002, items_id: 54 }
 //     favDb.favouriteExists.mockReturnValue(Promise.resolve(false))
 //     favDb.addFavourite.mockImplementation(Promise.resolve(item))
