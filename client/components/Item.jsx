@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addOutputItem, newFavourite } from '../actions'
-import { Image, Center } from '@chakra-ui/react'
+import { Image, Center, Badge, Tooltip } from '@chakra-ui/react'
+
+import { HiOutlineStar } from 'react-icons/hi'
 
 export default function Item (props) {
   const zoom = useSelector(state => state.zoom)
@@ -26,22 +28,40 @@ export default function Item (props) {
     dispatch(newFavourite(itemDetails.itemId, user.token))
   }
 
+  const [isHovering, setIsHovering] = useState(false)
+
+  function handleMouseEnter () {
+    console.log('handleMouseEnter')
+    setIsHovering(true)
+  }
+
+  function handleMouseLeave () {
+    console.log('handleMouseLeave')
+    setIsHovering(false)
+  }
+
   return (
     <>
       <Center
-        onClick={(e) => handleItemClick(e, itemDetails.word, itemDetails.itemImage)}
         width={{ base: '120px', md: `${zoom}px` }}
         height="full">
         <Image
+          onClick={(e) => handleItemClick(e, itemDetails.word, itemDetails.itemImage)}
           boxSize= {`${zoom}px`}
           padding={1}
+          boxShadow='dark-lg'
           src={itemDetails.itemImage}
           alt={itemDetails.word}
           maxHeight="full"
           borderRadius='20px'
+          cursor='pointer'
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         />
+        <Badge cursor='pointer' size={30} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} bgColor = 'transparent' alignSelf='flex-start' ml={-7} mt={3}>
+          <HiOutlineStar size={30} visibility={isHovering ? 'visible' : 'hidden'} onClick={(e) => clickSaveFavourite(e)}/>
+        </Badge>
       </Center>
-      <p onClick={(e) => clickSaveFavourite(e)}>+</p>
     </>
   )
 }

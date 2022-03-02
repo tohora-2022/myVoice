@@ -11,7 +11,7 @@ function Category ({ name, id, image }) {
 
   const numToShow = useBreakpointValue({
     base: 5,
-    sm: 7
+    sm: 8
   })
 
   const rowHeight = useBreakpointValue({
@@ -22,7 +22,7 @@ function Category ({ name, id, image }) {
 
   return (
     <>
-      <HStack width='1500px' spacing={16} mx={3} px={10} borderRadius={5} mb={1} h={rowHeight} border='2px' borderColor='blue.600'>
+      <HStack width='1500px' spacing={10} mx={3} px={10} borderRadius={5} mb={1} h={rowHeight} border='2px' borderColor='blue.600'>
         <Center height="full">
           <Link to={`/${name}`}>
             <Image src={image} alt={name} borderRadius='20px' maxWidth={`${zoom}px`} height="auto"/>
