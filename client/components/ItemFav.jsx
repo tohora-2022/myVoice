@@ -30,12 +30,10 @@ export default function Item (props) {
   const [isHovering, setIsHovering] = useState(false)
 
   function handleMouseEnter () {
-    console.log('handleMouseEnter')
     setIsHovering(true)
   }
 
   function handleMouseLeave () {
-    console.log('handleMouseLeave')
     setIsHovering(false)
   }
 

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useBreakpointValue, Wrap, WrapItem, Center } from '@chakra-ui/react'
 
 import ItemFav from './ItemFav'
+// import Item from './Item'
 import BackButton from './BackButton'
 
 import { fetchFavourites } from '../actions'
@@ -10,7 +11,7 @@ import { fetchFavourites } from '../actions'
 export default function Favourites () {
   const dispatch = useDispatch()
   const items = useSelector(state => state.favourites)
-  const customItems = useSelector(state => state.customItems)
+  // const customItems = useSelector(state => state.customItems)
   const user = useSelector(state => state.user)
   const itemsRowsArray = []
 
@@ -50,7 +51,7 @@ export default function Favourites () {
           </WrapItem>
         )
       })}
-      {customItems?.map((item, i) => {
+      {/* {customItems?.map((item, i) => {
         return (
           <WrapItem padding='1' margin='1' key={i}>
             <Center>
@@ -58,7 +59,7 @@ export default function Favourites () {
             </Center>
           </WrapItem>
         )
-      })}
+      })} */}
     </Wrap>
   )
 }
