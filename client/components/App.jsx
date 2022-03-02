@@ -11,6 +11,7 @@ import Categories from './Categories'
 import CustomItemsDisplay from './CustomItemsDisplay'
 import CustomItemsCreate from './CustomItemsCreate'
 import DisplayCategory from './DisplayCategory'
+import Favourites from './Favourites'
 import OutputBox from './OutputBox'
 import Sidebar from './Sidebar'
 import Header from './Header'
@@ -42,6 +43,7 @@ function App () {
             <Route path='/custom' element={<CustomItemsDisplay />} />
             <Route path='/custom/create' element={<CustomItemsCreate />} />
             <Route path='/:name' element={<DisplayCategory />} />
+            <Route path='/user/favourites' element={<Favourites />} />
           </Routes>
           <Sidebar/>
         </Flex>

@@ -88,13 +88,13 @@ export default function OutputBoxOptions ({ displayOutput, output }) {
         </form>
       </GridItem>
       <GridItem colStart={2} colEnd={2} >
-        <Button mt='5px' ml='10px' bg='#00C3F7' size='md' variant='solid' fontFamily='Schoolbell' fontSize='2xl' Button _hover={{ bg: 'blue.600' }} onClick={handleUserInputSubmit}>Submit <RiSendPlaneLine /></Button>
+        <Button mt='5px' ml='10px' bg='#00C3F7' size='md' variant='solid' fontFamily='Schoolbell' fontSize='2xl' Button _hover={{ bg: 'blue.600', color: 'white' }} onClick={handleUserInputSubmit}>Submit <RiSendPlaneLine /></Button>
       </GridItem>
       <GridItem colStart={13} colEnd={13} mr={3}>
-        <Button mt='5px' mr={1}bg='#00C3F7' size='md' variant='solid' fontFamily='Schoolbell' fontSize='2xl' Button _hover={{ bg: 'blue.600' }} onClick={handleDelete}>Delete <RiChatDeleteLine /></Button>
+        <Button mt='5px' mr={1}bg='#00C3F7' size='md' variant='solid' fontFamily='Schoolbell' fontSize='2xl' Button _hover={{ bg: 'blue.600', color: 'white' }} onClick={handleDelete}>Delete <RiChatDeleteLine /></Button>
       </GridItem>
       <GridItem colStart={15} colEnd={15}mr={3}>
-        <Button mt='5px' mb='5px' bg='#00C3F7' mr={3} size='md' variant='solid' fontFamily='Schoolbell' fontSize='2xl'Button _hover={{ bg: 'blue.600' }} onClick={handleClearAll}>Clear<AiOutlineDelete /></Button>
+        <Button mt='5px' mb='5px' bg='#00C3F7' mr={3} size='md' variant='solid' fontFamily='Schoolbell' fontSize='2xl'Button _hover={{ bg: 'blue.600', color: 'white' }} onClick={handleClearAll}>Clear<AiOutlineDelete /></Button>
       </GridItem>
     </Grid>
   )
