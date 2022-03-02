@@ -26,6 +26,7 @@ router.post('/', checkJwt, async (req, res) => {
   }
 })
 
+// Get user favourites /api/v1/aac/users/favourites
 router.get('/favourites', checkJwt, async (req, res) => {
   const userId = await db.findUserId(req.user?.sub)
   fv.getAllFavourites(userId[0].id)
@@ -38,6 +39,7 @@ router.get('/favourites', checkJwt, async (req, res) => {
     })
 })
 
+// Post to add a new user favourite /api/v1/aac/users/add-favourite
 router.post('/add-favourite', checkJwt, async (req, res) => {
   const userId = await db.findUserId(req.user?.sub)
   const item = req.body
@@ -55,6 +57,7 @@ router.post('/add-favourite', checkJwt, async (req, res) => {
     })
 })
 
+// Delete a user favourite /api/v1/aac/users/remove-favourite
 router.delete('/remove-favourite', checkJwt, async (req, res) => {
   const userId = await db.findUserId(req.user?.sub)
   const itemId = req.body.item

@@ -25,6 +25,40 @@ jest.mock('../../db/favourites')
 
 beforeEach(() => jest.clearAllMocks())
 
+describe('POST user', () => {
+  checkJwt.mockImplementation((req, res, next) => {
+    req.user = {
+      sub: 'auth|123'
+    }
+    next()
+  })
+  const testUserRequest = { email: 'testEmail' }
+  it('can get an existing user', () => {
+    userDb.userExists.mockReturnValue(Promise.resolve(true))
+    // userDb.createUser.mockReturnValue(Promise.resolve(false))
+    expect.assertions(1)
+    return request(server)
+      .post('/api/v1/aac/users')
+      .send(testUserRequest)
+      .then(res => {
+        expect(res.status).toBe(200)
+        return null
+      })
+  })
+  it('can get an create a user', () => {
+    userDb.userExists.mockReturnValue(Promise.resolve(false))
+    // userDb.createUser.mockReturnValue(Promise.resolve(false))
+    expect.assertions(1)
+    return request(server)
+      .post('/api/v1/aac/users')
+      .send(testUserRequest)
+      .then(res => {
+        expect(res.status).toBe(201)
+        return null
+      })
+  })
+})
+
 describe('GET user favourites', () => {
   checkJwt.mockImplementation((req, res, next) => {
     req.user = {
@@ -50,7 +84,7 @@ describe('GET user favourites', () => {
   })
 
   it('returns 500 if hits an error', () => {
-    // console.log = jest.fn()
+    console.log = jest.fn()
     userDb.findUserId.mockReturnValue(Promise.resolve([{ id: 1001 }]))
     favDb.getAllFavourites.mockImplementation(() => Promise.reject(new Error('DB error')))
     expect.assertions(1)
@@ -81,6 +115,34 @@ describe('POST /api/va/aac/users/add-favourite', () => {
       .then(res => {
         expect(favDb.addFavourite).toHaveBeenCalledTimes(1)
         expect(favDb.addFavourite).toHaveBeenCalledWith(expect.anything(), item)
+        return null
+      })
+  })
+})
+
+describe('DEL /api/va/aac/users/remove-favourite', () => {
+  checkJwt.mockImplementation((req, res, next) => {
+    req.user = {
+      sub: 'auth|123'
+    }
+    next()
+  })
+  it('deletes favourite for a user', () => {
+    const item = '{ id: 907, user_id: 1002, items_id: 54 }'
+    const resItems = '{ item1: { id: 907, user_id: 1002, items_id: 54 } }'
+    const userId = 1002
+    userDb.findUserId.mockReturnValue(Promise.resolve([{ id: 1002 }]))
+    favDb.deleteFavourite.mockReturnValue(Promise.resolve([1]))
+    favDb.getAllFavourites.mockReturnValue(Promise.resolve(resItems))
+    expect.assertions(4)
+    return request(server)
+      .delete('/api/v1/aac/users/remove-favourite')
+      .send({ item: '{ id: 907, user_id: 1002, items_id: 54 }' })
+      .then(res => {
+        expect(favDb.deleteFavourite).toHaveBeenCalledTimes(1)
+        expect(favDb.getAllFavourites).toHaveBeenCalledTimes(1)
+        expect(favDb.deleteFavourite).toHaveBeenCalledWith(userId, item)
+        expect(res.body).toBe(resItems)
         return null
       })
   })
