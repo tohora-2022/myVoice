@@ -1,5 +1,6 @@
 const express = require('express')
 const db = require('../db/users')
+const fv = require('../db/favourites')
 const checkJwt = require('../auth0')
 
 const router = express.Router()
@@ -25,7 +26,52 @@ router.post('/', checkJwt, async (req, res) => {
   }
 })
 
-// router.post('/favourites', checkJwt, (req, res) => {
-// })
+// Get user favourites /api/v1/aac/users/favourites
+router.get('/favourites', checkJwt, async (req, res) => {
+  const userId = await db.findUserId(req.user?.sub)
+  fv.getAllFavourites(userId[0].id)
+    .then(favourites => {
+      return res.json(favourites)
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).send('DB error')
+    })
+})
+
+// Post to add a new user favourite /api/v1/aac/users/add-favourite
+router.post('/add-favourite', checkJwt, async (req, res) => {
+  const userId = await db.findUserId(req.user?.sub)
+  const item = req.body.item
+  fv.favouriteExists(userId[0].id, item)
+    .then(favExists => {
+      if (favExists) {
+        return res.sendStatus(200)
+      }
+      return fv.addFavourite(userId[0].id, item)
+    })
+    .then(() => res.status(201))
+    .catch(err => {
+      console.log(err)
+      res.status(500).send('DB error')
+    })
+})
+
+// Delete a user favourite /api/v1/aac/users/remove-favourite
+router.delete('/remove-favourite', checkJwt, async (req, res) => {
+  const userId = await db.findUserId(req.user?.sub)
+  const itemId = req.body.item
+  return fv.deleteFavourite(userId[0].id, itemId)
+    .then(() => {
+      return fv.getAllFavourites(userId[0].id)
+    })
+    .then((favourites) => {
+      return res.json(favourites)
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).send('DB error')
+    })
+})
 
 module.exports = router

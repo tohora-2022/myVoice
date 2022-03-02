@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux'
 
 import categories from './categories'
-import outputReducer from './Output'
+import outputReducer from './output'
 import zoomReducer from './zoom'
 import itemsReducer from './items'
+import favouritesReducer from './favourites'
+import customItems from './customItems'
 import user from './user'
 
 export default combineReducers({
@@ -11,5 +13,7 @@ export default combineReducers({
   categories,
   user,
   zoom: zoomReducer,
-  items: itemsReducer
+  items: itemsReducer,
+  favourites: favouritesReducer,
+  customItems
 })

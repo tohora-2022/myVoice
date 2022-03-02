@@ -1,20 +1,28 @@
 import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
 import { useBreakpointValue, Wrap, WrapItem, Center } from '@chakra-ui/react'
 
-import Item from './Item'
+import ItemFav from './ItemFav'
 import BackButton from './BackButton'
 
-export default function DisplayCategory () {
-  const { name } = useParams()
-  const items = useSelector(state => state.items[name])
+import { fetchFavourites } from '../actions'
+import Item from './Item'
+
+export default function Favourites () {
+  const dispatch = useDispatch()
+  const items = useSelector(state => state.favourites)
+  const customItems = useSelector(state => state.customItems)
+  const user = useSelector(state => state.user)
   const itemsRowsArray = []
 
   const numToShow = useBreakpointValue({
     base: 5,
     sm: 7
   })
+
+  useEffect(() => {
+    dispatch(fetchFavourites(user.token))
+  }, [])
 
   useEffect(() => {
     if (items) {
@@ -30,11 +38,20 @@ export default function DisplayCategory () {
   }, [items])
 
   return (
-    <Wrap justify='center' align='center' padding='1' margin='2' borderRadius={5} border='2px' borderColor='blue.600'>
+    <Wrap width='1500px' justify='center' align='center' padding='1' margin='2' borderRadius={5} border='2px' borderColor='blue.600'>
       <WrapItem padding='1' margin='1'>
         <BackButton/>
       </WrapItem>
       {items?.map((item, i) => {
+        return (
+          <WrapItem padding='1' margin='1' key={i}>
+            <Center>
+              <ItemFav item={item} />
+            </Center>
+          </WrapItem>
+        )
+      })}
+      {customItems?.map((item, i) => {
         return (
           <WrapItem padding='1' margin='1' key={i}>
             <Center>

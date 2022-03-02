@@ -2,7 +2,7 @@ exports.seed = function (knex) {
   return knex('categories').del()
     .then(function () {
       return knex('categories').insert([
-        { id: 101, category: 'quick', image: 'none' },
+        { id: 101, category: 'quick', image: null },
         { id: 102, category: 'actions', image: '/images/actions/actions-category.png' },
         { id: 103, category: 'descriptions', image: '/images/descriptions/descriptions-category.png' },
         { id: 104, category: 'feelings', image: '/images/feelings/feelings-category.png' },
@@ -10,7 +10,7 @@ exports.seed = function (knex) {
         { id: 106, category: 'food', image: '/images/food/food-category.png' },
         { id: 107, category: 'activities', image: '/images/activites/activities-category.png' },
         { id: 108, category: 'clothes', image: '/images/clothes/clothes-category.png' },
-        { id: 109, category: 'homepage', image: 'none' }
+        { id: 109, category: 'homepage', image: null }
       ])
     })
 }

@@ -1,26 +1,37 @@
 import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Flex, Container } from '@chakra-ui/react'
 import { Routes, Route } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 
-import { fetchCategories, fetchItems } from '../actions'
+import { fetchCategories, fetchCustomItems, fetchItems } from '../actions'
 import { cacheUser } from '../auth0-utilities'
 
 import Categories from './Categories'
+import CustomItemsDisplay from './CustomItemsDisplay'
+import CustomItemsCreate from './CustomItemsCreate'
 import DisplayCategory from './DisplayCategory'
+import Favourites from './Favourites'
 import OutputBox from './OutputBox'
 import Sidebar from './Sidebar'
 import Header from './Header'
+import Footer from './Footer'
 
 function App () {
   const dispatch = useDispatch()
   cacheUser(useAuth0)
+  const user = useSelector(state => state.user)
 
   useEffect(() => {
     dispatch(fetchCategories())
     dispatch(fetchItems())
   }, [])
+
+  useEffect(() => {
+    if (user.token) {
+      dispatch(fetchCustomItems(user.token))
+    }
+  }, [user])
 
   return (
     <>
@@ -30,10 +41,14 @@ function App () {
         <Flex>
           <Routes>
             <Route path='/' element={<Categories />} />
+            <Route path='/custom' element={<CustomItemsDisplay />} />
+            <Route path='/custom/create' element={<CustomItemsCreate />} />
             <Route path='/:name' element={<DisplayCategory />} />
+            <Route path='/user/favourites' element={<Favourites />} />
           </Routes>
           <Sidebar/>
         </Flex>
+        <Footer />
       </Container>
     </>
   )
