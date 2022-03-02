@@ -27,7 +27,7 @@ export default function OutputBox () {
   return (
     <>
       <Flex minW='80%' minH='102px' padding='1' margin='2' borderRadius={5} border='2px' borderColor='blue.600'>
-        <Wrap align='center' flexGrow={1}>
+        <Wrap align='center' flexGrow={1} margin='4px'>
           {displayOutput?.map((item, i) => {
             return <OutputBoxItem item={item} key={i}/>
           })}

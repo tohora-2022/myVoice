@@ -8,6 +8,7 @@ server.use(express.static(path.join(__dirname, 'public')))
 
 server.use('/api/v1/aac/displays', require('./routes/displays'))
 server.use('/api/v1/aac/users', require('./routes/users'))
+server.use('/api/v1/aac/customItems', require('./routes/customItems'))
 
 server.get('*', (req, res) => {
   res.sendFile(path.resolve('server/public/index.html'))

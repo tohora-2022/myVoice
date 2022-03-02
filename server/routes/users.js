@@ -42,7 +42,7 @@ router.get('/favourites', checkJwt, async (req, res) => {
 // Post to add a new user favourite /api/v1/aac/users/add-favourite
 router.post('/add-favourite', checkJwt, async (req, res) => {
   const userId = await db.findUserId(req.user?.sub)
-  const item = req.body
+  const item = req.body.item
   fv.favouriteExists(userId[0].id, item)
     .then(favExists => {
       if (favExists) {
