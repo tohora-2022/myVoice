@@ -14,9 +14,6 @@ export default function CustomItemsDisplay () {
       <WrapItem padding='1' margin='1'>
         <BackButton/>
       </WrapItem>
-      <WrapItem padding='1' margin='1'>
-        <AddButton extension={'create'}/>
-      </WrapItem>
       {customItems?.map((item, i) => {
         return (
           <WrapItem padding='1' margin='1' key={i}>
@@ -26,6 +23,9 @@ export default function CustomItemsDisplay () {
           </WrapItem>
         )
       })}
+      <WrapItem padding='1' margin='1'>
+        <AddButton extension={'create'}/>
+      </WrapItem>
     </Wrap>
   )
 }
