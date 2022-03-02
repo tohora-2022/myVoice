@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addOutputItem, newFavourite } from '../actions'
+import { addOutputItem, newFavourite, removeFavourite } from '../actions'
 import { Image, Center, Badge, Tooltip } from '@chakra-ui/react'
-
 import { HiOutlineStar } from 'react-icons/hi'
 
 export default function Item (props) {
   const zoom = useSelector(state => state.zoom)
-  const user = useSelector(state => state.user)
+  // const user = useSelector(state => state.user)
   const dispatch = useDispatch()
   const itemDetails = props.item
 
@@ -23,10 +22,15 @@ export default function Item (props) {
     speechSynthesis.speak(utterance)
   }
 
-  function clickSaveFavourite (e) {
-    e.preventDefault()
-    dispatch(newFavourite(itemDetails.itemId, user.token))
-  }
+  // function clickSaveFavourite (e) {
+  //   e.preventDefault()
+  //   dispatch(newFavourite(itemDetails.itemId, user.token))
+  // }
+
+  // function clickRemoveFavourite (e) {
+  //   e.preventDefault()
+  //   dispatch(removeFavourite(itemDetails.itemId, user.token))
+  // }
 
   const [isHovering, setIsHovering] = useState(false)
 

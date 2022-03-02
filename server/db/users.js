@@ -17,7 +17,7 @@ function userExists (auth0Id, db = connection) {
 function findUserId (auth0Id, db = connection) {
   return db('users')
     .where('auth0_id', auth0Id)
-    .select()
+    .select('id')
 }
 
 module.exports = {

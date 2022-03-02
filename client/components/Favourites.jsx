@@ -1,20 +1,26 @@
 import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
 import { useBreakpointValue, Wrap, WrapItem, Center } from '@chakra-ui/react'
 
 import Item from './Item'
 import BackButton from './BackButton'
 
-export default function DisplayCategory () {
-  const { name } = useParams()
-  const items = useSelector(state => state.items[name])
+import { fetchFavourites } from '../actions'
+
+export default function Favourites () {
+  const dispatch = useDispatch()
+  const items = useSelector(state => state.favourites)
+  const user = useSelector(state => state.user)
   const itemsRowsArray = []
 
   const numToShow = useBreakpointValue({
     base: 5,
     sm: 7
   })
+
+  useEffect(() => {
+    dispatch(fetchFavourites(user.token))
+  }, [])
 
   useEffect(() => {
     if (items) {
