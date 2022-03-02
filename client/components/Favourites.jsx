@@ -6,6 +6,7 @@ import ItemFav from './ItemFav'
 import BackButton from './BackButton'
 
 import { fetchFavourites } from '../actions'
+import Item from './ItemFav'
 
 export default function Favourites () {
   const dispatch = useDispatch()
