@@ -16,21 +16,18 @@ export function addUser (user) {
   return request.post(rootUrl + '/users')
     .set('Authorization', `Bearer ${user.token}`)
     .send(user)
-    .catch(e => console.log(e))
 }
 
 export function getFavourites (token) {
   return request.get(rootUrl + '/users/favourites')
     .set('Authorization', `Bearer ${token}`)
     .then(res => res.body)
-    .catch(e => console.log(e))
 }
 
 export function addFavourite (item, token) {
   return request.post(rootUrl + '/users/add-favourite')
     .set('Authorization', `Bearer ${token}`)
     .send({ item })
-    .catch(e => console.log(e))
 }
 
 export function deleteFavourite (item, token) {
@@ -38,5 +35,4 @@ export function deleteFavourite (item, token) {
     .set('Authorization', `Bearer ${token}`)
     .send({ item })
     .then(res => res.body)
-    .catch(e => console.log(e))
 }
