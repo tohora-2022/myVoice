@@ -1,15 +1,20 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { changeZoom } from '../actions'
 import { Button, Box, Center, Flex, VStack } from '@chakra-ui/react'
 import { IoHomeOutline, IoWarningOutline, IoCloseCircleOutline, IoCheckmarkCircleOutline, IoFlashOutline, IoHeartOutline } from 'react-icons/io5'
 import { AiOutlineZoomIn, AiOutlineZoomOut } from 'react-icons/ai'
+import { SettingsIcon } from '@chakra-ui/icons'
+import { useAuth0 } from '@auth0/auth0-react'
 
 export default function Sidebar () {
   const currentZoom = useSelector(state => state.zoom)
+  const user = useSelector(state => state.user)
+  const { loginWithRedirect } = useAuth0()
   const possibleZoom = ['130', '150', '170', '190', '210']
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const synth = window.speechSynthesis
   const voices = synth.getVoices()
@@ -35,6 +40,15 @@ export default function Sidebar () {
     }
   }
 
+  const editCustomClickHandler = (word) => {
+    if (!user.token) {
+      loginWithRedirect()
+    } else {
+      speakHandler('custom')
+      navigate('/custom')
+    }
+  }
+
   return (
     <>
       <Flex ml='120px' mb={2} >
@@ -51,7 +65,8 @@ export default function Sidebar () {
             <Center ><Button _hover={{ bg: 'blue.600', color: 'white' }} mt='40px' bg='#00C3F7' w='150px' h='60px' fontFamily='Schoolbell' fontSize='xl' variant='solid' onClick={() => speakHandler('Sorry I made a mistake, let me start again.')}>Mistake<IoFlashOutline /></Button></Center>
             <Center ><Button _hover={{ bg: 'blue.600', color: 'white' }} mt='40px' bg='#00C3F7' w='150px' h='60px' fontFamily='Schoolbell' fontSize='xl' variant='solid' onClick={start}>ALERT!<IoWarningOutline /></Button></Center>
             <Center ><Button _hover={{ bg: 'blue.600', color: 'white' }} mt='40px' bg='#00C3F7' w='150px' h='60px' fontFamily='Schoolbell' fontSize='xl' variant='solid' onClick={() => handleZoom('in')}>Bigger<AiOutlineZoomIn /></Button></Center>
-            <Center ><Button _hover={{ bg: 'blue.600', color: 'white' }} mt='40px' mb='40px' bg='#00C3F7' h='60px' fontFamily='Schoolbell' fontSize='xl' w='150px' variant='solid' onClick={() => handleZoom('out')}>Smaller<AiOutlineZoomOut /></Button></Center>
+            <Center ><Button _hover={{ bg: 'blue.600', color: 'white' }} mt='40px' bg='#00C3F7' w='150px' h='60px' fontFamily='Schoolbell' fontSize='xl' variant='solid' onClick={() => handleZoom('out')}>Smaller<AiOutlineZoomOut /></Button></Center>
+            <Center ><Button _hover={{ bg: 'blue.600', color: 'white' }} mt='40px' mb='40px' bg='#00C3F7' w='150px' h='60px' fontFamily='Schoolbell' fontSize='xl' variant='solid' onClick={editCustomClickHandler}>Custom <SettingsIcon /></Button></Center>
           </VStack>
         </Box>
       </Flex>

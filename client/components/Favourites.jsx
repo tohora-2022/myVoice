@@ -10,6 +10,7 @@ import { fetchFavourites } from '../actions'
 export default function Favourites () {
   const dispatch = useDispatch()
   const items = useSelector(state => state.favourites)
+  const customItems = useSelector(state => state.customItems)
   const user = useSelector(state => state.user)
   const itemsRowsArray = []
 
@@ -41,6 +42,15 @@ export default function Favourites () {
         <BackButton/>
       </WrapItem>
       {items?.map((item, i) => {
+        return (
+          <WrapItem padding='1' margin='1' key={i}>
+            <Center>
+              <Item item={item} />
+            </Center>
+          </WrapItem>
+        )
+      })}
+      {customItems?.map((item, i) => {
         return (
           <WrapItem padding='1' margin='1' key={i}>
             <Center>

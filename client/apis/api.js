@@ -36,3 +36,27 @@ export function deleteFavourite (item, token) {
     .send({ item })
     .then(res => res.body)
 }
+
+export function getCustomItems (token) {
+  return request.get(`${rootUrl}/customItems`)
+    .set('Authorization', `Bearer ${token}`)
+    .then(res => res.body)
+    .catch(e => console.log(e))
+}
+
+export function postCustomItem (formData, token) {
+  return request.post(`${rootUrl}/customItems/upload`)
+    .set('Authorization', `Bearer ${token}`)
+    .send(formData)
+    .then(res => res.body)
+    .catch(e => console.log(e))
+}
+
+export function deleteCustomItem (id, token) {
+  return request.del(`${rootUrl}/customItems/delete/${id}`)
+    .set('Authorization', `Bearer ${token}`)
+    .then(res => {
+      return res.body
+    })
+    .catch(e => console.log(e))
+}
