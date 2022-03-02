@@ -2,9 +2,9 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { Wrap, WrapItem, Center } from '@chakra-ui/react'
 
-import Item from './Item'
 import BackButton from './BackButton'
 import AddButton from './AddButton'
+import CustomItem from './CustomItem'
 
 export default function CustomItemsDisplay () {
   const customItems = useSelector(state => state.customItems)
@@ -21,7 +21,7 @@ export default function CustomItemsDisplay () {
         return (
           <WrapItem padding='1' margin='1' key={i}>
             <Center>
-              <Item item={item} />
+              <CustomItem item={item} />
             </Center>
           </WrapItem>
         )

@@ -47,3 +47,15 @@ export function postCustomItem (formData, token) {
     .then(res => res.body)
     .catch(e => console.log(e))
 }
+
+export function deleteCustomItem (id, token) {
+  console.log(`${rootUrl}/customItems/delete/${id}`)
+  return request.del(`${rootUrl}/customItems/delete/${id}`)
+    .set('Authorization', `Bearer ${token}`)
+    .then(res => {
+      console.log('res', res)
+      console.log('res.body', res.body)
+      return res.body
+    })
+    .catch(e => console.log(e))
+}

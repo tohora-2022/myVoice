@@ -22,7 +22,7 @@ function addCustomItem (word, path, userId, db = connection) {
 }
 
 function deleteCustomItem (id, db = connection) {
-  return db('customItems').where({ id }).del()
+  return db('customItems').where({ id }).delete()
 }
 
 function updateCustomItemPath (id, path, db = connection) {
