@@ -30,21 +30,23 @@ export default function Item (props) {
   const [isHovering, setIsHovering] = useState(false)
 
   function handleMouseEnter () {
+    console.log('handleMouseEnter')
     setIsHovering(true)
   }
 
   function handleMouseLeave () {
+    console.log('handleMouseLeave')
     setIsHovering(false)
   }
 
   return (
     <>
       <Center
-        width={{ base: '120px', md: `${zoom.width}px` }}
+        width={{ base: '120px', md: `${zoom}px` }}
         height="full">
         <Image
           onClick={(e) => handleItemClick(e, itemDetails.word, itemDetails.itemImage)}
-          boxSize= {`${zoom.width}px`}
+          boxSize= {`${zoom}px`}
           padding={1}
           boxShadow='dark-lg'
           src={itemDetails.itemImage}
