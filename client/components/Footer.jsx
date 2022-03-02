@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <>
       <Flex fontFamily='Schoolbell' mt={3} justifyContent='space-between' fontSize='md' width='100%' height='120px' wrap="wrap" bgColor='#21AD09' pr={1} border='2px' borderColor='green.600'>
-        <Box width='10px' />
+        <Box width='350px' />
         <Text align='center' pt={3}>
             MyVoice was proudly created by {' '}
           <Link color='blue.600' href='https://www.linkedin.com/in/carolinavieiradasilva/'isExternal>
