@@ -17,15 +17,15 @@ function Category ({ name, id, image }) {
   const rowHeight = useBreakpointValue({
     base: '50px',
     sm: '90px',
-    md: `${(zoom)}px`
+    md: `${(zoom.width)}px`
   })
 
   return (
     <>
-      <HStack width='1500px' spacing={10} mx={3} px={10} borderRadius={5} mb={1} h={rowHeight} border='2px' borderColor='blue.600'>
+      <HStack width='1500px' spacing={zoom.spacing} mx={3} px={10} borderRadius={5} mb={1} h={rowHeight} border='2px' borderColor='blue.600'>
         <Center height="full">
           <Link to={`/${name}`}>
-            <Image src={image} alt={name} borderRadius='20px' maxWidth={`${zoom}px`} height="auto"/>
+            <Image src={image} alt={name} borderRadius='20px' maxWidth={`${zoom.width}px`} height="auto"/>
           </Link>
         </Center>
 
