@@ -19,7 +19,7 @@ const Header = () => {
   }
   return (
     <>
-      <Flex fontFamily='Schoolbell' justifyContent='space-between' align='center' fontSize='2xl' width='100%' height='120px' wrap="wrap" backgroundImage='/images/Bannemonkey.png' pr={1}>
+      <Flex fontFamily='Schoolbell' justifyContent='space-between' align='center' fontSize='2xl' width='100%' height='120px' wrap="wrap" backgroundImage='/images/Bannemonkey.png' pr={1} border='2px' borderColor='green.600'>
         <Box width='266px' />
         <Image
           borderRadius={60}
@@ -32,7 +32,7 @@ const Header = () => {
         <IfAuthenticated>
           <VStack pr={40}>
             <Link to='/'>
-              <Button _hover={{ bg: 'blue.600', color: 'black' }} bg='#00C3F7' size='lg' variant='solid' onClick={(e) => handleLogOut()}>Log out</Button>
+              <Button _hover={{ bg: 'blue.600', color: 'white' }} bg='#00C3F7' size='lg' variant='solid' onClick={(e) => handleLogOut()}>Log out</Button>
             </Link>
           </VStack>
         </IfAuthenticated>
