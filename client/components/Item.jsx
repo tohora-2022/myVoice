@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addOutputItem, newFavourite, removeFavourite } from '../actions'
-import { Image, Center, Badge, Tooltip } from '@chakra-ui/react'
+import { addOutputItem } from '../actions'
+import { Image, Center, Badge } from '@chakra-ui/react'
 import { HiOutlineStar } from 'react-icons/hi'
 
 export default function Item (props) {
@@ -63,7 +63,8 @@ export default function Item (props) {
           onMouseLeave={handleMouseLeave}
         />
         <Badge cursor='pointer' size={30} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} bgColor = 'transparent' alignSelf='flex-start' ml={-7} mt={3}>
-          <HiOutlineStar size={30} visibility={isHovering ? 'visible' : 'hidden'} onClick={(e) => clickSaveFavourite(e)}/>
+          <HiOutlineStar size={30} visibility={isHovering ? 'visible' : 'hidden'} />
+          {/* onClick={(e) => clickSaveFavourite(e)} */}
         </Badge>
       </Center>
     </>
